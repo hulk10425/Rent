@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5H-ne-soD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MaB-IW-l26">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,7 @@
         <!--SelectManPage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SelectManPage" title="SelectManPage" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="SelectManViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SelectManPage" title="SelectManPage" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="SelectManViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellHousePicture" rowHeight="161" id="SYP-Mr-Myd" customClass="HousePictureCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellHousePicture" rowHeight="161" id="SYP-Mr-Myd" customClass="HousePictureCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SYP-Mr-Myd" id="dNv-HQ-Jv1">
@@ -56,7 +56,7 @@
                                             <outlet property="houseImagePicker" destination="1di-9Q-hXj" id="hqe-07-3UI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellTitle" id="PxU-mH-CfP" customClass="TitleCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellTitle" id="PxU-mH-CfP" customClass="TitleCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="189" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PxU-mH-CfP" id="PXv-FI-fiO">
@@ -88,7 +88,7 @@
                                             <outlet property="titleTextField" destination="NKr-Ly-ZOd" id="jE4-fR-ycf"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRegion" id="8t4-TU-AHv" customClass="RegionCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRegion" id="8t4-TU-AHv" customClass="RegionCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="233" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8t4-TU-AHv" id="3Rk-kf-784">
@@ -133,7 +133,7 @@
                                             <outlet property="regionField" destination="1d0-5U-5Tb" id="9A8-8Y-JDm"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellType" id="YIH-sW-Cay" customClass="TypeCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellType" id="YIH-sW-Cay" customClass="TypeCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="277" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YIH-sW-Cay" id="Ht7-wk-1ks">
@@ -178,7 +178,7 @@
                                             <outlet property="typeField" destination="kvC-MU-tBW" id="bhQ-v6-IUt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPerson" id="oLB-xb-07t" customClass="PersonCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPerson" id="oLB-xb-07t" customClass="PersonCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="321" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oLB-xb-07t" id="xfP-aO-0T0">
@@ -223,7 +223,7 @@
                                             <outlet property="personField" destination="koA-mV-hJl" id="gZi-nx-kpZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRentDay" id="LxD-6c-qYb" customClass="RentDayLimit" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRentDay" id="LxD-6c-qYb" customClass="RentDayLimit" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="365" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LxD-6c-qYb" id="2IZ-27-kD4">
@@ -269,7 +269,7 @@
                                             <outlet property="rentDayLabel" destination="iTU-3B-8R0" id="sHZ-hf-xZM"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellDeposit" id="rUa-8m-tWd" customClass="DepositCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellDeposit" id="rUa-8m-tWd" customClass="DepositCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="409" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rUa-8m-tWd" id="5Wd-tc-ZsM">
@@ -314,7 +314,7 @@
                                             <outlet property="depositField" destination="Fk9-KH-nyt" id="8vt-24-8Uy"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMoney" id="LFY-YN-scD" customClass="RentMoneyCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMoney" id="LFY-YN-scD" customClass="RentMoneyCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="453" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LFY-YN-scD" id="cU5-kS-tjI">
@@ -352,7 +352,7 @@
                                             <outlet property="rentMoneyTextField" destination="zbI-iD-MFh" id="wpe-da-EhL"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRentMoneyAddition" id="ySy-or-z1o" customClass="RentMoneyAdditionCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellRentMoneyAddition" id="ySy-or-z1o" customClass="RentMoneyAdditionCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="497" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ySy-or-z1o" id="dgh-98-d6e">
@@ -366,11 +366,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXz-ql-4Rq">
-                                                    <rect key="frame" x="549" y="11" width="21" height="22"/>
+                                                    <rect key="frame" x="540" y="7" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="2zg-so-zLe"/>
+                                                        <constraint firstAttribute="height" constant="30" id="aIr-Wl-UcD"/>
+                                                    </constraints>
                                                     <state key="normal" image="signs"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kha-gc-Rvw">
-                                                    <rect key="frame" x="389" y="22" width="150" height="0.0"/>
+                                                    <rect key="frame" x="380" y="22" width="150" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="uAr-Ql-8qN"/>
                                                     </constraints>
@@ -394,7 +398,7 @@
                                             <outlet property="selectAdditionalCostLabel" destination="kha-gc-Rvw" id="GRz-rk-8aj"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" tag="50" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellFurniture" id="sPs-Cz-tDr" customClass="FurnitureCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" tag="50" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellFurniture" id="sPs-Cz-tDr" customClass="FurnitureCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="541" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sPs-Cz-tDr" id="Flf-bs-fcg">
@@ -408,11 +412,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zvl-gX-ZXh">
-                                                    <rect key="frame" x="549" y="11" width="21" height="22"/>
+                                                    <rect key="frame" x="540" y="7" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="6o4-cq-Op0"/>
+                                                        <constraint firstAttribute="width" constant="30" id="BFp-ul-Me6"/>
+                                                    </constraints>
                                                     <state key="normal" image="signs"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssP-sC-TYg">
-                                                    <rect key="frame" x="389" y="22" width="150" height="0.0"/>
+                                                    <rect key="frame" x="380" y="22" width="150" height="0.0"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="mWq-Mw-TpM"/>
                                                     </constraints>
@@ -435,7 +443,7 @@
                                             <outlet property="toFurniturebutton" destination="Zvl-gX-ZXh" id="pUq-yq-U0t"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellNote" rowHeight="200" id="6i0-M4-pOO" customClass="NoteCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellNote" rowHeight="200" id="6i0-M4-pOO" customClass="NoteCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="585" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6i0-M4-pOO" id="hbc-Xj-ZIb">
@@ -504,7 +512,7 @@
         <!--Select Furniture View Controller-->
         <scene sceneID="0Zt-kF-KPG">
             <objects>
-                <viewController storyboardIdentifier="Furniture" id="Sl7-mB-iMp" customClass="SelectFurnitureViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Furniture" id="Sl7-mB-iMp" customClass="SelectFurnitureViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nrf-Sr-Lsd"/>
                         <viewControllerLayoutGuide type="bottom" id="8Hh-OK-fQx"/>
@@ -517,7 +525,7 @@
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="nrE-6p-nAx" customClass="SelectFurnitureCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="nrE-6p-nAx" customClass="SelectFurnitureCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nrE-6p-nAx" id="z6P-mH-Htg">
@@ -585,7 +593,7 @@
         <!--ChatViewController-->
         <scene sceneID="MhM-GH-0lR">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" title="ChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="OWN-2K-Dtc" customClass="ChatViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" title="ChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="OWN-2K-Dtc" customClass="ChatViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fTv-Q0-4Rj"/>
                         <viewControllerLayoutGuide type="bottom" id="OFe-68-x7N"/>
@@ -598,7 +606,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessageCellYou" rowHeight="80" id="oWq-70-vti" customClass="ChatViewCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessageCellYou" rowHeight="80" id="oWq-70-vti" customClass="ChatViewCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oWq-70-vti" id="UHY-bn-y1A">
@@ -667,7 +675,7 @@
                                             <outlet property="triangle" destination="Sb6-6F-v7L" id="iz5-Kd-tR5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessageCellMe" rowHeight="80" id="6kC-oy-C04" customClass="ChatViewCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MessageCellMe" rowHeight="80" id="6kC-oy-C04" customClass="ChatViewCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="108" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6kC-oy-C04" id="4HT-wr-yjA">
@@ -808,7 +816,7 @@
         <!--Query Data Table View Controller-->
         <scene sceneID="LWc-u9-Pfe">
             <objects>
-                <tableViewController storyboardIdentifier="queryData" id="MI6-mN-zg3" customClass="QueryDataTableViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="queryData" id="MI6-mN-zg3" customClass="QueryDataTableViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="rrG-gl-OuR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -818,7 +826,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uNL-IE-xnR" id="1xh-nj-HKo">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -837,7 +845,7 @@
         <!--Profile Table View-->
         <scene sceneID="25S-nb-r36">
             <objects>
-                <tableViewController storyboardIdentifier="EditProfile" id="QTm-YV-aKn" customClass="ProfileTableView" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditProfile" id="QTm-YV-aKn" customClass="ProfileTableView" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="vtX-XK-Nfe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -975,7 +983,7 @@
         <!--Post Detail Data-->
         <scene sceneID="a5I-0y-zIa">
             <objects>
-                <tableViewController id="SJu-dB-fkw" customClass="PostDetailData" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="SJu-dB-fkw" customClass="PostDetailData" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="19k-Hs-izm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1274,7 +1282,7 @@
         <!--View Controller-->
         <scene sceneID="XyM-9Z-fMW">
             <objects>
-                <viewController id="Qp5-H8-7iT" customClass="ViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Qp5-H8-7iT" customClass="ViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IrS-zF-3o9"/>
                         <viewControllerLayoutGuide type="bottom" id="2bt-P2-L41"/>
@@ -1327,7 +1335,7 @@
         <!--SelectPageViewController-->
         <scene sceneID="2cR-pC-4ah">
             <objects>
-                <viewController title="SelectPageViewController" automaticallyAdjustsScrollViewInsets="NO" id="v7T-fJ-7U6" customClass="SelectViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SelectPageViewController" automaticallyAdjustsScrollViewInsets="NO" id="v7T-fJ-7U6" customClass="SelectViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v9S-Wl-csX"/>
                         <viewControllerLayoutGuide type="bottom" id="Pxg-Rk-YCD"/>
@@ -1340,7 +1348,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPostData" rowHeight="150" id="bmj-v4-cRa" customClass="ShowPostDataCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPostData" rowHeight="150" id="bmj-v4-cRa" customClass="ShowPostDataCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bmj-v4-cRa" id="5as-si-oMW">
@@ -1481,7 +1489,7 @@
         <!--UserMessagesController-->
         <scene sceneID="qVA-Dg-DVr">
             <objects>
-                <viewController title="UserMessagesController" automaticallyAdjustsScrollViewInsets="NO" id="O0t-Ia-2fD" customClass="UserMessagesViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="UserMessagesController" automaticallyAdjustsScrollViewInsets="NO" id="O0t-Ia-2fD" customClass="UserMessagesViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N9x-Xr-M5C"/>
                         <viewControllerLayoutGuide type="bottom" id="HqH-wc-H6G"/>
@@ -1494,11 +1502,11 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMessage" id="caB-ew-dWg" customClass="UserMessageCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMessage" id="caB-ew-dWg" customClass="UserMessageCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caB-ew-dWg" id="YN3-lA-mmE">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WMy-zM-iBb">
@@ -1719,7 +1727,7 @@
         <!--Create Account View Controller-->
         <scene sceneID="jV1-8r-goU">
             <objects>
-                <viewController storyboardIdentifier="Login" id="MaB-IW-l26" customClass="CreateAccountViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="MaB-IW-l26" customClass="CreateAccountViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ng6-gO-0Uq"/>
                         <viewControllerLayoutGuide type="bottom" id="qEU-58-Uhn"/>
@@ -1774,7 +1782,7 @@
         <!--Select Additional Cost View Controller-->
         <scene sceneID="07m-EG-zL1">
             <objects>
-                <viewController storyboardIdentifier="AdditionalCost" id="CyG-N0-Xj2" customClass="SelectAdditionalCostViewController" customModule="Renter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdditionalCost" id="CyG-N0-Xj2" customClass="SelectAdditionalCostViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HGN-Tq-yX9"/>
                         <viewControllerLayoutGuide type="bottom" id="Xia-3e-LQ1"/>
@@ -1787,7 +1795,7 @@
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gje-zt-zHn" customClass="SelectAdditionalCell" customModule="Renter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gje-zt-zHn" customClass="SelectAdditionalCell" customModule="Rent" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gje-zt-zHn" id="OoQ-gO-Kc1">
@@ -1854,7 +1862,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrows" width="21" height="21"/>
+        <image name="arrows" width="64" height="64"/>
         <image name="beer (1)" width="128" height="128"/>
         <image name="chatBubbler" width="44" height="50"/>
         <image name="chatBubblerOut" width="132" height="150"/>
@@ -1862,10 +1870,10 @@
         <image name="icon_photo" width="44" height="44"/>
         <image name="profileImage" width="276" height="276"/>
         <image name="send-email" width="32" height="32"/>
-        <image name="signs" width="21" height="21"/>
+        <image name="signs" width="64" height="64"/>
         <image name="sorting" width="32" height="32"/>
         <image name="speech-bubble" width="32" height="32"/>
-        <image name="upload" width="32" height="32"/>
+        <image name="upload" width="64" height="64"/>
         <image name="user_menu" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>

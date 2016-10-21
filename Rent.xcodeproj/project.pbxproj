@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F743E2664A730E77AB4ECAE /* Pods_Rent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21611ADF2FAA184B217C6873 /* Pods_Rent.framework */; };
+		99567F541DBA14E2000054D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99567F531DBA14E2000054D5 /* GoogleService-Info.plist */; };
+		998500A91DBA0CB8003D33DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500A81DBA0CB8003D33DF /* AppDelegate.swift */; };
+		998500B01DBA0CB8003D33DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998500AF1DBA0CB8003D33DF /* Assets.xcassets */; };
+		998500B31DBA0CB8003D33DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */; };
+		998500BB1DBA0EE4003D33DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998500BA1DBA0EE4003D33DF /* Main.storyboard */; };
+		998500BF1DBA0EEF003D33DF /* ChatViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500BC1DBA0EEF003D33DF /* ChatViewCell.swift */; };
+		998500C01DBA0EEF003D33DF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500BD1DBA0EEF003D33DF /* ChatViewController.swift */; };
+		998500C11DBA0EEF003D33DF /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500BE1DBA0EEF003D33DF /* CreateAccountViewController.swift */; };
+		998500C71DBA0EF9003D33DF /* CustomHomePage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998500C21DBA0EF9003D33DF /* CustomHomePage.xib */; };
+		998500C81DBA0EF9003D33DF /* CustomHomePageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C31DBA0EF9003D33DF /* CustomHomePageButton.swift */; };
+		998500C91DBA0EF9003D33DF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C41DBA0EF9003D33DF /* DataService.swift */; };
+		998500CA1DBA0EF9003D33DF /* DepositCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C51DBA0EF9003D33DF /* DepositCell.swift */; };
+		998500CB1DBA0EF9003D33DF /* FurnitureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C61DBA0EF9003D33DF /* FurnitureCell.swift */; };
+		998500D11DBA0F04003D33DF /* HousePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500CC1DBA0F04003D33DF /* HousePictureCell.swift */; };
+		998500D21DBA0F04003D33DF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500CD1DBA0F04003D33DF /* Image.swift */; };
+		998500D41DBA0F04003D33DF /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500CF1DBA0F04003D33DF /* NoteCell.swift */; };
+		998500D51DBA0F04003D33DF /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D01DBA0F04003D33DF /* PersonCell.swift */; };
+		998500DB1DBA0F0D003D33DF /* PostDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D61DBA0F0D003D33DF /* PostDetailData.swift */; };
+		998500DC1DBA0F0D003D33DF /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D71DBA0F0D003D33DF /* ProfileTableView.swift */; };
+		998500DD1DBA0F0D003D33DF /* QueryDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */; };
+		998500DE1DBA0F0D003D33DF /* RegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D91DBA0F0D003D33DF /* RegionCell.swift */; };
+		998500DF1DBA0F0D003D33DF /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500DA1DBA0F0D003D33DF /* RegisterController.swift */; };
+		998500E51DBA0F17003D33DF /* RentDayLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500E01DBA0F17003D33DF /* RentDayLimit.swift */; };
+		998500E61DBA0F17003D33DF /* RentMoneyAdditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */; };
+		998500E71DBA0F17003D33DF /* RentMoneyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500E21DBA0F17003D33DF /* RentMoneyCell.swift */; };
+		998500E81DBA0F17003D33DF /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500E31DBA0F17003D33DF /* Room.swift */; };
+		998500E91DBA0F17003D33DF /* SelectAdditionalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500E41DBA0F17003D33DF /* SelectAdditionalCell.swift */; };
+		998500EF1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */; };
+		998500F01DBA0F21003D33DF /* SelectFurnitureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500EB1DBA0F21003D33DF /* SelectFurnitureCell.swift */; };
+		998500F11DBA0F21003D33DF /* SelectFurnitureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500EC1DBA0F21003D33DF /* SelectFurnitureViewController.swift */; };
+		998500F21DBA0F21003D33DF /* SelectManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500ED1DBA0F21003D33DF /* SelectManViewController.swift */; };
+		998500F31DBA0F21003D33DF /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500EE1DBA0F21003D33DF /* SelectViewController.swift */; };
+		998500F91DBA0F2D003D33DF /* ShowPostData.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998500F41DBA0F2D003D33DF /* ShowPostData.xib */; };
+		998500FA1DBA0F2D003D33DF /* ShowPostDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500F51DBA0F2D003D33DF /* ShowPostDataCell.swift */; };
+		998500FB1DBA0F2D003D33DF /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500F61DBA0F2D003D33DF /* TitleCell.swift */; };
+		998500FC1DBA0F2D003D33DF /* TypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500F71DBA0F2D003D33DF /* TypeCell.swift */; };
+		998500FD1DBA0F2D003D33DF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500F81DBA0F2D003D33DF /* UIColor.swift */; };
+		998501011DBA0F38003D33DF /* UserMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500FE1DBA0F38003D33DF /* UserMessageCell.swift */; };
+		998501021DBA0F38003D33DF /* UserMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */; };
+		998501031DBA0F38003D33DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998501001DBA0F38003D33DF /* ViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		21611ADF2FAA184B217C6873 /* Pods_Rent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99567F531DBA14E2000054D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		998500A51DBA0CB8003D33DF /* Rent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rent.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		998500A81DBA0CB8003D33DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		998500AF1DBA0CB8003D33DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		998500B21DBA0CB8003D33DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		998500B41DBA0CB8003D33DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		998500BA1DBA0EE4003D33DF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		998500BC1DBA0EEF003D33DF /* ChatViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewCell.swift; sourceTree = "<group>"; };
+		998500BD1DBA0EEF003D33DF /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		998500BE1DBA0EEF003D33DF /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		998500C21DBA0EF9003D33DF /* CustomHomePage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHomePage.xib; sourceTree = "<group>"; };
+		998500C31DBA0EF9003D33DF /* CustomHomePageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHomePageButton.swift; sourceTree = "<group>"; };
+		998500C41DBA0EF9003D33DF /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		998500C51DBA0EF9003D33DF /* DepositCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositCell.swift; sourceTree = "<group>"; };
+		998500C61DBA0EF9003D33DF /* FurnitureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FurnitureCell.swift; sourceTree = "<group>"; };
+		998500CC1DBA0F04003D33DF /* HousePictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HousePictureCell.swift; sourceTree = "<group>"; };
+		998500CD1DBA0F04003D33DF /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		998500CF1DBA0F04003D33DF /* NoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		998500D01DBA0F04003D33DF /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		998500D61DBA0F0D003D33DF /* PostDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailData.swift; sourceTree = "<group>"; };
+		998500D71DBA0F0D003D33DF /* ProfileTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
+		998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryDataTableViewController.swift; sourceTree = "<group>"; };
+		998500D91DBA0F0D003D33DF /* RegionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCell.swift; sourceTree = "<group>"; };
+		998500DA1DBA0F0D003D33DF /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		998500E01DBA0F17003D33DF /* RentDayLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentDayLimit.swift; sourceTree = "<group>"; };
+		998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentMoneyAdditionCell.swift; sourceTree = "<group>"; };
+		998500E21DBA0F17003D33DF /* RentMoneyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentMoneyCell.swift; sourceTree = "<group>"; };
+		998500E31DBA0F17003D33DF /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		998500E41DBA0F17003D33DF /* SelectAdditionalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAdditionalCell.swift; sourceTree = "<group>"; };
+		998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAdditionalCostViewController.swift; sourceTree = "<group>"; };
+		998500EB1DBA0F21003D33DF /* SelectFurnitureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFurnitureCell.swift; sourceTree = "<group>"; };
+		998500EC1DBA0F21003D33DF /* SelectFurnitureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFurnitureViewController.swift; sourceTree = "<group>"; };
+		998500ED1DBA0F21003D33DF /* SelectManViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectManViewController.swift; sourceTree = "<group>"; };
+		998500EE1DBA0F21003D33DF /* SelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		998500F41DBA0F2D003D33DF /* ShowPostData.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowPostData.xib; sourceTree = "<group>"; };
+		998500F51DBA0F2D003D33DF /* ShowPostDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowPostDataCell.swift; sourceTree = "<group>"; };
+		998500F61DBA0F2D003D33DF /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		998500F71DBA0F2D003D33DF /* TypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeCell.swift; sourceTree = "<group>"; };
+		998500F81DBA0F2D003D33DF /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		998500FE1DBA0F38003D33DF /* UserMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessageCell.swift; sourceTree = "<group>"; };
+		998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessagesViewController.swift; sourceTree = "<group>"; };
+		998501001DBA0F38003D33DF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BC450CCF36E7ECB4B562571C /* Pods-Rent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rent.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rent/Pods-Rent.release.xcconfig"; sourceTree = "<group>"; };
+		BF365ED45E87DDC33BBFFBA4 /* Pods-Rent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rent.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rent/Pods-Rent.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		998500A21DBA0CB8003D33DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F743E2664A730E77AB4ECAE /* Pods_Rent.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9985009C1DBA0CB8003D33DF = {
+			isa = PBXGroup;
+			children = (
+				998500A71DBA0CB8003D33DF /* Rent */,
+				998500A61DBA0CB8003D33DF /* Products */,
+				F139B7DEF442DC11603A1ABB /* Pods */,
+				BCE24477045C89D259213DD9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		998500A61DBA0CB8003D33DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				998500A51DBA0CB8003D33DF /* Rent.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		998500A71DBA0CB8003D33DF /* Rent */ = {
+			isa = PBXGroup;
+			children = (
+				998500A81DBA0CB8003D33DF /* AppDelegate.swift */,
+				998500AF1DBA0CB8003D33DF /* Assets.xcassets */,
+				998500BA1DBA0EE4003D33DF /* Main.storyboard */,
+				99AEA3B71DBA18A5008129D0 /* PostCell */,
+				99AEA3B81DBA18DF008129D0 /* Chat */,
+				998500BE1DBA0EEF003D33DF /* CreateAccountViewController.swift */,
+				998500C21DBA0EF9003D33DF /* CustomHomePage.xib */,
+				998500C31DBA0EF9003D33DF /* CustomHomePageButton.swift */,
+				998500CD1DBA0F04003D33DF /* Image.swift */,
+				998500D61DBA0F0D003D33DF /* PostDetailData.swift */,
+				998500D71DBA0F0D003D33DF /* ProfileTableView.swift */,
+				998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */,
+				998500DA1DBA0F0D003D33DF /* RegisterController.swift */,
+				998500E01DBA0F17003D33DF /* RentDayLimit.swift */,
+				998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */,
+				998500E21DBA0F17003D33DF /* RentMoneyCell.swift */,
+				998500E31DBA0F17003D33DF /* Room.swift */,
+				998500E41DBA0F17003D33DF /* SelectAdditionalCell.swift */,
+				998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */,
+				998500EB1DBA0F21003D33DF /* SelectFurnitureCell.swift */,
+				998500EC1DBA0F21003D33DF /* SelectFurnitureViewController.swift */,
+				998500ED1DBA0F21003D33DF /* SelectManViewController.swift */,
+				998500EE1DBA0F21003D33DF /* SelectViewController.swift */,
+				998500F41DBA0F2D003D33DF /* ShowPostData.xib */,
+				998500F51DBA0F2D003D33DF /* ShowPostDataCell.swift */,
+				998500F81DBA0F2D003D33DF /* UIColor.swift */,
+				99567F531DBA14E2000054D5 /* GoogleService-Info.plist */,
+				998500FE1DBA0F38003D33DF /* UserMessageCell.swift */,
+				998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */,
+				998501001DBA0F38003D33DF /* ViewController.swift */,
+				998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */,
+				998500B41DBA0CB8003D33DF /* Info.plist */,
+			);
+			path = Rent;
+			sourceTree = "<group>";
+		};
+		99AEA3B71DBA18A5008129D0 /* PostCell */ = {
+			isa = PBXGroup;
+			children = (
+				998500C51DBA0EF9003D33DF /* DepositCell.swift */,
+				998500C61DBA0EF9003D33DF /* FurnitureCell.swift */,
+				998500CC1DBA0F04003D33DF /* HousePictureCell.swift */,
+				998500CF1DBA0F04003D33DF /* NoteCell.swift */,
+				998500D01DBA0F04003D33DF /* PersonCell.swift */,
+				998500D91DBA0F0D003D33DF /* RegionCell.swift */,
+				998500F61DBA0F2D003D33DF /* TitleCell.swift */,
+				998500F71DBA0F2D003D33DF /* TypeCell.swift */,
+			);
+			name = PostCell;
+			sourceTree = "<group>";
+		};
+		99AEA3B81DBA18DF008129D0 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				998500C41DBA0EF9003D33DF /* DataService.swift */,
+				998500BC1DBA0EEF003D33DF /* ChatViewCell.swift */,
+				998500BD1DBA0EEF003D33DF /* ChatViewController.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		BCE24477045C89D259213DD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21611ADF2FAA184B217C6873 /* Pods_Rent.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F139B7DEF442DC11603A1ABB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF365ED45E87DDC33BBFFBA4 /* Pods-Rent.debug.xcconfig */,
+				BC450CCF36E7ECB4B562571C /* Pods-Rent.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		998500A41DBA0CB8003D33DF /* Rent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 998500B71DBA0CB8003D33DF /* Build configuration list for PBXNativeTarget "Rent" */;
+			buildPhases = (
+				901C9775658E609947F5CD48 /* [CP] Check Pods Manifest.lock */,
+				998500A11DBA0CB8003D33DF /* Sources */,
+				998500A21DBA0CB8003D33DF /* Frameworks */,
+				998500A31DBA0CB8003D33DF /* Resources */,
+				3F882A0FD5F2B7AFFC027955 /* [CP] Embed Pods Frameworks */,
+				5516F78D6AAA46D8E902A87A /* [CP] Copy Pods Resources */,
+				99567F551DBA163D000054D5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rent;
+			productName = Rent;
+			productReference = 998500A51DBA0CB8003D33DF /* Rent.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9985009D1DBA0CB8003D33DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Johnny Demo";
+				TargetAttributes = {
+					998500A41DBA0CB8003D33DF = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 998500A01DBA0CB8003D33DF /* Build configuration list for PBXProject "Rent" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9985009C1DBA0CB8003D33DF;
+			productRefGroup = 998500A61DBA0CB8003D33DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				998500A41DBA0CB8003D33DF /* Rent */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		998500A31DBA0CB8003D33DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				998500C71DBA0EF9003D33DF /* CustomHomePage.xib in Resources */,
+				99567F541DBA14E2000054D5 /* GoogleService-Info.plist in Resources */,
+				998500BB1DBA0EE4003D33DF /* Main.storyboard in Resources */,
+				998500F91DBA0F2D003D33DF /* ShowPostData.xib in Resources */,
+				998500B31DBA0CB8003D33DF /* LaunchScreen.storyboard in Resources */,
+				998500B01DBA0CB8003D33DF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3F882A0FD5F2B7AFFC027955 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rent/Pods-Rent-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5516F78D6AAA46D8E902A87A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rent/Pods-Rent-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		901C9775658E609947F5CD48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		99567F551DBA163D000054D5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/Fabric/run f9a2cbbe0e44ce27a2a5298dce5e8a970efeb05c 03cf44f57aa6a4c0ed3bcd385ad4ec0ec7193d07c52e795a29bab6d1d4d6dd55";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		998500A11DBA0CB8003D33DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				998500F01DBA0F21003D33DF /* SelectFurnitureCell.swift in Sources */,
+				998500D51DBA0F04003D33DF /* PersonCell.swift in Sources */,
+				998501011DBA0F38003D33DF /* UserMessageCell.swift in Sources */,
+				998500C11DBA0EEF003D33DF /* CreateAccountViewController.swift in Sources */,
+				998500BF1DBA0EEF003D33DF /* ChatViewCell.swift in Sources */,
+				998501021DBA0F38003D33DF /* UserMessagesViewController.swift in Sources */,
+				998500FD1DBA0F2D003D33DF /* UIColor.swift in Sources */,
+				998500EF1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift in Sources */,
+				998500DD1DBA0F0D003D33DF /* QueryDataTableViewController.swift in Sources */,
+				998500E51DBA0F17003D33DF /* RentDayLimit.swift in Sources */,
+				998500DC1DBA0F0D003D33DF /* ProfileTableView.swift in Sources */,
+				998500E61DBA0F17003D33DF /* RentMoneyAdditionCell.swift in Sources */,
+				998500DB1DBA0F0D003D33DF /* PostDetailData.swift in Sources */,
+				998500E71DBA0F17003D33DF /* RentMoneyCell.swift in Sources */,
+				998500FB1DBA0F2D003D33DF /* TitleCell.swift in Sources */,
+				998500E81DBA0F17003D33DF /* Room.swift in Sources */,
+				998500E91DBA0F17003D33DF /* SelectAdditionalCell.swift in Sources */,
+				998500D41DBA0F04003D33DF /* NoteCell.swift in Sources */,
+				998500F21DBA0F21003D33DF /* SelectManViewController.swift in Sources */,
+				998500DF1DBA0F0D003D33DF /* RegisterController.swift in Sources */,
+				998500CB1DBA0EF9003D33DF /* FurnitureCell.swift in Sources */,
+				998500C01DBA0EEF003D33DF /* ChatViewController.swift in Sources */,
+				998500C91DBA0EF9003D33DF /* DataService.swift in Sources */,
+				998500FA1DBA0F2D003D33DF /* ShowPostDataCell.swift in Sources */,
+				998501031DBA0F38003D33DF /* ViewController.swift in Sources */,
+				998500F11DBA0F21003D33DF /* SelectFurnitureViewController.swift in Sources */,
+				998500A91DBA0CB8003D33DF /* AppDelegate.swift in Sources */,
+				998500DE1DBA0F0D003D33DF /* RegionCell.swift in Sources */,
+				998500C81DBA0EF9003D33DF /* CustomHomePageButton.swift in Sources */,
+				998500F31DBA0F21003D33DF /* SelectViewController.swift in Sources */,
+				998500D11DBA0F04003D33DF /* HousePictureCell.swift in Sources */,
+				998500CA1DBA0EF9003D33DF /* DepositCell.swift in Sources */,
+				998500FC1DBA0F2D003D33DF /* TypeCell.swift in Sources */,
+				998500D21DBA0F04003D33DF /* Image.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				998500B21DBA0CB8003D33DF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		998500B51DBA0CB8003D33DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		998500B61DBA0CB8003D33DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		998500B81DBA0CB8003D33DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF365ED45E87DDC33BBFFBA4 /* Pods-Rent.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Rent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.john.Rent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		998500B91DBA0CB8003D33DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC450CCF36E7ECB4B562571C /* Pods-Rent.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Rent/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.john.Rent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		998500A01DBA0CB8003D33DF /* Build configuration list for PBXProject "Rent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				998500B51DBA0CB8003D33DF /* Debug */,
+				998500B61DBA0CB8003D33DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		998500B71DBA0CB8003D33DF /* Build configuration list for PBXNativeTarget "Rent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				998500B81DBA0CB8003D33DF /* Debug */,
+				998500B91DBA0CB8003D33DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9985009D1DBA0CB8003D33DF /* Project object */;
+}
