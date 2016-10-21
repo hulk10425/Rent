@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="3qf-Ff-BQ4" customClass="CustomHomePageButton" customModule="Renter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="212" height="178"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="212" height="178"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b4e-pT-02v">
+                        <rect key="frame" x="20" y="25" width="172" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="HIi-uS-RUD"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gcu-en-ZVY">
+                        <rect key="frame" x="83" y="140" width="46" height="30"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="b4e-pT-02v" secondAttribute="trailing" constant="20" id="9Jz-K4-Fsd"/>
+                <constraint firstItem="Gcu-en-ZVY" firstAttribute="top" secondItem="b4e-pT-02v" secondAttribute="bottom" constant="15" id="KYn-fj-ji5"/>
+                <constraint firstItem="b4e-pT-02v" firstAttribute="leading" secondItem="3qf-Ff-BQ4" secondAttribute="leading" constant="20" id="QP9-pT-lHV"/>
+                <constraint firstItem="b4e-pT-02v" firstAttribute="top" secondItem="3qf-Ff-BQ4" secondAttribute="top" constant="25" id="Uia-Gl-0DN"/>
+                <constraint firstItem="Gcu-en-ZVY" firstAttribute="centerX" secondItem="3qf-Ff-BQ4" secondAttribute="centerX" id="qfh-Lg-mtC"/>
+            </constraints>
+            <size key="customSize" width="212" height="178"/>
+            <connections>
+                <outlet property="homeButton" destination="Gcu-en-ZVY" id="OgH-8g-meU"/>
+                <outlet property="homeImage" destination="b4e-pT-02v" id="hPv-jD-Z6Y"/>
+            </connections>
+            <point key="canvasLocation" x="419" y="196"/>
+        </collectionViewCell>
+    </objects>
+</document>
