@@ -10,74 +10,80 @@ import UIKit
 import Firebase
 import MBProgressHUD
 
+protocol QueryDelegate: class {
+    func queryData(value:[PostData])
+}
+
+
+
 class QueryDataTableViewController: UITableViewController {
     
- 
+    @IBOutlet var myTableView: UITableView!
+    weak var delegete: QueryDelegate?
+    
     var querydataArray = ["租金從高到低","租金從低到高"]
     var postDatas = [PostData]()
+    //static let shared = QueryDataTableViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        queryMoneyLowToTall.addTarget(self, action: #selector(queryLowToTall(_:)), forControlEvents: .TouchUpInside)
-      
+        DataService.dataService.fetchPostData { (snap) in
+            self.postDatas.append(snap)
+    
+        }
+        
     }
     
     override func tableView(tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-
+                            numberOfRowsInSection section: Int) -> Int {
+        
         return querydataArray.count
     }
-   override func tableView(tableView: UITableView,
-                   cellForRowAtIndexPath indexPath: NSIndexPath)
+    
+    override func tableView(tableView: UITableView,
+                            cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
-           
+            
             let cell =
                 tableView.dequeueReusableCellWithIdentifier(
                     "cellQuery", forIndexPath: indexPath) as
             UITableViewCell
-            
-
-          
+            cell.textLabel?.text = querydataArray[indexPath.row]
             return cell
     }
-//    
-//     override func tableView(tableView: UITableView,
-//                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        // 取消 cell 的選取狀態
-//        tableView.deselectRowAtIndexPath(
-//            indexPath, animated: true)
-//        
-//        
-//        
-//        
-//    }
-
-
-//    
-//    func queryLowToTall(sender: UIButton){
-//    
-//        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-//        DataService.dataService.POST_REF.queryOrderedByChild("rentMoney").observeEventType(.ChildChanged, withBlock: { (snapshot) in
-//            MBProgressHUD.hideHUDForView(self.view, animated: true)
-//            
-//            let post = PostData(key: snapshot.key, snapshot: snapshot.value as! Dictionary<String, AnyObject>)
-//            self.postDatas.append(post)
-//            let cell = SelectManViewController()
-//            
-//            
-//            let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
-//            cell.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//            dispatch_async(dispatch_get_main_queue(), {
-//              cell.myTableView.reloadData()
-//               
-//            })
-//        })
-//        
-//            dismissViewControllerAnimated(true, completion: nil)
-//    
-//    }
-//    
-
+    
+    override func tableView(tableView: UITableView,
+                            didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // 取消 cell 的選取狀態
+        tableView.deselectRowAtIndexPath(
+            indexPath, animated: true)
+        //        let cell = myTableView.cellForRowAtIndexPath(indexPath)
+        
+        
+        switch indexPath.item {
+        case 0:
+            self.postDatas.sortInPlace({ (post1, post2) -> Bool in
+                
+                return post1.rentMoney < post2.rentMoney
+            })
+        self.delegete?.queryData(self.postDatas)
+        default :
+            self.postDatas.sortInPlace({ (post1, post2) -> Bool in
+                
+                return post1.rentMoney > post2.rentMoney
+            })
+        self.delegete?.queryData(self.postDatas)
+        }
+        
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    
+    
 }
+
+
 

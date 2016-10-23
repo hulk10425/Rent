@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="200" id="ZAz-BH-rw0" customClass="ShowPostDataCell" customModule="Renter" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="200" id="ZAz-BH-rw0" customClass="ShowPostDataCell" customModule="Rent" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="386" height="158"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZAz-BH-rw0" id="Me4-CQ-UYl">
@@ -85,12 +85,23 @@
                         <color key="textColor" red="1" green="0.4506325296" blue="0.35538900229999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPh-JM-Www">
+                        <rect key="frame" x="0.0" y="156.5" width="353" height="1"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="TfQ-aI-xK3"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="9wE-OA-seg" secondAttribute="trailing" constant="10" id="3YI-Re-a1M"/>
                     <constraint firstItem="581-gS-POA" firstAttribute="top" secondItem="RXI-8d-fqc" secondAttribute="bottom" constant="5" id="3kJ-OW-96Q"/>
                     <constraint firstItem="CLs-CK-fBa" firstAttribute="leading" secondItem="G2b-HU-mzj" secondAttribute="trailing" constant="15" id="4hV-Z0-xOx"/>
                     <constraint firstItem="B3b-aQ-igy" firstAttribute="top" secondItem="581-gS-POA" secondAttribute="bottom" constant="5" id="60H-sp-ep2"/>
+                    <constraint firstAttribute="bottom" secondItem="qPh-JM-Www" secondAttribute="bottom" id="9tr-Xb-qLc"/>
                     <constraint firstAttribute="bottom" secondItem="cIX-VV-fOW" secondAttribute="bottom" constant="5" id="C3A-A3-vvg"/>
                     <constraint firstItem="GK8-vV-PMn" firstAttribute="leading" secondItem="cIX-VV-fOW" secondAttribute="trailing" constant="5" id="FQg-bZ-Trv"/>
                     <constraint firstItem="581-gS-POA" firstAttribute="leading" secondItem="G2b-HU-mzj" secondAttribute="trailing" constant="10" id="HVb-Ni-c21"/>
@@ -107,9 +118,11 @@
                     <constraint firstItem="cFB-bj-kGw" firstAttribute="leading" secondItem="qHg-hs-gap" secondAttribute="trailing" constant="10" id="ewt-wP-GHS"/>
                     <constraint firstItem="G2b-HU-mzj" firstAttribute="top" secondItem="Me4-CQ-UYl" secondAttribute="top" constant="10" id="h5b-Y0-3k9"/>
                     <constraint firstItem="cFB-bj-kGw" firstAttribute="top" secondItem="581-gS-POA" secondAttribute="bottom" constant="5" id="ifa-Nj-ftt"/>
+                    <constraint firstAttribute="trailing" secondItem="qPh-JM-Www" secondAttribute="trailing" id="jUl-g2-5A3"/>
                     <constraint firstItem="RXI-8d-fqc" firstAttribute="leading" secondItem="G2b-HU-mzj" secondAttribute="trailing" constant="10" id="pCK-8u-H86"/>
                     <constraint firstItem="qHg-hs-gap" firstAttribute="leading" secondItem="B3b-aQ-igy" secondAttribute="trailing" constant="15" id="pgD-e0-w6F"/>
                     <constraint firstItem="G2b-HU-mzj" firstAttribute="leading" secondItem="Me4-CQ-UYl" secondAttribute="leading" constant="10" id="yE6-fK-RR7"/>
+                    <constraint firstItem="qPh-JM-Www" firstAttribute="leading" secondItem="Me4-CQ-UYl" secondAttribute="leading" id="yvf-St-s6t"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

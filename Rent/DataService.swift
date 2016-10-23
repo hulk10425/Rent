@@ -285,22 +285,46 @@ class DataService{
         })
     })
  }
-//    func fetechUserMessage(callback:(Messaage)->()){
-////            let postKey = DataService.dataService.POST_REF.childByAutoId().key
-////        DataService.dataService.POST_REF.child(postKey).child("messages").observeEventType(.Value, withBlock: {(snapshot)in
-////            
-//        
-////            
-//            DataService.dataService.MESSAGE_REF.observeEventType(.ChildAdded, withBlock: {(snap)in
-//           let message = Messaage(key: snap.key, snapshot: snap.value as! Dictionary<String, AnyObject>)
-//                
-//             
-//
-//            callback(message)
-//          
-//            })
-//    
-//    }
+    func fetechUserMessage(callback:(FIRDataSnapshot)->()){
+
+        
+        guard let currentUser = DataService.dataService.currentUser?.uid else{return}
+        
+        DataService.dataService.PARTICIPANTS_REF.queryOrderedByChild(currentUser).queryEqualToValue(true).observeEventType(.Value, withBlock:{ (snapshot) in
+                
+                guard let dictionary = snapshot.value as? Dictionary<String,AnyObject> else { return }
+                
+                let keys = Array(dictionary.keys)
+                for roomId in keys{
+                    
+                    
+                    DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(roomId).observeEventType(.Value, withBlock: { (snap) in
+                        for child in snap.children {
+                            
+                            if let last = child.value["lastMessage"] as? String {
+                                print(last)
+                                DataService.dataService.MESSAGE_REF.queryOrderedByKey().queryEqualToValue(last).observeEventType(.ChildAdded, withBlock: { (messagesnap) in
+                                    
+                                    
+                                    
+                                    callback(messagesnap)
+                                   
+                                })
+                            }
+                        }
+                    })
+                }
+            })
+
+        
+       
+        
+        
+     
+          
+   
+    
+    }
 
     
 

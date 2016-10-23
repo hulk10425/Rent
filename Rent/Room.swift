@@ -54,19 +54,7 @@ class Chats: NSObject{
     var message: String!
     var date: NSNumber!
     var roomId: String!
-//    init(key: String, snapshot:Dictionary<String,AnyObject>){
-//        self.message = snapshot["message"] as! String
-//        self.date = snapshot["date"] as! NSNumber
-//        self.senderId = snapshot["senderId"] as! String
-//        self.id = key
-//        
-//        
-//        
-//    }
-//    func chatPartnerId() -> String? {
-//        return senderId == FIRAuth.auth()?.currentUser?.uid ? toId : senderId
-//    }
-//    
+
    
 }
 class User: NSObject{

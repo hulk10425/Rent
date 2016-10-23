@@ -131,8 +131,7 @@
 		998500A71DBA0CB8003D33DF /* Rent */ = {
 			isa = PBXGroup;
 			children = (
-				998500A81DBA0CB8003D33DF /* AppDelegate.swift */,
-				998500AF1DBA0CB8003D33DF /* Assets.xcassets */,
+				99FC55921DBCBFA700B16C3C /* SupportFile */,
 				998500BA1DBA0EE4003D33DF /* Main.storyboard */,
 				99AEA3B71DBA18A5008129D0 /* PostCell */,
 				99AEA3B81DBA18DF008129D0 /* Chat */,
@@ -147,29 +146,44 @@
 				998500E01DBA0F17003D33DF /* RentDayLimit.swift */,
 				998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */,
 				998500E21DBA0F17003D33DF /* RentMoneyCell.swift */,
-				998500E31DBA0F17003D33DF /* Room.swift */,
-				998500E41DBA0F17003D33DF /* SelectAdditionalCell.swift */,
+				99A5C6081DBB285200F6F8E2 /* Model */,
 				998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */,
-				998500EB1DBA0F21003D33DF /* SelectFurnitureCell.swift */,
 				998500EC1DBA0F21003D33DF /* SelectFurnitureViewController.swift */,
 				998500ED1DBA0F21003D33DF /* SelectManViewController.swift */,
-				998500EE1DBA0F21003D33DF /* SelectViewController.swift */,
-				998500F41DBA0F2D003D33DF /* ShowPostData.xib */,
-				998500F51DBA0F2D003D33DF /* ShowPostDataCell.swift */,
+				99A5C6091DBB286B00F6F8E2 /* ShowPostData */,
 				998500F81DBA0F2D003D33DF /* UIColor.swift */,
-				99567F531DBA14E2000054D5 /* GoogleService-Info.plist */,
 				998500FE1DBA0F38003D33DF /* UserMessageCell.swift */,
 				998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */,
 				998501001DBA0F38003D33DF /* ViewController.swift */,
 				998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */,
-				998500B41DBA0CB8003D33DF /* Info.plist */,
 			);
 			path = Rent;
+			sourceTree = "<group>";
+		};
+		99A5C6081DBB285200F6F8E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				998500C41DBA0EF9003D33DF /* DataService.swift */,
+				998500E31DBA0F17003D33DF /* Room.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		99A5C6091DBB286B00F6F8E2 /* ShowPostData */ = {
+			isa = PBXGroup;
+			children = (
+				998500EE1DBA0F21003D33DF /* SelectViewController.swift */,
+				998500F41DBA0F2D003D33DF /* ShowPostData.xib */,
+				998500F51DBA0F2D003D33DF /* ShowPostDataCell.swift */,
+			);
+			name = ShowPostData;
 			sourceTree = "<group>";
 		};
 		99AEA3B71DBA18A5008129D0 /* PostCell */ = {
 			isa = PBXGroup;
 			children = (
+				998500EB1DBA0F21003D33DF /* SelectFurnitureCell.swift */,
+				998500E41DBA0F17003D33DF /* SelectAdditionalCell.swift */,
 				998500C51DBA0EF9003D33DF /* DepositCell.swift */,
 				998500C61DBA0EF9003D33DF /* FurnitureCell.swift */,
 				998500CC1DBA0F04003D33DF /* HousePictureCell.swift */,
@@ -185,11 +199,21 @@
 		99AEA3B81DBA18DF008129D0 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				998500C41DBA0EF9003D33DF /* DataService.swift */,
 				998500BC1DBA0EEF003D33DF /* ChatViewCell.swift */,
 				998500BD1DBA0EEF003D33DF /* ChatViewController.swift */,
 			);
 			name = Chat;
+			sourceTree = "<group>";
+		};
+		99FC55921DBCBFA700B16C3C /* SupportFile */ = {
+			isa = PBXGroup;
+			children = (
+				998500A81DBA0CB8003D33DF /* AppDelegate.swift */,
+				998500AF1DBA0CB8003D33DF /* Assets.xcassets */,
+				99567F531DBA14E2000054D5 /* GoogleService-Info.plist */,
+				998500B41DBA0CB8003D33DF /* Info.plist */,
+			);
+			name = SupportFile;
 			sourceTree = "<group>";
 		};
 		BCE24477045C89D259213DD9 /* Frameworks */ = {

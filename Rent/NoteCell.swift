@@ -27,8 +27,18 @@ extension NoteCell: UITextViewDelegate{
 //
 //        return true
 //    }
+    func textViewDidBeginEditing(textView: UITextView) {
+    
+        
+        textView.text = ""
+    }
+    
+    
     func textViewDidEndEditing(textView: UITextView) {
-      print(textView.text)
+        if textView.text.isEmpty{
+        textView.text = "請輸入備註"
+        }
+        
       myUserDefaluts.setObject(textView.text, forKey: "noteView")
     myUserDefaluts.synchronize()
     }

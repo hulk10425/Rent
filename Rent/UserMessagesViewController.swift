@@ -27,51 +27,38 @@ class UserMessagesViewController: UIViewController{
     var array: [AnyObject]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        guard let currentUser = DataService.dataService.currentUser?.uid else{return}
-        
-        DataService.dataService.PARTICIPANTS_REF.queryOrderedByChild(currentUser).queryEqualToValue(true)
-            .observeSingleEventOfType(.Value, withBlock:{ (snapshot) in
+        DataService.dataService.fetechUserMessage { (messagesnap) in
+            let messageDictionary = messagesnap.value as? Dictionary<String,AnyObject>
+            
+            let newMessage = Chats()
+            newMessage.setValuesForKeysWithDictionary(messageDictionary!)
+            self.messages.append(newMessage)
+            if self.messages.count < 1 {
+                self.noMessageView.hidden = false
+            }else{
                 
-                guard let dictionary = snapshot.value as? Dictionary<String,AnyObject> else { return }
-           
-                let keys = Array(dictionary.keys)
-                for roomId in keys{
-                    print(roomId)
+                self.noMessageView.hidden = true
+            }
+            
+            if let roomId = newMessage.roomId {
+                self.messageDictionary[roomId] = newMessage
+                self.messages = Array(self.messageDictionary.values)
+                self.messages.sortInPlace({ (message1, message2) -> Bool in
                     
-                    DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(roomId).observeSingleEventOfType(.Value, withBlock: { (snap) in
-                        for child in snap.children {
-                         
-                            if let last = child.value["lastMessage"] as? String {
-                                print(last)
-                                DataService.dataService.MESSAGE_REF.queryOrderedByKey().queryEqualToValue(last).observeEventType(.ChildAdded, withBlock: { (messagesnap) in
-                                    let messageDictionary = messagesnap.value as? Dictionary<String,AnyObject>
-                                    
-                                    let newMessage = Chats()
-                                    newMessage.setValuesForKeysWithDictionary(messageDictionary!)
-                                    self.messages.append(newMessage)
-                                    if let roomId = newMessage.roomId {
-                                        self.messageDictionary[roomId] = newMessage
-                                        self.messages = Array(self.messageDictionary.values)
-                                        self.messages.sortInPlace({ (message1, message2) -> Bool in
-                                            
-                                            return message1.date.intValue > message2.date.intValue
-                                        })
-                                        
-                                    }
-                                    dispatch_async(dispatch_get_main_queue(), {
-                                        self.myTableView.reloadData()
-                                    })
-                                    
-                                    
-                                })
-                            }
-                        }
-                     })
-                }
-             })
-         }
+                    return message1.date.intValue > message2.date.intValue
+                })
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.myTableView.reloadData()
+                })
+                
+
+            }
+        }
+        
+        
+        
+        
+    }
     func showChatControllerForUser(user: User) {
         let chatLogController = self.storyboard?.instantiateViewControllerWithIdentifier("ChatViewController") as! ChatViewController
         
@@ -85,13 +72,7 @@ extension UserMessagesViewController: UITableViewDataSource{
     //表格的列數
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if messages.count < 1 {
-       self.noMessageView.hidden = false
-        }else{
-        
-          self.noMessageView.hidden = true
-        }
-        
+     
         
         return messages.count
         
@@ -105,49 +86,51 @@ extension UserMessagesViewController: UITableViewDataSource{
         //
         //
         let message = messages[indexPath.row].message
-        let messageId = messages[indexPath.row].senderId
+        let meseeageRoom = messages[indexPath.row].roomId
         
-  
         let cell =  self.myTableView.dequeueReusableCellWithIdentifier("cellMessage", forIndexPath: indexPath) as! UserMessageCell
         self.cellUserMessageCell = cell
         
-        //                let currentuser = FIRAuth.auth()?.currentUser?.uid
-        
-        
-        
-        //                if  currentuser == messageId{
-        
-        
-        DataService.dataService.PEOPLE_REF.child(messageId).observeSingleEventOfType(.Value, withBlock:  { (snap) in
+        DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(meseeageRoom).observeEventType(.Value, withBlock: { (snap) in
+            let roomsnap = snap.value as! [String:AnyObject]
             
-            
-            let usersnap = snap.value as! Dictionary<String,AnyObject>
-            let username = usersnap["username"] as! String
-            let imageUrl = usersnap["profileImage"] as! String
-            if imageUrl.hasPrefix("gs://"){
-                cell.userMessageImage.kf_setImageWithURL(NSURL(string: imageUrl))
-                FIRStorage.storage().referenceForURL(imageUrl).dataWithMaxSize(INT64_MAX, completion: { (data, error) in
-                    if let error = error{
-                        print(error)
-                        return
-                    }
-                    cell.userMessageImage.image = UIImage.init(data: data!)
-                })
+            for value in roomsnap.values{
+                let roomImage = value["image"] as! String
+                let roomTitle = value["title"] as! String
+                if roomImage.hasPrefix("gs://"){
+                    cell.userMessageImage.kf_setImageWithURL(NSURL(string: roomImage))
+                    FIRStorage.storage().referenceForURL(roomImage).dataWithMaxSize(INT64_MAX, completion: { (data, error) in
+                        if let error = error{
+                            print(error)
+                            return
+                        }
+                        cell.userMessageImage.image = UIImage.init(data: data!)
+                    })
+                }
+                
+                cell.userMessageNameLabel.text = roomTitle
+                
+                
             }
             
             
-            cell.userMessageNameLabel.text = username
-            cell.userMessageLabel.text = message
-            
-            let seconds = self.messages[indexPath.row].date.doubleValue
-            let timestampDate = NSDate(timeIntervalSince1970: seconds)
-            
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MM月dd日,hh:mm a"
-            cell.userMessageTimeLabel.text = dateFormatter.stringFromDate(timestampDate)
         })
         
-
+        
+        
+        
+        let seconds = self.messages[indexPath.row].date.doubleValue
+        let timestampDate = NSDate(timeIntervalSince1970: seconds)
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM月dd日,hh:mm a"
+        
+        cell.userMessageTimeLabel.text = dateFormatter.stringFromDate(timestampDate)
+        cell.userMessageLabel.text = message
+        
+        
+        
+        
         return cellUserMessageCell
         
         
@@ -185,9 +168,6 @@ extension UserMessagesViewController: UITableViewDelegate{
         
         
         self.hidesBottomBarWhenPushed = true
-        
-        
-        
         self.performSegueWithIdentifier("toChatView", sender: cell)
         self.hidesBottomBarWhenPushed = false
     }

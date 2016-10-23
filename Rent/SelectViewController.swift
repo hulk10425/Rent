@@ -23,13 +23,18 @@ import MJRefresh
 
 
 
-
 let loadingView: UIView = UIView()
-class SelectViewController: UIViewController {
+class SelectViewController: UIViewController, QueryDelegate {
     var detailVC = PostDetailData()
     @IBOutlet weak var addEvent: UIButton!
     
     @IBOutlet weak var myTableView: UITableView!
+    
+    @IBAction func backButton(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+        
+        
+    }
     
     
     var cellPostData = ShowPostDataCell()
@@ -45,6 +50,9 @@ class SelectViewController: UIViewController {
         addEvent.addTarget(self, action: #selector(SelectViewController.toSelectManPage(_:)), forControlEvents: .TouchUpInside )
         let nib = UINib(nibName: "ShowPostData", bundle: nil)
         myTableView.registerNib(nib, forCellReuseIdentifier: "cellPostData")
+        
+        
+        
         
         //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 )){
         
@@ -67,22 +75,46 @@ class SelectViewController: UIViewController {
         //
         //                    })
         
-        DataService.dataService.fetchPostData { (snap) in
-            self.postDatas.append(snap)
-            let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
-            self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-            dispatch_async(dispatch_get_main_queue(), {
-                let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-                 self.myTableView.reloadData()
-                    
-                   hud.hideAnimated(true)
-               })
-        }
+                DataService.dataService.fetchPostData { (snap) in
+                    self.postDatas.append(snap)
+                    let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
+                    self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
-    
-   
+                    dispatch_async(dispatch_get_main_queue(), {
+        
+                        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+                        self.myTableView.reloadData()
+        
+                        hud.hideAnimated(true)
+                    })
+                }
+        
+        
+        
         
     }
+    func queryData(value: [PostData]) {
+        
+        self.postDatas = value
+        
+        
+        
+//        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
+//        self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            
+            self.myTableView.reloadData()
+            
+            hud.hideAnimated(true)
+        })
+    }
+    
+    
+    
     func showActivityIndicatory(uiView: UIView) {
         let container: UIView = UIView()
         container.frame = uiView.frame
@@ -113,6 +145,8 @@ class SelectViewController: UIViewController {
         self.hidesBottomBarWhenPushed = false
         
     }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         
@@ -164,23 +198,23 @@ class SelectViewController: UIViewController {
         //            }
         //        }
         
-        
-        
-        
-        
     }
     
     
     @IBAction func queryButton(sender: AnyObject) {
-        let popoverContent = self.storyboard?.instantiateViewControllerWithIdentifier("queryData") as! QueryDataTableViewController
+        let queryController = self.storyboard?.instantiateViewControllerWithIdentifier("queryData") as! QueryDataTableViewController
         
-        let nav = UINavigationController(rootViewController: popoverContent)
+        queryController.delegete = self
+        
+        
+        let nav = UINavigationController(rootViewController: queryController)
         nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+        let height = queryController.querydataArray.count * 44
         
-        
+        queryController.preferredContentSize = CGSize(width: 300, height: height)
         
         let popover = nav.popoverPresentationController
-        popoverContent.preferredContentSize = CGSizeMake(500,600)
+        
         
         popover!.delegate = self
         popover!.sourceView = self.view
@@ -204,7 +238,7 @@ extension SelectViewController:  UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return postDatas.count
+        return self.postDatas.count
     }
     //設定表格只有一個區段
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -218,15 +252,13 @@ extension SelectViewController:  UITableViewDataSource{
             "cellPostData",forIndexPath: indexPath) as? ShowPostDataCell else{
                 fatalError()
         }
+        
+        
         let post = postDatas[indexPath.row]
-
+        
         
         dispatch_async(dispatch_get_main_queue(), {
-            
-            
             cell.configureCell(post)
-            
-            
         })
         
         cell.toChatButton.addTarget(self, action: #selector(toChatViewPage(_:)), forControlEvents: .TouchUpInside)
@@ -251,6 +283,7 @@ extension SelectViewController:  UITableViewDelegate {
         // 取消 cell 的選取狀態
         tableView.deselectRowAtIndexPath(
             indexPath, animated: false)
+        
         let cell = myTableView.cellForRowAtIndexPath(indexPath)
         
         self.performSegueWithIdentifier("toPostDetailData", sender: cell)
@@ -265,4 +298,5 @@ extension SelectViewController: UIPopoverPresentationControllerDelegate{
         return .None
     }
 }
+
 
