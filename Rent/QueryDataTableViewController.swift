@@ -65,13 +65,13 @@ class QueryDataTableViewController: UITableViewController {
         case 0:
             self.postDatas.sortInPlace({ (post1, post2) -> Bool in
                 
-                return post1.rentMoney < post2.rentMoney
+                return post1.rentMoney > post2.rentMoney
             })
         self.delegete?.queryData(self.postDatas)
         default :
             self.postDatas.sortInPlace({ (post1, post2) -> Bool in
                 
-                return post1.rentMoney > post2.rentMoney
+                return post1.rentMoney < post2.rentMoney
             })
         self.delegete?.queryData(self.postDatas)
         }

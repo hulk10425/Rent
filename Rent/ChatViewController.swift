@@ -137,6 +137,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+    }
     
     func moveToLastMessage(){
         if self.tableView.contentSize.height > CGRectGetHeight(self.tableView.frame){

@@ -12,10 +12,13 @@ class NoteCell: UITableViewCell {
      var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var noteTextView: UITextView!
-  
+  private var isKeyboardShown = false
     
     override func awakeFromNib() {
         noteTextView.delegate = self
+        
+       
+       
     }
 
 }
@@ -28,20 +31,32 @@ extension NoteCell: UITextViewDelegate{
 //        return true
 //    }
     func textViewDidBeginEditing(textView: UITextView) {
-    
+      
         
         textView.text = ""
     }
     
     
     func textViewDidEndEditing(textView: UITextView) {
-        if textView.text.isEmpty{
+       
+       
+        if textView.text == ""{
         textView.text = "請輸入備註"
+        }else{
+       
+            noteTextView.resignFirstResponder()
+//            noteTextView.text = textView.text
+            myUserDefaluts.setObject(textView.text, forKey: "noteView")
+            myUserDefaluts.synchronize()
         }
-        
-      myUserDefaluts.setObject(textView.text, forKey: "noteView")
-    myUserDefaluts.synchronize()
+
+//        
+ 
     }
+    
+    
+   
+
   
     func sizeOfString (string: String, constrainedToWidth width: Double, font: UIFont) -> CGSize {
         return (string as NSString).boundingRectWithSize(CGSize(width: width, height: DBL_MAX), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil).size

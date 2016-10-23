@@ -110,7 +110,7 @@ class DataService{
     
     }
 
-    func CreatePostData(user: FIRUser, rentDay: String, person: String, furniture: String,type: String, deposit:String, title: String, rentMoney: String, additionalCost: String, data: NSData, note: String){
+    func CreatePostData(user: FIRUser, rentDay: String, person: String, furniture: String,type: String, deposit:String, title: String, rentMoney: Int, additionalCost: String, data: NSData, note: String){
     let filePath = "\(user.uid)/\(Int(NSDate.timeIntervalSinceReferenceDate()))"
     
     let metaData = FIRStorageMetadata()

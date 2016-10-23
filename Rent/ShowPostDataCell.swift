@@ -36,7 +36,7 @@ class ShowPostDataCell: UITableViewCell{
     self.postTitleText.text = post.title
         self.postType.text = post.type
         self.postPersonsText.text = post.person
-        self.postRentMoneyText.text = post.rentMoney
+        self.postRentMoneyText.text = String(post.rentMoney)
         
      
         

@@ -14,12 +14,15 @@ import MBProgressHUD
 
 
 
-class SelectManViewController: UIViewController {
+class SelectManViewController: UIViewController{
     var customVC: SelectFurnitureViewController!
     let pickerController = DKImagePickerController()
     @IBOutlet weak var myTableView: UITableView!
     var result = UITableViewCell()
     
+    @IBAction func backButton(sender: AnyObject) {
+       self.navigationController?.popViewControllerAnimated(true)
+    }
     
     @IBOutlet weak var saveToFirebase: UIButton!
     var selectType = UIPickerView()
@@ -43,13 +46,11 @@ class SelectManViewController: UIViewController {
         
         saveToFirebase.addTarget(self, action: #selector(addToFirebase(_:)), forControlEvents: .TouchUpInside)
         
-        myTableView.estimatedRowHeight = 200
+        myTableView.estimatedRowHeight = 120
         myTableView.rowHeight = UITableViewAutomaticDimension
-        
-        
-    }
+          }
     
-    
+
     
     
     func showPopOverFurniture(sender:UIButton) {
@@ -137,10 +138,11 @@ class SelectManViewController: UIViewController {
     }
     
     
+    
     func addToFirebase(sender: UIButton){
         
         let notes = myUserDefaluts.objectForKey("noteView")
-        
+       
         guard
             let rentDay = cellRentDay.rentDayField.text,
             person = cellPerson.personField.text,
@@ -149,14 +151,14 @@ class SelectManViewController: UIViewController {
             deposit = cellDeposit.depositField.text,
             title = cellTitle.titleTextField.text,
             rentMoney = cellRentMoney.rentMoneyTextField.text,
-            additionalCost = cellAdditional.selectAdditionalCostLabel.text, note = notes else{return}
-        
-        
-        if imageData != nil{
+            additionalCost = cellAdditional.selectAdditionalCostLabel.text,
+            note = notes else{return}
+         if imageData != nil{
             
-            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: rentMoney, additionalCost: additionalCost, data: imageData, note: note as! String)
+        DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: note as! String)
             
             self.navigationController?.popViewControllerAnimated(true)
+        myUserDefaluts.removeObjectForKey("noteView")
             
         }else {
             alert()
@@ -332,6 +334,10 @@ extension SelectManViewController:  UITableViewDelegate {
         // 取消 cell 的選取狀態
         tableView.deselectRowAtIndexPath(
             indexPath, animated: false)
+        
+        
+        
+        
     }
     
     

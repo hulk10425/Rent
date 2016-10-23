@@ -35,17 +35,23 @@ class PostDetailData: UITableViewController{
     
     @IBOutlet weak var getFurniture: UILabel!
     
-    
+
     @IBOutlet weak var getNote: UILabel!
     
     var detailInfo: PostData!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getNote.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        
+        getNote.numberOfLines = 0
+
+        
         self.navigationItem.title  = "詳細資訊"
         print(detailInfo)
    
         getTitle.text = detailInfo.title
-        getRentMoney.text = detailInfo.rentMoney
+        getRentMoney.text = String(detailInfo.rentMoney)
         getAdditionalCost.text = detailInfo.additionalCost
         getDeposit.text = detailInfo.deposit
         getRentDay.text = detailInfo.rentDay
@@ -70,12 +76,21 @@ class PostDetailData: UITableViewController{
         
         
         
-        
-        
-        
+        myTableView.estimatedRowHeight = 100.0
+        myTableView.rowHeight = UITableViewAutomaticDimension
+     }
     
+    
+    //設定每個section的高度
+   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0...2:
+            return 50
+        default:
+            return UITableViewAutomaticDimension
+        }
     }
-    
+
 
     
     

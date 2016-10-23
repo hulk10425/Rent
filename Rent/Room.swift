@@ -23,7 +23,7 @@ class PostData{
     var note: String!
     var title: String!
     var person: String!
-    var rentMoney: String!
+    var rentMoney: Int!
     var imageUrl: String!
     var type: String!
     var id : String!
@@ -35,7 +35,7 @@ class PostData{
         self.type = snapshot["type"] as! String
         self.title = snapshot["title"] as! String
          self.person = snapshot["person"] as! String
-         self.rentMoney = snapshot["rentMoney"] as! String
+         self.rentMoney = snapshot["rentMoney"] as! Int
          self.imageUrl = snapshot["image"] as! String
         
         
