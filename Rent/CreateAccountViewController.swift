@@ -14,14 +14,14 @@ import FBSDKShareKit
 import MBProgressHUD
 
 class CreateAccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-        var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-  
-
+    var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    
+    
     @IBOutlet var backgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         UIImage(named: "background2")?.drawInRect(self.view.bounds)
@@ -35,7 +35,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.alpha = 1
         blurView.frame = backgroundView.bounds
-       backgroundView.addSubview(blurView)
+        backgroundView.addSubview(blurView)
         
         
         view.addSubview(inputsContainerView)
@@ -52,8 +52,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
     }
     
-
-  let inputsContainerView: UIView = {
+    
+    let inputsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.whiteColor()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -69,8 +69,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
-         button.layer.cornerRadius = 10
-      
+        button.layer.cornerRadius = 10
+        
         button.addTarget(self, action: #selector(handleLoginRegister), forControlEvents: .TouchUpInside)
         
         
@@ -119,8 +119,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         //imageView.contentMode = .ScaleAspectFill
         imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
         imageView.userInteractionEnabled = true
-      
-
+        
+        
         
         return imageView
     }()
@@ -171,8 +171,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
         if let selectedImage = selectedImageFromPicker {
             profileImageView.image = selectedImage
-             profileImageView.layer.cornerRadius =  profileImageView.frame.size.height/2
-             profileImageView.clipsToBounds = true
+            profileImageView.layer.cornerRadius =  profileImageView.frame.size.height/2
+            profileImageView.clipsToBounds = true
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -184,22 +184,24 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         dismissViewControllerAnimated(true, completion: nil)
     }
     func handleFbLogin(){
-  
-  
+        
+        
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        fbLoginManager.logInWithReadPermissions(["email"], fromViewController: self) { (result, error) -> Void in
+        fbLoginManager.logInWithReadPermissions(["email","public_profile"], fromViewController: self) { (result, error) -> Void in
+            
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.login()
+            
             if (error == nil){
                 let fbloginresult : FBSDKLoginManagerLoginResult = result
                 if(fbloginresult.grantedPermissions.contains("email"))
                 {
                     self.getFBUserData()
-                 
+                    
                 }
             }
-         }
- }
+        }
+    }
     
     func handleLoginRegister() {
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
@@ -230,24 +232,24 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                     let data = NSData(contentsOfURL: url) else{return}
                 
                 
-
+                
                 let fbImage = data
                 
                 DataService.dataService.saveFbData(fbemail, name: fbname, data: fbImage)
-
+                
                 
                 
                 
                 
             }
-
+            
             
             
         }
-
+        
         
     }
-
+    
     
     
     func handleLogin() {
@@ -256,10 +258,10 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
             return
         }
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-
+        
         DataService.dataService.login(email, password: password)
         MBProgressHUD.hideHUDForView(self.view, animated: true)
-      
+        
     }
     
     func handleLoginRegisterChange() {
@@ -283,7 +285,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         passwordTextFieldHeightAnchor?.active = true
     }
     
-
+    
     
     func handleRegister() {
         guard let email = emailTextField.text where !email.isEmpty , let password = passwordTextField.text where !password.isEmpty , let name = nameTextField.text where !name.isEmpty else {
@@ -293,10 +295,10 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         var data = NSData()
         data = UIImageJPEGRepresentation(profileImageView.image!, 0.1)!
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-
+        
         DataService.dataService.SignUp(name, email: email, password: password, data: data)
         MBProgressHUD.hideHUDForView(self.view, animated: true)
-
+        
     }
     func setupLoginRegisterSegmentedControl() {
         //need x, y, width, height constraints
@@ -307,13 +309,13 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func setupFbLoginButton(){
-    
+        
         loginFbButton.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
         loginFbButton.bottomAnchor.constraintEqualToAnchor(loginRegisterButton.bottomAnchor, constant: 72).active = true
         loginFbButton.widthAnchor.constraintEqualToAnchor(loginRegisterButton.widthAnchor, multiplier: 1).active = true
         loginFbButton.heightAnchor.constraintEqualToConstant(48).active = true
     }
-
+    
     
     func setupProfileImageView() {
         //need x, y, width, height constraints
@@ -332,7 +334,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         inputsContainerView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
         inputsContainerView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
         inputsContainerView.widthAnchor.constraintEqualToAnchor(view.widthAnchor, constant: -24).active = true
-
+        
         inputsContainerViewHeightAnchor = inputsContainerView.heightAnchor.constraintEqualToConstant(150)
         inputsContainerViewHeightAnchor?.active = true
         
@@ -363,7 +365,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         emailTextField.topAnchor.constraintEqualToAnchor(nameTextField.bottomAnchor).active = true
         
         emailTextField.widthAnchor.constraintEqualToAnchor(inputsContainerView.widthAnchor).active = true
-       
+        
         
         emailTextFieldHeightAnchor = emailTextField.heightAnchor.constraintEqualToAnchor(inputsContainerView.heightAnchor, multiplier: 1/3)
         emailTextFieldHeightAnchor?.active = true
@@ -379,7 +381,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         passwordTextField.topAnchor.constraintEqualToAnchor(emailTextField.bottomAnchor).active = true
         
         passwordTextField.widthAnchor.constraintEqualToAnchor(inputsContainerView.widthAnchor).active = true
-       
+        
         passwordTextFieldHeightAnchor = passwordTextField.heightAnchor.constraintEqualToAnchor(inputsContainerView.heightAnchor, multiplier: 1/3)
         passwordTextFieldHeightAnchor?.active = true
     }

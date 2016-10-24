@@ -25,14 +25,8 @@ class ChatViewCell: UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-       
-        
-        
-            
      messageView.layer.cornerRadius = 10
-
-      profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+    profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
      profileImageView.clipsToBounds = true
     }
     func configCell(idUser: String, message: Dictionary<String, AnyObject>) {

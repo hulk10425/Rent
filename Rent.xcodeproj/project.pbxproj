@@ -135,25 +135,21 @@
 				998500BA1DBA0EE4003D33DF /* Main.storyboard */,
 				99AEA3B71DBA18A5008129D0 /* PostCell */,
 				99AEA3B81DBA18DF008129D0 /* Chat */,
-				998500BE1DBA0EEF003D33DF /* CreateAccountViewController.swift */,
+				99FC55961DBDB20900B16C3C /* Login */,
 				998500C21DBA0EF9003D33DF /* CustomHomePage.xib */,
 				998500C31DBA0EF9003D33DF /* CustomHomePageButton.swift */,
-				998500CD1DBA0F04003D33DF /* Image.swift */,
 				998500D61DBA0F0D003D33DF /* PostDetailData.swift */,
 				998500D71DBA0F0D003D33DF /* ProfileTableView.swift */,
 				998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */,
 				998500DA1DBA0F0D003D33DF /* RegisterController.swift */,
 				998500E01DBA0F17003D33DF /* RentDayLimit.swift */,
-				998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */,
-				998500E21DBA0F17003D33DF /* RentMoneyCell.swift */,
 				99A5C6081DBB285200F6F8E2 /* Model */,
 				998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */,
 				998500EC1DBA0F21003D33DF /* SelectFurnitureViewController.swift */,
 				998500ED1DBA0F21003D33DF /* SelectManViewController.swift */,
 				99A5C6091DBB286B00F6F8E2 /* ShowPostData */,
 				998500F81DBA0F2D003D33DF /* UIColor.swift */,
-				998500FE1DBA0F38003D33DF /* UserMessageCell.swift */,
-				998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */,
+				99FC55951DBDB1EA00B16C3C /* UserMessages */,
 				998501001DBA0F38003D33DF /* ViewController.swift */,
 				998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */,
 			);
@@ -163,6 +159,7 @@
 		99A5C6081DBB285200F6F8E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				998500CD1DBA0F04003D33DF /* Image.swift */,
 				998500C41DBA0EF9003D33DF /* DataService.swift */,
 				998500E31DBA0F17003D33DF /* Room.swift */,
 			);
@@ -191,6 +188,8 @@
 				998500D01DBA0F04003D33DF /* PersonCell.swift */,
 				998500D91DBA0F0D003D33DF /* RegionCell.swift */,
 				998500F61DBA0F2D003D33DF /* TitleCell.swift */,
+				998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */,
+				998500E21DBA0F17003D33DF /* RentMoneyCell.swift */,
 				998500F71DBA0F2D003D33DF /* TypeCell.swift */,
 			);
 			name = PostCell;
@@ -214,6 +213,23 @@
 				998500B41DBA0CB8003D33DF /* Info.plist */,
 			);
 			name = SupportFile;
+			sourceTree = "<group>";
+		};
+		99FC55951DBDB1EA00B16C3C /* UserMessages */ = {
+			isa = PBXGroup;
+			children = (
+				998500FE1DBA0F38003D33DF /* UserMessageCell.swift */,
+				998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */,
+			);
+			name = UserMessages;
+			sourceTree = "<group>";
+		};
+		99FC55961DBDB20900B16C3C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				998500BE1DBA0EEF003D33DF /* CreateAccountViewController.swift */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		BCE24477045C89D259213DD9 /* Frameworks */ = {

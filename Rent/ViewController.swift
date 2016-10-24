@@ -8,11 +8,6 @@
 
 import UIKit
 
-
-
-
-
-
 class ViewController: UIViewController {
 
 
@@ -55,11 +50,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
        
         homeSelect.addTarget(self, action: #selector(toSelectPage(_:)), forControlEvents: .TouchUpInside)
-        
-        
-     
-        
-    }
+     }
 
    
     

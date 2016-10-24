@@ -10,7 +10,6 @@ import UIKit
 
 class NoteCell: UITableViewCell {
      var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    
     @IBOutlet weak var noteTextView: UITextView!
   private var isKeyboardShown = false
     
@@ -18,7 +17,7 @@ class NoteCell: UITableViewCell {
         noteTextView.delegate = self
         
        
-       
+        
     }
 
 }
@@ -34,6 +33,7 @@ extension NoteCell: UITextViewDelegate{
       
         
         textView.text = ""
+        myUserDefaluts.removeObjectForKey("noteView")
     }
     
     
@@ -53,7 +53,8 @@ extension NoteCell: UITextViewDelegate{
 //        
  
     }
-    
+        
+
     
    
 

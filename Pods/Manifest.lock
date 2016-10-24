@@ -67,6 +67,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
@@ -87,6 +88,7 @@ DEPENDENCIES:
   - MJRefresh
   - NVActivityIndicatorView (= 2.3)
   - SDCycleScrollView (~> 1.64)
+  - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
@@ -115,7 +117,8 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: c7ef25ef527ab5e51b00322cb1ddd58681bcf2a3
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
-PODFILE CHECKSUM: c87af25fc1f829ebd796db37531191a56920b72b
+PODFILE CHECKSUM: c936dccea0cc14e1c5687f122eddbdc469d51d38
 
 COCOAPODS: 1.1.1

@@ -14,9 +14,11 @@ import MBProgressHUD
 
 
 
-class SelectManViewController: UIViewController{
+class SelectManViewController: UIViewController, UITextViewDelegate{
     var customVC: SelectFurnitureViewController!
     let pickerController = DKImagePickerController()
+    var keyHeight = CGFloat()
+
     @IBOutlet weak var myTableView: UITableView!
     var result = UITableViewCell()
     
@@ -48,15 +50,70 @@ class SelectManViewController: UIViewController{
         
         myTableView.estimatedRowHeight = 120
         myTableView.rowHeight = UITableViewAutomaticDimension
+//        
+//        let centerDefault = NSNotificationCenter.defaultCenter()
+//
+//        centerDefault.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+//     
+
+     
+        
           }
     
-
+//    //同时键盘弹出时上移
+//    
+//    func keyboardWillShow(aNotification: NSNotification) {
+//        
+//        let userinfo: NSDictionary = aNotification.userInfo!
+//        
+//        let nsValue = userinfo.objectForKey(UIKeyboardFrameEndUserInfoKey)
+//        
+//        let keyboardRec = nsValue?.CGRectValue()
+//        
+//        let height = keyboardRec?.size.height
+//        
+//        self.keyHeight = height!
+//        
+//        UIView.animateWithDuration(0.5, animations: {
+//            
+//            var frame = self.view.frame
+//            
+//            frame.origin.y = -self.keyHeight
+//            
+//            self.view.frame = frame
+//            
+//            }, completion: nil)
+//        
+//    }
+//    
+    
+    
+    //键盘隐藏时恢复
+    
+//    func textViewShouldEndEditing(textView: UITextView) -> Bool {
+//        
+// 
+//        
+//        UIView.animateWithDuration(0.5, animations: {
+//            
+//            var frame = self.view.frame
+//            
+//            frame.origin.y = 0
+//            
+//            self.view.frame = frame
+//            
+//            }, completion: nil)
+//        
+//        return true
+//        
+//      }
+//
     
     
     func showPopOverFurniture(sender:UIButton) {
         
         //需要將delegate給要跳轉的controller
-        let furniture = self.storyboard?.instantiateViewControllerWithIdentifier("Furniture") as! SelectFurnitureViewController
+        guard let furniture = self.storyboard?.instantiateViewControllerWithIdentifier("Furniture") as? SelectFurnitureViewController else{return}
         
         furniture.modalPresentationStyle = .Popover
         furniture.delegate = self
@@ -152,13 +209,13 @@ class SelectManViewController: UIViewController{
             title = cellTitle.titleTextField.text,
             rentMoney = cellRentMoney.rentMoneyTextField.text,
             additionalCost = cellAdditional.selectAdditionalCostLabel.text,
-            note = notes else{return}
+            note = notes else{ return}
+        
          if imageData != nil{
-            
-        DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: note as! String)
+            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: note as! String)
             
             self.navigationController?.popViewControllerAnimated(true)
-        myUserDefaluts.removeObjectForKey("noteView")
+        
             
         }else {
             alert()
@@ -167,11 +224,7 @@ class SelectManViewController: UIViewController{
         
         
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
+
     func alert(){
         
         let alertController = UIAlertController(

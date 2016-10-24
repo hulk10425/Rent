@@ -37,7 +37,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         
         self.navigationItem.title = roomTitle
-        
+        messageTextField.delegate = self
         DataService.dataService.POST_REF.child(roomId).observeSingleEventOfType(.Value, withBlock: {(snapshot)in
             // print(snapshot.key)
             
@@ -52,7 +52,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
                         self.tableView.reloadData()
                     })
                     
-                    //                    print(self.messages)
+                  
                 }
                 
             })
@@ -95,18 +95,18 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChatViewController.showOrHideKeyboard(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChatViewController.showOrHideKeyboard(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
-    override func viewWillDisappear(animated: Bool) {
+   override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object:  nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object:  nil)
-        
+    NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+      NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+    
     }
-    
-    
+       
     
     @IBOutlet weak var constraintToBottom: NSLayoutConstraint!
     
     
+    @IBOutlet weak var constaint: NSLayoutConstraint!
     
     
     func showOrHideKeyboard(notification: NSNotification){
@@ -115,7 +115,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
             if notification.name == UIKeyboardWillShowNotification{
                 UIView.animateWithDuration(1, animations: {
                     () in
-                    self.constraintToBottom.constant = (keyboardInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
+                    self.constaint.constant = (keyboardInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().height
                     self.view.layoutIfNeeded()
                 }){ (completed: Bool) -> Void in
                     
@@ -124,7 +124,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
             }else if notification.name == UIKeyboardWillHideNotification{
                 UIView.animateWithDuration(1, animations: {
                     () in
-                    self.constraintToBottom.constant = 0
+                    self.constaint.constant = 0
                     self.view.layoutIfNeeded()
                 }){(completed: Bool)-> Void in}
                 self.moveToLastMessage()
@@ -137,10 +137,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    func textFieldDidEndEditing(textField: UITextField) {
-        
-    }
-    
+
     func moveToLastMessage(){
         if self.tableView.contentSize.height > CGRectGetHeight(self.tableView.frame){
             let contentOfSet = CGPointMake(0, self.tableView.contentSize.height - CGRectGetHeight(self.tableView.frame))
@@ -170,12 +167,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
             print("error: Empty String")
         }
     }
-    //    private func estimateFrame(text: String) -> CGRect{
-    //    let size = CGSize(width: 200, height: 1000)
-    //        let options = NSStringDrawingOptions.UsesFontLeading.union(.UsesLineFragmentOrigin)
-    //       return NSString(string:text).boundingRectWithSize(size, options: options, attributes: [NSFontAttributeName : UIFont.systemFontSize(16)]?, context: nil)
-    //    }
-    //
+ 
     
 }
 
@@ -190,11 +182,8 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
         
         let messageSnapshot = messages[indexPath.row]
         let message = messageSnapshot.value as! Dictionary<String, AnyObject>
-        
         let messageId = message["senderId"] as! String
-//        print(messageId)
-        //self.delegate?.passSenderId(messageId)
-        
+
         
         if  messageId  == DataService.dataService.currentUser?.uid {
             

@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'Rent' do
     pod 'Alamofire', '~> 3.4'
+    pod 'TPKeyboardAvoiding'
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'Firebase/Auth'
     pod 'Firebase/Core'

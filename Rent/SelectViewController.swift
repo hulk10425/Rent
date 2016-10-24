@@ -97,11 +97,6 @@ class SelectViewController: UIViewController, QueryDelegate {
     func queryData(value: [PostData]) {
         
         self.postDatas = value
-        
-        
-        
-//        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
-//        self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
 
         dispatch_async(dispatch_get_main_queue(), {
             
@@ -181,41 +176,21 @@ class SelectViewController: UIViewController, QueryDelegate {
             
             
         }
-        //        if segue.identifier == "toUserMessage"{
-        //            guard let senderCell = sender as? UITableViewCell else{
-        //                //先讓App Crash
-        //                fatalError()
-        //            }
-        //            if let tableviewCellIndoxPath = myTableView!.indexPathForCell(senderCell){
-        //
-        ////            guard let userMessageController = segue.destinationViewController as? UserMessagesViewController else{
-        ////                fatalError()
-        ////            }
-        ////            userMessageController.roomId = postDatas[tableviewCellIndoxPath.row].id
-        ////
-        //
-        //
-        //            }
-        //        }
-        
     }
     
     
     @IBAction func queryButton(sender: AnyObject) {
         let queryController = self.storyboard?.instantiateViewControllerWithIdentifier("queryData") as! QueryDataTableViewController
-        
         queryController.delegete = self
         
         
         let nav = UINavigationController(rootViewController: queryController)
         nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+       
         let height = queryController.querydataArray.count * 44
-        
         queryController.preferredContentSize = CGSize(width: 300, height: height)
         
         let popover = nav.popoverPresentationController
-        
-        
         popover!.delegate = self
         popover!.sourceView = self.view
         popover!.sourceRect = CGRect(x:CGRectGetMidX(self.view.bounds), y: CGRectGetMidY(self.view.bounds),width: 0,height: 0)
