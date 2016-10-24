@@ -179,6 +179,8 @@ class SelectViewController: UIViewController, QueryDelegate {
     }
     
     
+    @IBOutlet weak var queryButton: UIButton!
+    
     @IBAction func queryButton(sender: AnyObject) {
         let queryController = self.storyboard?.instantiateViewControllerWithIdentifier("queryData") as! QueryDataTableViewController
         queryController.delegete = self
@@ -192,8 +194,8 @@ class SelectViewController: UIViewController, QueryDelegate {
         
         let popover = nav.popoverPresentationController
         popover!.delegate = self
-        popover!.sourceView = self.view
-        popover!.sourceRect = CGRect(x:CGRectGetMidX(self.view.bounds), y: CGRectGetMidY(self.view.bounds),width: 0,height: 0)
+        popover!.sourceView = queryButton
+        popover!.sourceRect = queryButton.bounds
         
         
         

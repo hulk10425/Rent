@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import ActionSheetPicker_3_0
 
 class TypeCell: UITableViewCell, UITextFieldDelegate {
@@ -30,6 +31,7 @@ class TypeCell: UITableViewCell, UITextFieldDelegate {
 , initialSelection: 0, doneBlock: {
                 picker, value, index in
                 self.typeField.text = String(index)
+    FIRAnalytics.setUserPropertyString(self.typeField.text, forName: "housetype")
 //                print("values = \(values)")
                 print("indexes = \(index)")
 //                print("picker = \(picker)")

@@ -38,7 +38,7 @@ extension TitleCell: UITextFieldDelegate{
         textField.resignFirstResponder()
         titleTextField.text = textField.text
 
-        return true;
+        return true
     }
 
 

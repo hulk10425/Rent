@@ -11,29 +11,26 @@ import UIKit
 class NoteCell: UITableViewCell {
      var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var noteTextView: UITextView!
-  private var isKeyboardShown = false
+
     
     override func awakeFromNib() {
         noteTextView.delegate = self
-        
-       
-        
-    }
+     }
 
 }
 extension NoteCell: UITextViewDelegate{
 
 // 
-//    func textViewShouldEndEditing(textView: UITextView) -> Bool {
-//         noteTextView.resignFirstResponder()
-//
-//        return true
-//    }
+    func textViewShouldEndEditing(textView: UITextView) -> Bool {
+         noteTextView.resignFirstResponder()
+
+        return true
+    }
     func textViewDidBeginEditing(textView: UITextView) {
       
         
         textView.text = ""
-        myUserDefaluts.removeObjectForKey("noteView")
+      
     }
     
     
@@ -42,16 +39,14 @@ extension NoteCell: UITextViewDelegate{
        
         if textView.text == ""{
         textView.text = "請輸入備註"
-        }else{
-       
-            noteTextView.resignFirstResponder()
-//            noteTextView.text = textView.text
-            myUserDefaluts.setObject(textView.text, forKey: "noteView")
-            myUserDefaluts.synchronize()
         }
-
-//        
+     
  
+    }
+    func textViewDidChange(textView: UITextView) {
+        myUserDefaluts.setObject(textView.text, forKey: "noteTextView")
+        myUserDefaluts.synchronize()
+      
     }
         
 

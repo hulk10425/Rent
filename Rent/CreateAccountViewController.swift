@@ -13,7 +13,7 @@ import FBSDKLoginKit
 import FBSDKShareKit
 import MBProgressHUD
 
-class CreateAccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateAccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     
@@ -49,9 +49,17 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
         setupFbLoginButton()
+        passwordTextField.delegate = self
         
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        //收起键盘
+        textField.resignFirstResponder()
+        passwordTextField.text = textField.text
+        
+        return true
+    }
     
     let inputsContainerView: UIView = {
         let view = UIView()
@@ -109,6 +117,9 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         tf.placeholder = "Password"
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.secureTextEntry = true
+        
+        
+        
         return tf
     }()
     
@@ -191,13 +202,11 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
             
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.login()
-            
             if (error == nil){
                 let fbloginresult : FBSDKLoginManagerLoginResult = result
                 if(fbloginresult.grantedPermissions.contains("email"))
                 {
                     self.getFBUserData()
-                    
                 }
             }
         }
@@ -219,28 +228,19 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                     print(error)
                     return
                 }
-                //用NSUseDefaluts 儲存 FB抓的資料
-                //要儲存的資料
                 
                 let fbname = result["name"] as! String
                 let fbemail = result["email"] as! String
+                
                 guard
                     let picture = result["picture"] as? NSDictionary,
                     let picData = picture["data"] as? NSDictionary,
                     let modifiedUrlStr = picData["url"] as? String,
                     let url = NSURL(string: modifiedUrlStr),
                     let data = NSData(contentsOfURL: url) else{return}
-                
-                
-                
                 let fbImage = data
                 
                 DataService.dataService.saveFbData(fbemail, name: fbname, data: fbImage)
-                
-                
-                
-                
-                
             }
             
             
@@ -257,6 +257,9 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
             print("Form is not valid")
             return
         }
+        
+        
+        
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         DataService.dataService.login(email, password: password)
@@ -292,6 +295,10 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
             print("Form is not valid")
             return
         }
+        
+        
+        
+        
         var data = NSData()
         data = UIImageJPEGRepresentation(profileImageView.image!, 0.1)!
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)

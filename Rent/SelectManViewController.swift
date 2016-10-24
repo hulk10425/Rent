@@ -23,7 +23,9 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
     var result = UITableViewCell()
     
     @IBAction func backButton(sender: AnyObject) {
+  
        self.navigationController?.popViewControllerAnimated(true)
+   
     }
     
     @IBOutlet weak var saveToFirebase: UIButton!
@@ -50,65 +52,10 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
         
         myTableView.estimatedRowHeight = 120
         myTableView.rowHeight = UITableViewAutomaticDimension
-//        
-//        let centerDefault = NSNotificationCenter.defaultCenter()
-//
-//        centerDefault.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
-//     
 
-     
-        
-          }
+      }
     
-//    //同时键盘弹出时上移
-//    
-//    func keyboardWillShow(aNotification: NSNotification) {
-//        
-//        let userinfo: NSDictionary = aNotification.userInfo!
-//        
-//        let nsValue = userinfo.objectForKey(UIKeyboardFrameEndUserInfoKey)
-//        
-//        let keyboardRec = nsValue?.CGRectValue()
-//        
-//        let height = keyboardRec?.size.height
-//        
-//        self.keyHeight = height!
-//        
-//        UIView.animateWithDuration(0.5, animations: {
-//            
-//            var frame = self.view.frame
-//            
-//            frame.origin.y = -self.keyHeight
-//            
-//            self.view.frame = frame
-//            
-//            }, completion: nil)
-//        
-//    }
-//    
-    
-    
-    //键盘隐藏时恢复
-    
-//    func textViewShouldEndEditing(textView: UITextView) -> Bool {
-//        
-// 
-//        
-//        UIView.animateWithDuration(0.5, animations: {
-//            
-//            var frame = self.view.frame
-//            
-//            frame.origin.y = 0
-//            
-//            self.view.frame = frame
-//            
-//            }, completion: nil)
-//        
-//        return true
-//        
-//      }
-//
-    
+
     
     func showPopOverFurniture(sender:UIButton) {
         
@@ -196,9 +143,9 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
     
     
     
-    func addToFirebase(sender: UIButton){
+    func addToFirebase(sender: AnyObject){
         
-        let notes = myUserDefaluts.objectForKey("noteView")
+        guard let notes = myUserDefaluts.objectForKey("noteTextView") as?String else{fatalError()}
        
         guard
             let rentDay = cellRentDay.rentDayField.text,
@@ -208,19 +155,25 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
             deposit = cellDeposit.depositField.text,
             title = cellTitle.titleTextField.text,
             rentMoney = cellRentMoney.rentMoneyTextField.text,
-            additionalCost = cellAdditional.selectAdditionalCostLabel.text,
-            note = notes else{ return}
-        
+            additionalCost = cellAdditional.selectAdditionalCostLabel.text else{ return}
+        FIRAnalytics.logEventWithName("postData", parameters: [
+            "rentDay": rentDay,
+            "person": person,
+            "furniture": furniture,
+            "type":  type,
+            "deposit": deposit,
+            "rentMoney": rentMoney,
+            "additionalCost":additionalCost
+            ])
          if imageData != nil{
-            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: note as! String)
+            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: notes )
             
             self.navigationController?.popViewControllerAnimated(true)
-        
+            
             
         }else {
             alert()
-            
-        }
+       }
         
         
     }

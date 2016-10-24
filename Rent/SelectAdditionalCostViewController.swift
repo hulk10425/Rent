@@ -12,7 +12,7 @@ class SelectAdditionalCostViewController: UIViewController {
 
     var additionalCostArray: [String] = ["水費","電費","網路費","管理費","清潔費","第四台","瓦斯費"]
     @IBOutlet weak var myTableView: UITableView!
-    var additionArray = [AnyObject]()
+     var selectedIndexs = [Int]()
     var checked = Bool()
     @IBOutlet weak var saveAdditionalButton: UIButton!
     var delegate: SecondVCDelegate?
@@ -23,10 +23,7 @@ class SelectAdditionalCostViewController: UIViewController {
         
         myTableView.allowsMultipleSelection = true
         saveAdditionalButton.addTarget(self, action: #selector(save(_:)), forControlEvents: .TouchUpInside)
-//        myTableView.delegate = self
-//        myTableView.dataSource = self
-       
-        
+
     }
     
    
@@ -34,11 +31,15 @@ class SelectAdditionalCostViewController: UIViewController {
     
     
     func save(sender: UIButton){
-        var selectedIndexs = [Int]()
+     
         if let selectedItems = myTableView.indexPathsForSelectedRows {
+         
             for indexPath in selectedItems {
+              
                 selectedIndexs.append(indexPath.row)
+                
             }
+                            
         }
        for index in selectedIndexs {
              delegate?.passAddtiionalCost(additionalCostArray[index])

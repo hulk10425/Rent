@@ -42,6 +42,7 @@ class SelectFurnitureViewController: UIViewController {
                 for indexPath in selectedItems {
                     selectedIndexs.append(indexPath.row)
                 }
+               
             }
             
             for index in selectedIndexs {
@@ -68,7 +69,7 @@ extension SelectFurnitureViewController: UITableViewDataSource{
         guard let cell = myTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as? SelectFurnitureCell else{fatalError()}
     
     cell.furnitureText.text = furnitureArray[indexPath.row]
-        
+       
  
         return cell
     }
@@ -86,6 +87,7 @@ extension SelectFurnitureViewController: UITableViewDelegate{
     
    
     }
+  
     
      func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
            guard let cell = self.myTableView.cellForRowAtIndexPath(indexPath) as? SelectFurnitureCell else{fatalError()}
