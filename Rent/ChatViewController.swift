@@ -151,12 +151,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         if messageTextField != "" {
             if let user = FIRAuth.auth()?.currentUser{
                 let currentDate: NSNumber = Int(NSDate().timeIntervalSince1970)
-                
-                
-                
-                
-                
-                DataService.dataService.CreateNewMessage(user.uid, roomId: roomId, textMessage: messageTextField.text!, date: currentDate)
+                 DataService.dataService.CreateNewMessage(user.uid, roomId: roomId, textMessage: messageTextField.text!, date: currentDate)
             }else{
                 print("no none sign in")
             }

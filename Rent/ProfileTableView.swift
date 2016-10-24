@@ -38,9 +38,6 @@ class ProfileTableView: UITableViewController, UINavigationControllerDelegate, U
             email.text = user.email
             if user.photoURL != nil{
                 self.profileImage.kf_setImageWithURL(user.photoURL)
-//                if let data = NSData(contentsOfURL: user.photoURL!){
-//                self.profileImage.image = UIImage.init(data: data)
-//                }
             }
         }else{
         

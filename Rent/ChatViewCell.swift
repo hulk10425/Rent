@@ -40,11 +40,6 @@ class ChatViewCell: UITableViewCell{
             dateFormatter.dateFormat = "MM月dd日,hh:mm a"
            self.dateLabel.text = dateFormatter.stringFromDate(timestampDate)
         }
-        
-        
-//        self.dateLabel.text  = message["date"] as? String
-        
-       
         DataService.dataService.PEOPLE_REF.child(idUser).observeEventType(.Value, withBlock: {(snapshot) in
             let dict = snapshot.value as! Dictionary<String, AnyObject>
             let imageUrl = dict["profileImage"] as! String

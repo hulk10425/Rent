@@ -23,7 +23,7 @@ class QueryDataTableViewController: UITableViewController {
     
     var querydataArray = ["租金從高到低","租金從低到高"]
     var postDatas = [PostData]()
-    //static let shared = QueryDataTableViewController()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,9 +58,7 @@ class QueryDataTableViewController: UITableViewController {
         // 取消 cell 的選取狀態
         tableView.deselectRowAtIndexPath(
             indexPath, animated: true)
-        //        let cell = myTableView.cellForRowAtIndexPath(indexPath)
-        
-        
+      
         switch indexPath.item {
         case 0:
             self.postDatas.sortInPlace({ (post1, post2) -> Bool in
@@ -75,8 +73,6 @@ class QueryDataTableViewController: UITableViewController {
             })
         self.delegete?.queryData(self.postDatas)
         }
-        
-        
         dismissViewControllerAnimated(true, completion: nil)
         
     }

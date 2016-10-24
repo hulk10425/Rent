@@ -51,7 +51,7 @@ class UserMessagesViewController: UIViewController{
                     self.myTableView.reloadData()
                 })
                 
-
+                
             }
         }
         
@@ -72,7 +72,7 @@ extension UserMessagesViewController: UITableViewDataSource{
     //表格的列數
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-     
+        
         
         return messages.count
         
@@ -165,8 +165,7 @@ extension UserMessagesViewController: UITableViewDelegate{
         tableView.deselectRowAtIndexPath(
             indexPath, animated: false)
         let cell = myTableView.cellForRowAtIndexPath(indexPath)
-        
-        
+        //push後隱藏tabbar 
         self.hidesBottomBarWhenPushed = true
         self.performSegueWithIdentifier("toChatView", sender: cell)
         self.hidesBottomBarWhenPushed = false

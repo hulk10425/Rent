@@ -23,10 +23,7 @@ class RentDayLimit: UITableViewCell, UITextFieldDelegate {
         rentDayLabel.text = "最短\n租期"
         rentDayField.delegate = self
         rentDayButton.addTarget(self, action: #selector(selectClicked(_:)), forControlEvents: .TouchDown)
-//        let img = UIImage(named: "arrows")
-//        
-//        self.rentDayField.rightView = UIImageView(image: img)
-//        self.rentDayField.rightViewMode = UITextFieldViewMode.Always
+
     }
     func selectClicked(sender: UIButton){
         
@@ -34,11 +31,10 @@ class RentDayLimit: UITableViewCell, UITextFieldDelegate {
             , initialSelection: 0, doneBlock: {
                 picker, value, index in
                 self.rentDayField.text = String(index)
-                //                print("values = \(values)")
+            
                 self.myUserDefaluts.setObject("\(index)", forKey: "rentDayLimit")
                 
                 print("index = \(self.rentDayField.text)")
-                //                print("picker = \(picker)")
                 return
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender.superview)
         

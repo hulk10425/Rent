@@ -41,7 +41,8 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
     var cellRentMoney = RentMoneyCell()
     let cellNote = NoteCell()
     var imageData: NSData!
-    
+    var asset: [AnyObject] = []
+
     var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
     
@@ -107,7 +108,6 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
     }
     //    var env64string: String!
     var imageArray = [AnyObject]()
-    var asset: [AnyObject] = []
     
     //多選本地圖片
     func pickImage(sender: UIButton){
@@ -118,7 +118,6 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
             for ass in assets{
                 ass.fetchOriginalImageWithCompleteBlock({ (image, info) in
                     self.imageData = UIImageJPEGRepresentation(image!, 0)
-                    
                     
                     self.asset.append(image!)
                     

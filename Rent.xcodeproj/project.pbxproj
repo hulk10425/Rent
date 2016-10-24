@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8F743E2664A730E77AB4ECAE /* Pods_Rent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21611ADF2FAA184B217C6873 /* Pods_Rent.framework */; };
+		991571821DBE116E00B41808 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571811DBE116E00B41808 /* SettingTableViewController.swift */; };
 		99567F541DBA14E2000054D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99567F531DBA14E2000054D5 /* GoogleService-Info.plist */; };
 		998500A91DBA0CB8003D33DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500A81DBA0CB8003D33DF /* AppDelegate.swift */; };
 		998500B01DBA0CB8003D33DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998500AF1DBA0CB8003D33DF /* Assets.xcassets */; };
@@ -22,14 +23,12 @@
 		998500CA1DBA0EF9003D33DF /* DepositCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C51DBA0EF9003D33DF /* DepositCell.swift */; };
 		998500CB1DBA0EF9003D33DF /* FurnitureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C61DBA0EF9003D33DF /* FurnitureCell.swift */; };
 		998500D11DBA0F04003D33DF /* HousePictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500CC1DBA0F04003D33DF /* HousePictureCell.swift */; };
-		998500D21DBA0F04003D33DF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500CD1DBA0F04003D33DF /* Image.swift */; };
 		998500D41DBA0F04003D33DF /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500CF1DBA0F04003D33DF /* NoteCell.swift */; };
 		998500D51DBA0F04003D33DF /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D01DBA0F04003D33DF /* PersonCell.swift */; };
 		998500DB1DBA0F0D003D33DF /* PostDetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D61DBA0F0D003D33DF /* PostDetailData.swift */; };
 		998500DC1DBA0F0D003D33DF /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D71DBA0F0D003D33DF /* ProfileTableView.swift */; };
 		998500DD1DBA0F0D003D33DF /* QueryDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */; };
 		998500DE1DBA0F0D003D33DF /* RegionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500D91DBA0F0D003D33DF /* RegionCell.swift */; };
-		998500DF1DBA0F0D003D33DF /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500DA1DBA0F0D003D33DF /* RegisterController.swift */; };
 		998500E51DBA0F17003D33DF /* RentDayLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500E01DBA0F17003D33DF /* RentDayLimit.swift */; };
 		998500E61DBA0F17003D33DF /* RentMoneyAdditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */; };
 		998500E71DBA0F17003D33DF /* RentMoneyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500E21DBA0F17003D33DF /* RentMoneyCell.swift */; };
@@ -52,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		21611ADF2FAA184B217C6873 /* Pods_Rent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		991571811DBE116E00B41808 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		99567F531DBA14E2000054D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		998500A51DBA0CB8003D33DF /* Rent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		998500A81DBA0CB8003D33DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,14 +68,12 @@
 		998500C51DBA0EF9003D33DF /* DepositCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositCell.swift; sourceTree = "<group>"; };
 		998500C61DBA0EF9003D33DF /* FurnitureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FurnitureCell.swift; sourceTree = "<group>"; };
 		998500CC1DBA0F04003D33DF /* HousePictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HousePictureCell.swift; sourceTree = "<group>"; };
-		998500CD1DBA0F04003D33DF /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		998500CF1DBA0F04003D33DF /* NoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		998500D01DBA0F04003D33DF /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		998500D61DBA0F0D003D33DF /* PostDetailData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDetailData.swift; sourceTree = "<group>"; };
 		998500D71DBA0F0D003D33DF /* ProfileTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
 		998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryDataTableViewController.swift; sourceTree = "<group>"; };
 		998500D91DBA0F0D003D33DF /* RegionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCell.swift; sourceTree = "<group>"; };
-		998500DA1DBA0F0D003D33DF /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		998500E01DBA0F17003D33DF /* RentDayLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentDayLimit.swift; sourceTree = "<group>"; };
 		998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentMoneyAdditionCell.swift; sourceTree = "<group>"; };
 		998500E21DBA0F17003D33DF /* RentMoneyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RentMoneyCell.swift; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 				998500D61DBA0F0D003D33DF /* PostDetailData.swift */,
 				998500D71DBA0F0D003D33DF /* ProfileTableView.swift */,
 				998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */,
-				998500DA1DBA0F0D003D33DF /* RegisterController.swift */,
 				998500E01DBA0F17003D33DF /* RentDayLimit.swift */,
 				99A5C6081DBB285200F6F8E2 /* Model */,
 				998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */,
@@ -152,6 +149,7 @@
 				99FC55951DBDB1EA00B16C3C /* UserMessages */,
 				998501001DBA0F38003D33DF /* ViewController.swift */,
 				998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */,
+				991571811DBE116E00B41808 /* SettingTableViewController.swift */,
 			);
 			path = Rent;
 			sourceTree = "<group>";
@@ -159,7 +157,6 @@
 		99A5C6081DBB285200F6F8E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				998500CD1DBA0F04003D33DF /* Image.swift */,
 				998500C41DBA0EF9003D33DF /* DataService.swift */,
 				998500E31DBA0F17003D33DF /* Room.swift */,
 			);
@@ -407,8 +404,8 @@
 				998500E81DBA0F17003D33DF /* Room.swift in Sources */,
 				998500E91DBA0F17003D33DF /* SelectAdditionalCell.swift in Sources */,
 				998500D41DBA0F04003D33DF /* NoteCell.swift in Sources */,
+				991571821DBE116E00B41808 /* SettingTableViewController.swift in Sources */,
 				998500F21DBA0F21003D33DF /* SelectManViewController.swift in Sources */,
-				998500DF1DBA0F0D003D33DF /* RegisterController.swift in Sources */,
 				998500CB1DBA0EF9003D33DF /* FurnitureCell.swift in Sources */,
 				998500C01DBA0EEF003D33DF /* ChatViewController.swift in Sources */,
 				998500C91DBA0EF9003D33DF /* DataService.swift in Sources */,
@@ -422,7 +419,6 @@
 				998500D11DBA0F04003D33DF /* HousePictureCell.swift in Sources */,
 				998500CA1DBA0EF9003D33DF /* DepositCell.swift in Sources */,
 				998500FC1DBA0F2D003D33DF /* TypeCell.swift in Sources */,
-				998500D21DBA0F04003D33DF /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
