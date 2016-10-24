@@ -247,14 +247,40 @@ class DataService{
     
     }
     
-   
+   func fetchMyPostRoom(callback:(PostData)->()){
+    
+    let user = currentUser?.uid
+    
+    DataService.dataService.PEOPLE_REF.queryOrderedByKey().queryEqualToValue(user).observeEventType(.Value, withBlock:  { (snap) in
+        
+        let dictionary = snap.value as! Dictionary<String,AnyObject>
+        for (_, value) in dictionary {
+            let roomKeys = value["myPostRooms"] as! Dictionary<String,AnyObject>
+            for (key,_) in roomKeys{
+                
+                DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(key).observeEventType(.ChildAdded, withBlock: { (snappost) in
+                
+                let post = PostData(key: snappost.key, snapshot: snappost.value as! Dictionary<String, AnyObject>)
+
+            callback(post)
+                
+            })
+            
+            
+            }
+        }
+        
+        
+    })
+    
+    }
 
     
     
     
     func fetchPostData(callback:(PostData)->()){
     
-    DataService.dataService._POST_REF.queryLimitedToFirst(8).observeEventType(.ChildAdded, withBlock:  { (snapshot) in
+    DataService.dataService.POST_REF.observeEventType(.ChildAdded, withBlock:  { (snapshot) in
         let post = PostData(key: snapshot.key, snapshot: snapshot.value as! Dictionary<String, AnyObject>)
  
         callback(post)

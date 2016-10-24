@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8F743E2664A730E77AB4ECAE /* Pods_Rent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21611ADF2FAA184B217C6873 /* Pods_Rent.framework */; };
 		991571821DBE116E00B41808 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571811DBE116E00B41808 /* SettingTableViewController.swift */; };
+		991571841DBE54D200B41808 /* MyPostRoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */; };
+		991571881DBE568600B41808 /* MyPostRoomsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571871DBE568600B41808 /* MyPostRoomsCell.swift */; };
 		99567F541DBA14E2000054D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99567F531DBA14E2000054D5 /* GoogleService-Info.plist */; };
 		998500A91DBA0CB8003D33DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500A81DBA0CB8003D33DF /* AppDelegate.swift */; };
 		998500B01DBA0CB8003D33DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998500AF1DBA0CB8003D33DF /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 /* Begin PBXFileReference section */
 		21611ADF2FAA184B217C6873 /* Pods_Rent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		991571811DBE116E00B41808 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostRoomsTableViewController.swift; sourceTree = "<group>"; };
+		991571871DBE568600B41808 /* MyPostRoomsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostRoomsCell.swift; sourceTree = "<group>"; };
 		99567F531DBA14E2000054D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		998500A51DBA0CB8003D33DF /* Rent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		998500A81DBA0CB8003D33DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				998501001DBA0F38003D33DF /* ViewController.swift */,
 				998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */,
 				991571811DBE116E00B41808 /* SettingTableViewController.swift */,
+				991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */,
+				991571871DBE568600B41808 /* MyPostRoomsCell.swift */,
 			);
 			path = Rent;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				998500D41DBA0F04003D33DF /* NoteCell.swift in Sources */,
 				991571821DBE116E00B41808 /* SettingTableViewController.swift in Sources */,
 				998500F21DBA0F21003D33DF /* SelectManViewController.swift in Sources */,
+				991571841DBE54D200B41808 /* MyPostRoomsTableViewController.swift in Sources */,
 				998500CB1DBA0EF9003D33DF /* FurnitureCell.swift in Sources */,
 				998500C01DBA0EEF003D33DF /* ChatViewController.swift in Sources */,
 				998500C91DBA0EF9003D33DF /* DataService.swift in Sources */,
@@ -414,6 +421,7 @@
 				998500F11DBA0F21003D33DF /* SelectFurnitureViewController.swift in Sources */,
 				998500A91DBA0CB8003D33DF /* AppDelegate.swift in Sources */,
 				998500DE1DBA0F0D003D33DF /* RegionCell.swift in Sources */,
+				991571881DBE568600B41808 /* MyPostRoomsCell.swift in Sources */,
 				998500C81DBA0EF9003D33DF /* CustomHomePageButton.swift in Sources */,
 				998500F31DBA0F21003D33DF /* SelectViewController.swift in Sources */,
 				998500D11DBA0F04003D33DF /* HousePictureCell.swift in Sources */,

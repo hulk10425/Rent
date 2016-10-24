@@ -10,6 +10,9 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
     var settingArray = ["我的資料","我的刊登","設定"]
+    
+    @IBOutlet var myTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,15 +21,15 @@ class SettingTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+      
     }
 
-    // MARK: - Table view data source
+ 
 
 
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    
         return settingArray.count
     }
     override func tableView(tableView: UITableView,
@@ -40,6 +43,28 @@ class SettingTableViewController: UITableViewController {
             cell.textLabel?.text = settingArray[indexPath.row]
             return cell
     }
+    override func tableView(tableView: UITableView,
+                            didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // 取消 cell 的選取狀態
+        tableView.deselectRowAtIndexPath(
+            indexPath, animated: true)
+           let cell = myTableView.cellForRowAtIndexPath(indexPath)
+        
+        switch indexPath.item {
+        case 0: return
+          
+        case 1:
+        self.performSegueWithIdentifier("toMyPostRooms", sender: cell)
+        default :
+           return
+        }
+
+        
+        
+        
+  
+    }
+    
 
 
   
