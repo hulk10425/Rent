@@ -20,7 +20,6 @@
 		998500C01DBA0EEF003D33DF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500BD1DBA0EEF003D33DF /* ChatViewController.swift */; };
 		998500C11DBA0EEF003D33DF /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500BE1DBA0EEF003D33DF /* CreateAccountViewController.swift */; };
 		998500C71DBA0EF9003D33DF /* CustomHomePage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 998500C21DBA0EF9003D33DF /* CustomHomePage.xib */; };
-		998500C81DBA0EF9003D33DF /* CustomHomePageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C31DBA0EF9003D33DF /* CustomHomePageButton.swift */; };
 		998500C91DBA0EF9003D33DF /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C41DBA0EF9003D33DF /* DataService.swift */; };
 		998500CA1DBA0EF9003D33DF /* DepositCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C51DBA0EF9003D33DF /* DepositCell.swift */; };
 		998500CB1DBA0EF9003D33DF /* FurnitureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500C61DBA0EF9003D33DF /* FurnitureCell.swift */; };
@@ -48,7 +47,6 @@
 		998500FD1DBA0F2D003D33DF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500F81DBA0F2D003D33DF /* UIColor.swift */; };
 		998501011DBA0F38003D33DF /* UserMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500FE1DBA0F38003D33DF /* UserMessageCell.swift */; };
 		998501021DBA0F38003D33DF /* UserMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */; };
-		998501031DBA0F38003D33DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998501001DBA0F38003D33DF /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,7 +65,6 @@
 		998500BD1DBA0EEF003D33DF /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		998500BE1DBA0EEF003D33DF /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		998500C21DBA0EF9003D33DF /* CustomHomePage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHomePage.xib; sourceTree = "<group>"; };
-		998500C31DBA0EF9003D33DF /* CustomHomePageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHomePageButton.swift; sourceTree = "<group>"; };
 		998500C41DBA0EF9003D33DF /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		998500C51DBA0EF9003D33DF /* DepositCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositCell.swift; sourceTree = "<group>"; };
 		998500C61DBA0EF9003D33DF /* FurnitureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FurnitureCell.swift; sourceTree = "<group>"; };
@@ -95,7 +92,6 @@
 		998500F81DBA0F2D003D33DF /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		998500FE1DBA0F38003D33DF /* UserMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessageCell.swift; sourceTree = "<group>"; };
 		998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessagesViewController.swift; sourceTree = "<group>"; };
-		998501001DBA0F38003D33DF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BC450CCF36E7ECB4B562571C /* Pods-Rent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rent.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rent/Pods-Rent.release.xcconfig"; sourceTree = "<group>"; };
 		BF365ED45E87DDC33BBFFBA4 /* Pods-Rent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rent.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rent/Pods-Rent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,7 +135,6 @@
 				99AEA3B81DBA18DF008129D0 /* Chat */,
 				99FC55961DBDB20900B16C3C /* Login */,
 				998500C21DBA0EF9003D33DF /* CustomHomePage.xib */,
-				998500C31DBA0EF9003D33DF /* CustomHomePageButton.swift */,
 				998500D61DBA0F0D003D33DF /* PostDetailData.swift */,
 				998500D71DBA0F0D003D33DF /* ProfileTableView.swift */,
 				998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */,
@@ -151,7 +146,6 @@
 				99A5C6091DBB286B00F6F8E2 /* ShowPostData */,
 				998500F81DBA0F2D003D33DF /* UIColor.swift */,
 				99FC55951DBDB1EA00B16C3C /* UserMessages */,
-				998501001DBA0F38003D33DF /* ViewController.swift */,
 				998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */,
 				991571811DBE116E00B41808 /* SettingTableViewController.swift */,
 				991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */,
@@ -417,12 +411,10 @@
 				998500C01DBA0EEF003D33DF /* ChatViewController.swift in Sources */,
 				998500C91DBA0EF9003D33DF /* DataService.swift in Sources */,
 				998500FA1DBA0F2D003D33DF /* ShowPostDataCell.swift in Sources */,
-				998501031DBA0F38003D33DF /* ViewController.swift in Sources */,
 				998500F11DBA0F21003D33DF /* SelectFurnitureViewController.swift in Sources */,
 				998500A91DBA0CB8003D33DF /* AppDelegate.swift in Sources */,
 				998500DE1DBA0F0D003D33DF /* RegionCell.swift in Sources */,
 				991571881DBE568600B41808 /* MyPostRoomsCell.swift in Sources */,
-				998500C81DBA0EF9003D33DF /* CustomHomePageButton.swift in Sources */,
 				998500F31DBA0F21003D33DF /* SelectViewController.swift in Sources */,
 				998500D11DBA0F04003D33DF /* HousePictureCell.swift in Sources */,
 				998500CA1DBA0EF9003D33DF /* DepositCell.swift in Sources */,

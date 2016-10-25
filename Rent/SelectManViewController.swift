@@ -53,7 +53,9 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
         
         myTableView.estimatedRowHeight = 120
         myTableView.rowHeight = UITableViewAutomaticDimension
-
+        furnitureArray = []
+        additionalArray = []
+        
       }
     
 
@@ -143,6 +145,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
     
     
     func addToFirebase(sender: AnyObject){
+      
         
         guard let notes = myUserDefaluts.objectForKey("noteTextView") as?String else{fatalError()}
        
@@ -362,14 +365,14 @@ var additionalArray = [AnyObject]()
 extension SelectManViewController: SecondVCDelegate{
     
     func passFurniture(value:String){
-        furnitureArray = []
+       
         furnitureArray.append(value)
         cellFurniture.furnitureLabel.text = "\(furnitureArray)"
-        
+   
     }
     
     func passAddtiionalCost(value:String){
-        additionalArray = []
+
         additionalArray.append(value)
         cellAdditional.selectAdditionalCostLabel.text = "\(additionalArray)"
         
