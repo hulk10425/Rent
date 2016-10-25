@@ -23,7 +23,8 @@ class SelectAdditionalCostViewController: UIViewController {
         
         myTableView.allowsMultipleSelection = true
         saveAdditionalButton.addTarget(self, action: #selector(save(_:)), forControlEvents: .TouchUpInside)
-
+        
+ 
     }
     
    
@@ -33,18 +34,21 @@ class SelectAdditionalCostViewController: UIViewController {
     func save(sender: UIButton){
      
         if let selectedItems = myTableView.indexPathsForSelectedRows {
-         
+            selectedIndexs = []
             for indexPath in selectedItems {
-              
-                selectedIndexs.append(indexPath.row)
+              selectedIndexs.append(indexPath.row)
                 
             }
                             
         }
        for index in selectedIndexs {
+      
              delegate?.passAddtiionalCost(additionalCostArray[index])
+       
         }
         dismissViewControllerAnimated(true, completion: nil)
+       
+       
     }
     
     

@@ -68,6 +68,27 @@ class MyPostRoomsTableViewController: UITableViewController {
 
         return cell
     }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        guard let user = DataService.dataService.currentUser?.uid else{fatalError()}
+//        
+//        DataService.dataService.PEOPLE_REF.queryOrderedByKey().queryEqualToValue(user).observeEventType(.Value, withBlock:  { (snap) in
+//            
+//            let dictionary = snap.value as! Dictionary<String,AnyObject>
+//            for (_, value) in dictionary {
+//                let roomKeys = value["myPostRooms"] as! Dictionary<String,AnyObject>
+//                for (key,_) in roomKeys{
+//                    
+//                    DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(key).observeEventType(.Value, withBlock: { (snappost) in
+//                     print(snappost.value)
+//                    })
+//                }
+//            }
+//        })
+//        
+//    }
+    
+    
     
    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
     {
@@ -76,8 +97,13 @@ class MyPostRoomsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
+        
         if editingStyle == .Delete
         {
+          
+
+            
+            
            postDatas.removeAtIndex(indexPath.row)
             self.tableView.reloadData()
         }

@@ -362,14 +362,14 @@ var additionalArray = [AnyObject]()
 extension SelectManViewController: SecondVCDelegate{
     
     func passFurniture(value:String){
-        print(value)
+        furnitureArray = []
         furnitureArray.append(value)
         cellFurniture.furnitureLabel.text = "\(furnitureArray)"
         
     }
     
     func passAddtiionalCost(value:String){
-        
+        additionalArray = []
         additionalArray.append(value)
         cellAdditional.selectAdditionalCostLabel.text = "\(additionalArray)"
         

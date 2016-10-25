@@ -21,7 +21,7 @@ class SelectFurnitureViewController: UIViewController {
     weak var delegate: SecondVCDelegate?
 
     var array = [AnyObject]()
-    
+    var selectedIndexs = [Int]()
     @IBOutlet weak var saveFurniture: UIButton!
  
 
@@ -37,7 +37,7 @@ class SelectFurnitureViewController: UIViewController {
         
     }
         func save(sender: UIButton){
-            var selectedIndexs = [Int]()
+            
             if let selectedItems = myTableView.indexPathsForSelectedRows {
                 for indexPath in selectedItems {
                     selectedIndexs.append(indexPath.row)
@@ -49,6 +49,8 @@ class SelectFurnitureViewController: UIViewController {
                 delegate?.passFurniture(furnitureArray[index])
             }
             dismissViewControllerAnimated(true, completion: nil)
+            
+            
         }
     
 
