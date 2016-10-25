@@ -40,13 +40,13 @@ class SelectViewController: UIViewController, QueryDelegate {
         }
         actionSheetController.addAction(cancleActionButton)
         
-        let profileAction = UIAlertAction(title: "Profile", style: .Default) { (action) in
-            print("change to Profile")
-            let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfile") as! ProfileTableView
-            self.navigationController?.pushViewController(profileVC, animated: true)
-        }
-        actionSheetController.addAction(profileAction)
-        
+//        let profileAction = UIAlertAction(title: "Profile", style: .Default) { (action) in
+//            print("change to Profile")
+//            let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfile") as! ProfileTableView
+//            self.navigationController?.pushViewController(profileVC, animated: true)
+//        }
+//        actionSheetController.addAction(profileAction)
+//        
         
         let logoutAction = UIAlertAction(title: "Log Out", style: .Default) { (action) in
             print("lout out")

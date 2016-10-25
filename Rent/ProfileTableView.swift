@@ -25,7 +25,7 @@ class ProfileTableView: UITableViewController, UINavigationControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "PROFILE"
+        self.title = "個人資料"
         let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileTableView.selectPhoto(_:)))
         
         tap.numberOfTapsRequired = 1

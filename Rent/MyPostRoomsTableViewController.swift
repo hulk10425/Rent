@@ -18,6 +18,8 @@ class MyPostRoomsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "我的刊登"
         DataService.dataService.fetchMyPostRoom { (snap) in
           self.postDatas.append(snap)
             
@@ -50,7 +52,10 @@ class MyPostRoomsTableViewController: UITableViewController {
         
     }
 
-  
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+    }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = myTableView.dequeueReusableCellWithIdentifier("cellMyPostRoom", forIndexPath: indexPath) as? MyPostRoomsCell else{fatalError()}
 
@@ -62,5 +67,19 @@ class MyPostRoomsTableViewController: UITableViewController {
         })
 
         return cell
+    }
+    
+   override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
+    {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete
+        {
+           postDatas.removeAtIndex(indexPath.row)
+            self.tableView.reloadData()
+        }
     }
 }
