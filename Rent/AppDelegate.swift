@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
-import Firebase
+import FirebaseMessaging
+
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
 import Fabric
 import Crashlytics
+import Firebase
 
 
 @UIApplicationMain
@@ -28,6 +30,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         Fabric.with([Crashlytics.self])
+        
+        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
+        let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
+        application.registerForRemoteNotifications()
+        application.registerUserNotificationSettings(notificationSettings)
+        
+        
 
         return true
     }
@@ -46,7 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        }
     }
 
-    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        
+        print("MseeageID: \(userInfo["gcm_message_id"]!)")
+        
+        print(userInfo)
+    }
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -11,7 +11,6 @@
 		991571821DBE116E00B41808 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571811DBE116E00B41808 /* SettingTableViewController.swift */; };
 		991571841DBE54D200B41808 /* MyPostRoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */; };
 		991571881DBE568600B41808 /* MyPostRoomsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571871DBE568600B41808 /* MyPostRoomsCell.swift */; };
-		99567F541DBA14E2000054D5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99567F531DBA14E2000054D5 /* GoogleService-Info.plist */; };
 		998500A91DBA0CB8003D33DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500A81DBA0CB8003D33DF /* AppDelegate.swift */; };
 		998500B01DBA0CB8003D33DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998500AF1DBA0CB8003D33DF /* Assets.xcassets */; };
 		998500B31DBA0CB8003D33DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */; };
@@ -47,6 +46,7 @@
 		998500FD1DBA0F2D003D33DF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500F81DBA0F2D003D33DF /* UIColor.swift */; };
 		998501011DBA0F38003D33DF /* UserMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500FE1DBA0F38003D33DF /* UserMessageCell.swift */; };
 		998501021DBA0F38003D33DF /* UserMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */; };
+		99FE2B211DC0AD0F00BFF741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99FE2B201DC0AD0F00BFF741 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +54,6 @@
 		991571811DBE116E00B41808 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostRoomsTableViewController.swift; sourceTree = "<group>"; };
 		991571871DBE568600B41808 /* MyPostRoomsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostRoomsCell.swift; sourceTree = "<group>"; };
-		99567F531DBA14E2000054D5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		998500A51DBA0CB8003D33DF /* Rent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		998500A81DBA0CB8003D33DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		998500AF1DBA0CB8003D33DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		998500F81DBA0F2D003D33DF /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		998500FE1DBA0F38003D33DF /* UserMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessageCell.swift; sourceTree = "<group>"; };
 		998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessagesViewController.swift; sourceTree = "<group>"; };
+		99FE2B201DC0AD0F00BFF741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC450CCF36E7ECB4B562571C /* Pods-Rent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rent.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rent/Pods-Rent.release.xcconfig"; sourceTree = "<group>"; };
 		BF365ED45E87DDC33BBFFBA4 /* Pods-Rent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rent.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rent/Pods-Rent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -206,7 +206,7 @@
 			children = (
 				998500A81DBA0CB8003D33DF /* AppDelegate.swift */,
 				998500AF1DBA0CB8003D33DF /* Assets.xcassets */,
-				99567F531DBA14E2000054D5 /* GoogleService-Info.plist */,
+				99FE2B201DC0AD0F00BFF741 /* GoogleService-Info.plist */,
 				998500B41DBA0CB8003D33DF /* Info.plist */,
 			);
 			name = SupportFile;
@@ -282,7 +282,12 @@
 				TargetAttributes = {
 					998500A41DBA0CB8003D33DF = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ANVJ832C4F;
+						DevelopmentTeam = 99GW8MY9FX;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -310,11 +315,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				998500C71DBA0EF9003D33DF /* CustomHomePage.xib in Resources */,
-				99567F541DBA14E2000054D5 /* GoogleService-Info.plist in Resources */,
 				998500BB1DBA0EE4003D33DF /* Main.storyboard in Resources */,
 				998500F91DBA0F2D003D33DF /* ShowPostData.xib in Resources */,
 				998500B31DBA0CB8003D33DF /* LaunchScreen.storyboard in Resources */,
 				998500B01DBA0CB8003D33DF /* Assets.xcassets in Resources */,
+				99FE2B211DC0AD0F00BFF741 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +459,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhi-Hong Lin (8582M8Q5D8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -476,6 +482,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -526,11 +533,11 @@
 			baseConfigurationReference = BF365ED45E87DDC33BBFFBA4 /* Pods-Rent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhi-Hong Lin (8582M8Q5D8)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.john.Rent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnrent.Rent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -545,7 +552,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.john.Rent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnrent.Rent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

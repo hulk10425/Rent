@@ -9,6 +9,8 @@ target 'Rent' do
     pod 'Firebase/Auth'
     pod 'Firebase/Core'
     pod 'Firebase/Storage'
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging' 
     pod 'NVActivityIndicatorView', '= 2.3' 
     pod 'SDCycleScrollView','~> 1.64'
     pod 'ActionSheetPicker-3.0'

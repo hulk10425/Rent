@@ -22,7 +22,7 @@ extension RentMoneyCell: UITextFieldDelegate{
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         rentMoneyTextField.adjustsFontSizeToFitWidth=true  //当文字超出文本框宽度时，自动调整文字大小
        rentMoneyTextField.minimumFontSize = 14  //最小可缩小的字号
-        rentMoneyTextField.keyboardType = .Default
+        rentMoneyTextField.keyboardType = .NumberPad
         
         
         

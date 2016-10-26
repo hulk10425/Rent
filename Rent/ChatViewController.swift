@@ -103,7 +103,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
     }
        
     
-    @IBOutlet weak var constraintToBottom: NSLayoutConstraint!
+  
     
     
     @IBOutlet weak var constaint: NSLayoutConstraint!

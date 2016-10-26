@@ -41,18 +41,16 @@ class MyPostRoomsTableViewController: UITableViewController {
                 
                 hud.hideAnimated(true)
             })
-            
         }
-        
-        //        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
-        //            print(snap.key)
-        //            print(self.postDictionary)
-        //            self.postDictionary.removeValueForKey(snap.key)
-        //
-        //            self.myTableView.reloadData()
-        //
-        //        })
-        //
+//        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
+//            print(snap.key)
+//            //                    print(snap.value)
+//            
+//            self.postDictionary.removeValueForKey(snap.key)
+//            
+//              self.myTableView.reloadData()
+//            
+//        })
         
         
     }
@@ -109,7 +107,7 @@ class MyPostRoomsTableViewController: UITableViewController {
             if let chatPartnerId = post.id{
                 DataService.dataService.PEOPLE_REF.child(currentuser).child("myPostRooms").child(chatPartnerId).removeValueWithCompletionBlock({ (error, ref) in
                     
-                    self.userDictionary.removeValueForKey(chatPartnerId)
+//                    self.userDictionary.removeValueForKey(chatPartnerId)
                     
                     
                     DataService.dataService.POST_REF.child(chatPartnerId).removeValueWithCompletionBlock({ (error, ref) in
@@ -119,8 +117,8 @@ class MyPostRoomsTableViewController: UITableViewController {
                             return
                         }
                         
-//                        self.postDictionary.removeValueForKey(chatPartnerId)
-                        self.myTableView.reloadData()
+                        self.postDictionary.removeValueForKey(chatPartnerId)
+                       self.myTableView.reloadData()
                     })
                     
                 })
@@ -128,5 +126,7 @@ class MyPostRoomsTableViewController: UITableViewController {
             }
             
         }
+        
     }
+    
 }
