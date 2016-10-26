@@ -11,7 +11,7 @@ import ActionSheetPicker_3_0
 
 class RegionCell: UITableViewCell, UITextFieldDelegate, UIActionSheetDelegate {
     @IBOutlet weak var regionField: UITextField!
-    var cityArray = ["台北市","新北市"]
+    var cityArray = ["台北市"]
     var regionArray = ["中正區","大同區","中山區","松山區","大安區","萬華區","信義區","士林區","北投區","內湖區","南港區","文山區"]
   
     @IBOutlet weak var regionButton: UIButton!
@@ -29,26 +29,17 @@ class RegionCell: UITableViewCell, UITextFieldDelegate, UIActionSheetDelegate {
     }
     
     func selectClicked(sender: UIButton){
-//        
-//        let acp = ActionSheetLocalePicker(title: "區域選擇",  initialSelection:NSTimeZone(), doneBlock: {
-//                picker,index in
-//                self.regionField.text = String(index)
-//                //                print("values = \(values)")
-//                //                print("indexes = \(indexes)")
-//                //                print("picker = \(picker)")
-//                return
-//            }, cancelBlock: { ActionStrinMultipleCancelBlock in return }, origin: sender.superview)
-//        
-//        
-//        acp.showActionSheetPicker()
         
-        
-        let acp = ActionSheetMultipleStringPicker(title: "區域選擇", rows: [cityArray,["Many", "Many more", "Infinite"]], initialSelection: [2, 2], doneBlock:  {
-            picker,index, values in
+        let acp = ActionSheetMultipleStringPicker(title: "區域選擇", rows: [cityArray,regionArray], initialSelection: [1, 1], doneBlock:  {
+           picker, values, index in
             
+        
+    
+
             
             self.regionField.text = String(values)
-                            print("values = \(values)")
+            
+            print("values = \(index)")
             //                print("indexes = \(indexes)")
                             print("picker = \(picker)")
             return

@@ -32,8 +32,9 @@ class TypeCell: UITableViewCell, UITextFieldDelegate {
                 picker, value, index in
                 self.typeField.text = String(index)
     FIRAnalytics.setUserPropertyString(self.typeField.text, forName: "housetype")
-//                print("values = \(values)")
+                print("values = \(value)")
                 print("indexes = \(index)")
+                    print(index)
 //                print("picker = \(picker)")
                 return
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender.superview)

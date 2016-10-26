@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAnalytics
+import FirebaseAuth
 import DKImagePickerController
 import SDCycleScrollView
 import MBProgressHUD
@@ -109,8 +110,8 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
         self.presentViewController(additionalCost, animated: true, completion: nil)
     }
     //    var env64string: String!
-    var imageArray = [AnyObject]()
-    
+    var imageArray = [NSData]()
+  
     //多選本地圖片
     func pickImage(sender: UIButton){
         
@@ -120,6 +121,9 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
             for ass in assets{
                 ass.fetchOriginalImageWithCompleteBlock({ (image, info) in
                     self.imageData = UIImageJPEGRepresentation(image!, 0)
+                    self.imageArray.append(self.imageData)
+                    
+                    
                     
                     self.asset.append(image!)
                     

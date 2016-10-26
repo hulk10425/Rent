@@ -121,7 +121,7 @@ class DataService{
                 return
             }
             
-            print(metaData)
+           
             let newFileUrl = metaData!.downloadURLs![0].absoluteString
             if let user = FIRAuth.auth()?.currentUser{
             let idRoom = self.POST_REF.childByAutoId()
@@ -250,29 +250,31 @@ class DataService{
    func fetchMyPostRoom(callback:(PostData)->()){
     
     let user = currentUser?.uid
-    
+  
     DataService.dataService.PEOPLE_REF.queryOrderedByKey().queryEqualToValue(user).observeEventType(.Value, withBlock:  { (snap) in
         
-        let dictionary = snap.value as! Dictionary<String,AnyObject>
+        guard let dictionary = snap.value as? Dictionary<String,AnyObject> else{return}
+        
         for (_, value) in dictionary {
-            let roomKeys = value["myPostRooms"] as! Dictionary<String,AnyObject>
+            guard  let roomKeys = value["myPostRooms"] as? Dictionary<String,AnyObject> else{return}
             for (key,_) in roomKeys{
                 
                 DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(key).observeEventType(.ChildAdded, withBlock: { (snappost) in
                 
                 let post = PostData(key: snappost.key, snapshot: snappost.value as! Dictionary<String, AnyObject>)
-
+                    
+                 
+                    
+                    
+                    
+                    
             callback(post)
-                
             })
-            
-            
             }
         }
         
         
     })
-    
     }
 
     
@@ -319,7 +321,7 @@ class DataService{
         DataService.dataService.PARTICIPANTS_REF.queryOrderedByChild(currentUser).queryEqualToValue(true).observeEventType(.Value, withBlock:{ (snapshot) in
                 
                 guard let dictionary = snapshot.value as? Dictionary<String,AnyObject> else { return }
-                
+                print(dictionary)
                 let keys = Array(dictionary.keys)
                 for roomId in keys{
                     

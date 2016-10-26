@@ -30,9 +30,7 @@ class PersonCell: UITableViewCell, UITextFieldDelegate {
                 picker, value, index in
                 self.personField.text = String(index)
             self.myUserDefaluts.setObject("\(index)", forKey: "person")
-                //                print("values = \(values)")
-                //                print("indexes = \(indexes)")
-                //                print("picker = \(picker)")
+            
                 return
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender.superview)
         

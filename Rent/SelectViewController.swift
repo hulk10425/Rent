@@ -65,7 +65,7 @@ class SelectViewController: UIViewController, QueryDelegate {
     
     var cellPostData = ShowPostDataCell()
     var postDatas = [PostData]()
-    
+    var postDictionary = [String:PostData]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,7 +77,14 @@ class SelectViewController: UIViewController, QueryDelegate {
         let nib = UINib(nibName: "ShowPostData", bundle: nil)
         myTableView.registerNib(nib, forCellReuseIdentifier: "cellPostData")
         
-        
+        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
+            print(snap.key)
+            print(self.postDictionary)
+            self.postDictionary.removeValueForKey(snap.key)
+            self.myTableView.reloadData()
+            
+            
+        })
         
         
         //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 )){
@@ -113,8 +120,12 @@ class SelectViewController: UIViewController, QueryDelegate {
                         self.myTableView.reloadData()
         
                         hud.hideAnimated(true)
+                
                     })
-                }
+            }
+       
+        
+        
         
         
         
@@ -255,7 +266,15 @@ extension SelectViewController:  UITableViewDataSource{
             "cellPostData",forIndexPath: indexPath) as? ShowPostDataCell else{
                 fatalError()
         }
+  
+        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
+            print(snap.key)
+            print(self.postDictionary)
+            self.postDictionary.removeValueForKey(snap.key)
+            self.myTableView.reloadData()
+        })
         
+
         
         let post = postDatas[indexPath.row]
         
