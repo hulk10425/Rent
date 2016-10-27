@@ -43,7 +43,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
     var cellRentMoney = RentMoneyCell()
     let cellNote = NoteCell()
     var imageData: NSData!
-    var asset: [AnyObject] = []
+  
 
     var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     
@@ -59,10 +59,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
         additionalArray = []
         
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(selectPhoto(_:)))
-        
-        tap.numberOfTapsRequired = 1
-        cellPicture.houseMultipleImage.addGestureRecognizer(tap)
+       
       }
     
 
@@ -152,7 +149,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
         
     }
     
-    func selectPhoto(tap: UITapGestureRecognizer){
+    func selectPhoto(sender:UIButton){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
@@ -165,13 +162,13 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        profileImage.image = image
+       cellPicture.houseImage.image = image
         dismissViewControllerAnimated(true, completion: nil)
     }
     
 
     func addToFirebase(sender: AnyObject){
-      
+      imageData =  UIImageJPEGRepresentation(cellPicture.houseImage.image!, 1.0)
         
         guard let notes = myUserDefaluts.objectForKey("noteTextView") as?String else{fatalError()}
        
@@ -269,10 +266,7 @@ extension SelectManViewController:  UITableViewDataSource{
         case 0:
             guard let cell = myTableView.dequeueReusableCellWithIdentifier("cellHousePicture",forIndexPath: indexPath) as? HousePictureCell else{fatalError()}
             cellPicture = cell
-            dispatch_async(dispatch_get_main_queue(), {
-                cell.houseImagePicker.addTarget(self, action: #selector(self.pickImage(_:)), forControlEvents: .TouchUpInside)
-                
-            })
+            cell.houseImageButton.addTarget(self, action: #selector(selectPhoto(_:)), forControlEvents: .TouchUpInside)
             
             
             result = cell

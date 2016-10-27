@@ -14,9 +14,9 @@ import Firebase
 class HousePictureCell: UITableViewCell {
 
     
-    
-    @IBOutlet weak var houseMultipleImage: UIImageView!
-    @IBOutlet weak var houseImagePicker: UIButton!
+    @IBOutlet weak var houseImageButton: UIButton!
+
+    @IBOutlet weak var houseImage: UIImageView!
     
    override func awakeFromNib() {
     
