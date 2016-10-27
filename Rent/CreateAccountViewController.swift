@@ -297,7 +297,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         }
         
         
-        
+       
+
         
         var data = NSData()
         data = UIImageJPEGRepresentation(profileImageView.image!, 0.1)!

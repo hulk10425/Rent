@@ -135,6 +135,7 @@ class DataService{
     
     //register email password
     func SignUp(username: String, email: String, password: String, data: NSData){
+        
         FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: {(user, error) in
             if let error = error{
                 print(error.localizedDescription)
@@ -171,7 +172,7 @@ class DataService{
                     }else{
                         print("profileupdate")
                     }
-                    self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": email, "profileImage": self.storageRef.child((metadata?.path)!).description])
+self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": email, "profileImage": self.storageRef.child((metadata?.path)!).description])
                     
                     
                 })

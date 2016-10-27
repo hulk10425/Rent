@@ -56,6 +56,7 @@ class UserMessagesViewController: UIViewController{
         }
         
         
+      
         
         
     }
@@ -87,6 +88,10 @@ extension UserMessagesViewController: UITableViewDataSource{
         //
         let message = messages[indexPath.row].message
         let meseeageRoom = messages[indexPath.row].roomId
+        
+        
+        
+
         
         let cell =  self.myTableView.dequeueReusableCellWithIdentifier("cellMessage", forIndexPath: indexPath) as! UserMessageCell
         self.cellUserMessageCell = cell
@@ -128,9 +133,15 @@ extension UserMessagesViewController: UITableViewDataSource{
         cell.userMessageTimeLabel.text = dateFormatter.stringFromDate(timestampDate)
         cell.userMessageLabel.text = message
         
+        let localNotification = UILocalNotification()
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 1)
+        localNotification.alertBody = cell.userMessageLabel.text
+        localNotification.timeZone = NSTimeZone.defaultTimeZone()
+        localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
         
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
-        
+
         return cellUserMessageCell
         
         

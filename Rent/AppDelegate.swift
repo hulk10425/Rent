@@ -9,13 +9,14 @@
 import UIKit
 import CoreData
 import FirebaseMessaging
-
+import FirebaseInstanceID
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FBSDKShareKit
 import Fabric
 import Crashlytics
 import Firebase
+
 
 
 @UIApplicationMain
@@ -25,25 +26,114 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        registerForPushNotifications(application)
         FIRApp.configure()
+    
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
        
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         Fabric.with([Crashlytics.self])
-        
-        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
-        let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
-        application.registerForRemoteNotifications()
-        application.registerUserNotificationSettings(notificationSettings)
-        
-        
+//        
+//        let notificationTypes: UIUserNotificationType = [.Alert, .Badge, .Sound]
+//        let notificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
+//        application.registerForRemoteNotifications()
+//        application.registerUserNotificationSettings(notificationSettings)
+//       
+        NSNotificationCenter
+            .defaultCenter()
+            .addObserver(self, selector: #selector(AppDelegate.tokenRefreshNotificaiton),
+                         name: kFIRInstanceIDTokenRefreshNotification, object: nil)
 
+        
         return true
     }
+   
+//    func registerForPushNotifications(application: UIApplication) {
+//        let notificationSettings = UIUserNotificationSettings(
+//            forTypes: [.Badge, .Sound, .Alert], categories: nil)
+//        application.registerUserNotificationSettings(notificationSettings)
+//    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != .None {
+            application.registerForRemoteNotifications()
+        }
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for i in 0..<deviceToken.length {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        
+        //Tricky line
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Unknown)
+        print("Device Token:", tokenString)
+    }
+    func registerForPushNotifications(application: UIApplication) {
+        let settings: UIUserNotificationSettings =
+            UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+        application.registerForRemoteNotifications()
+    }
+    
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject],
+                     fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        print("===== didReceiveRemoteNotification ===== %@", userInfo)
+    }
+    
+    
+    func tokenRefreshNotificaiton(notification: NSNotification) {
+        let refreshedToken = FIRInstanceID.instanceID().token()!
+        print("InstanceID token: \(refreshedToken)")
+        
+        // Connect to FCM since connection may have failed when attempted before having a token.
+        connectToFcm()
+    }
+    
+    func connectToFcm() {
+        FIRMessaging.messaging().connectWithCompletion { (error) in
+            if (error != nil) {
+                print("Unable to connect with FCM. \(error)")
+            } else {
+                print("Connected to FCM.")
+            }
+        }
+    }
+//    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+//        if notificationSettings.types != .None {
+//            application.registerForRemoteNotifications()
+//        }
+//    }
+//    
+//    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+//        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+//        var tokenString = ""
+//        
+//        for i in 0..<deviceToken.length {
+//            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+//        }
+//        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: .Sandbox)
+//        //Tricky line
+//        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.Unknown)
+//        print("Device Token:", tokenString)
+//    }
+  
+//    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+//        #if DEBUG
+//            FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: .Sandbox)
+//        #else
+//            FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: .Prod)
+//        #endif
+//    }
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
-    //換頁到TabController
+    
+          //換頁到TabController
     func login() {
         //          if FIRAuth.auth()?.currentUser != nil{
         // switch root view controllers
@@ -54,36 +144,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //presentViewController的view只會被覆蓋而不會被destory
         //        }
     }
-
-    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        
-        print("MseeageID: \(userInfo["gcm_message_id"]!)")
-        
-        print(userInfo)
-    }
     
-    func applicationWillResignActive(application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    }
 
-    func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
+//    
+//       func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+//        
+//        print("MseeageID: \(userInfo["gcm_message_id"]!)")
+//        
+//   
+//        print(userInfo)
+//    }
 
-    func applicationWillEnterForeground(application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
+   
 }
 

@@ -76,7 +76,7 @@ class SelectViewController: UIViewController, QueryDelegate {
         addEvent.addTarget(self, action: #selector(SelectViewController.toSelectManPage(_:)), forControlEvents: .TouchUpInside )
         let nib = UINib(nibName: "ShowPostData", bundle: nil)
         myTableView.registerNib(nib, forCellReuseIdentifier: "cellPostData")
-        
+      
 //        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
 //            print(snap.key)
 //            print(self.postDictionary)

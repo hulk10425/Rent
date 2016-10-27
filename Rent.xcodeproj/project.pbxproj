@@ -47,6 +47,7 @@
 		998501011DBA0F38003D33DF /* UserMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500FE1DBA0F38003D33DF /* UserMessageCell.swift */; };
 		998501021DBA0F38003D33DF /* UserMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */; };
 		99FE2B211DC0AD0F00BFF741 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99FE2B201DC0AD0F00BFF741 /* GoogleService-Info.plist */; };
+		99FE2B231DC1ADD300BFF741 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FE2B221DC1ADD300BFF741 /* MainTabbarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		998500FE1DBA0F38003D33DF /* UserMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessageCell.swift; sourceTree = "<group>"; };
 		998500FF1DBA0F38003D33DF /* UserMessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMessagesViewController.swift; sourceTree = "<group>"; };
 		99FE2B201DC0AD0F00BFF741 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99FE2B221DC1ADD300BFF741 /* MainTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		BC450CCF36E7ECB4B562571C /* Pods-Rent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rent.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rent/Pods-Rent.release.xcconfig"; sourceTree = "<group>"; };
 		BF365ED45E87DDC33BBFFBA4 /* Pods-Rent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rent.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rent/Pods-Rent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				991571811DBE116E00B41808 /* SettingTableViewController.swift */,
 				991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */,
 				991571871DBE568600B41808 /* MyPostRoomsCell.swift */,
+				99FE2B221DC1ADD300BFF741 /* MainTabbarController.swift */,
 			);
 			path = Rent;
 			sourceTree = "<group>";
@@ -284,6 +287,9 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 99GW8MY9FX;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -391,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FE2B231DC1ADD300BFF741 /* MainTabbarController.swift in Sources */,
 				998500F01DBA0F21003D33DF /* SelectFurnitureCell.swift in Sources */,
 				998500D51DBA0F04003D33DF /* PersonCell.swift in Sources */,
 				998501011DBA0F38003D33DF /* UserMessageCell.swift in Sources */,

@@ -15,7 +15,7 @@ class MyPostRoomsTableViewController: UITableViewController {
     @IBOutlet var myTableView: UITableView!
     var postDatas = [PostData]()
   
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,17 +43,11 @@ class MyPostRoomsTableViewController: UITableViewController {
                 hud.hideAnimated(true)
             })
         }
-      
-//        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
-//            print(snap.key)
-//            //                    print(snap.value)
-//            
-//            self.postDictionary.removeValueForKey(snap.key)
-//            
-//              self.myTableView.reloadData()
-//            
+//     DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock: { (snappost) in
+//        self.postDictionary.removeValueForKey(snappost.key)
+//        self.myTableView.reloadData()
 //        })
-        
+//        
         
     }
     
@@ -88,7 +82,9 @@ class MyPostRoomsTableViewController: UITableViewController {
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-    }
+        tableView.deselectRowAtIndexPath(
+            indexPath, animated: false)
+ }
     
     
     
@@ -101,10 +97,9 @@ class MyPostRoomsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         
-        let post = postDatas[indexPath.row]
+      let  post = postDatas[indexPath.row]
   
-   
-        
+      
         if editingStyle == .Delete
         {
             guard let currentuser = DataService.dataService.currentUser?.uid else{fatalError()}
