@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 import ActionSheetPicker_3_0
 
 class PersonCell: UITableViewCell, UITextFieldDelegate {
@@ -30,6 +31,8 @@ class PersonCell: UITableViewCell, UITextFieldDelegate {
                 picker, value, index in
                 self.personField.text = String(index)
             self.myUserDefaluts.setObject("\(index)", forKey: "person")
+            
+               FIRAnalytics.logEventWithName("press_person", parameters: ["person_value": self.personField.text! ])
             
                 return
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender.superview)

@@ -138,7 +138,6 @@
 				998500D61DBA0F0D003D33DF /* PostDetailData.swift */,
 				998500D71DBA0F0D003D33DF /* ProfileTableView.swift */,
 				998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */,
-				998500E01DBA0F17003D33DF /* RentDayLimit.swift */,
 				99A5C6081DBB285200F6F8E2 /* Model */,
 				998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */,
 				998500EC1DBA0F21003D33DF /* SelectFurnitureViewController.swift */,
@@ -188,6 +187,7 @@
 				998500E11DBA0F17003D33DF /* RentMoneyAdditionCell.swift */,
 				998500E21DBA0F17003D33DF /* RentMoneyCell.swift */,
 				998500F71DBA0F2D003D33DF /* TypeCell.swift */,
+				998500E01DBA0F17003D33DF /* RentDayLimit.swift */,
 			);
 			name = PostCell;
 			sourceTree = "<group>";

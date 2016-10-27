@@ -15,7 +15,7 @@ import MBProgressHUD
 
 
 
-class SelectManViewController: UIViewController, UITextViewDelegate{
+class SelectManViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     var customVC: SelectFurnitureViewController!
     let pickerController = DKImagePickerController()
     var keyHeight = CGFloat()
@@ -24,7 +24,8 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
     var result = UITableViewCell()
     
     @IBAction func backButton(sender: AnyObject) {
-  
+        FIRAnalytics.logEventWithName("press_back", parameters: nil)
+
        self.navigationController?.popViewControllerAnimated(true)
    
     }
@@ -57,6 +58,11 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
         furnitureArray = []
         additionalArray = []
         
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(selectPhoto(_:)))
+        
+        tap.numberOfTapsRequired = 1
+        cellPicture.houseMultipleImage.addGestureRecognizer(tap)
       }
     
 
@@ -115,39 +121,55 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
     //多選本地圖片
     func pickImage(sender: UIButton){
         
-        pickerController.didSelectAssets = { (assets: [DKAsset]) in
-            
-            
-            for ass in assets{
-                ass.fetchOriginalImageWithCompleteBlock({ (image, info) in
-                    self.imageData = UIImageJPEGRepresentation(image!, 0)
-                    self.imageArray.append(self.imageData)
-                    
-                    
-                    
-                    self.asset.append(image!)
-                    
-                    let cycleView = SDCycleScrollView.init(frame: CGRectMake(150, 0, 200, 100), shouldInfiniteLoop: true, imageNamesGroup:  self.asset)
-                    
-                    cycleView.autoScrollTimeInterval = 3.0
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.myTableView.addSubview(cycleView)
-                    })
-                    
-                    
-                    
-                })
-                
-            }
-            
-            
-        }
-        self.presentViewController(pickerController, animated: true) {}
+//        pickerController.didSelectAssets = { (assets: [DKAsset]) in
+//            
+//            
+//            for ass in assets{
+//                ass.fetchOriginalImageWithCompleteBlock({ (image, info) in
+//                    self.imageData = UIImageJPEGRepresentation(image!, 0)
+//                    self.imageArray.append(self.imageData)
+//                    
+//                    
+//                    
+//                    self.asset.append(image!)
+//                    
+//                    let cycleView = SDCycleScrollView.init(frame: CGRectMake(150, 0, 200, 100), shouldInfiniteLoop: true, imageNamesGroup:  self.asset)
+//                    
+//                    cycleView.autoScrollTimeInterval = 3.0
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        self.myTableView.addSubview(cycleView)
+//                    })
+//                    
+//                    
+//                    
+//                })
+//                
+//            }
+//            
+//            
+//        }
+//        self.presentViewController(pickerController, animated: true) {}
         
     }
     
+    func selectPhoto(tap: UITapGestureRecognizer){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        if UIImagePickerController.isSourceTypeAvailable(.Camera){
+            imagePicker.sourceType = .Camera
+        }else{
+            imagePicker.sourceType = .PhotoLibrary
+        }
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        profileImage.image = image
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
+
     func addToFirebase(sender: AnyObject){
       
         
@@ -162,15 +184,18 @@ class SelectManViewController: UIViewController, UITextViewDelegate{
             title = cellTitle.titleTextField.text,
             rentMoney = cellRentMoney.rentMoneyTextField.text,
             additionalCost = cellAdditional.selectAdditionalCostLabel.text else{ return}
-        FIRAnalytics.logEventWithName("postData", parameters: [
-            "rentDay": rentDay,
-            "person": person,
-            "furniture": furniture,
-            "type":  type,
-            "deposit": deposit,
-            "rentMoney": rentMoney,
-            "additionalCost":additionalCost
-            ])
+        
+        
+        FIRAnalytics.logEventWithName("press_add", parameters: nil)
+//        FIRAnalytics.logEventWithName("postData", parameters: [
+//            "rentDay": rentDay,
+//            "person": person,
+//            "furniture": furniture,
+//            "type":  type,
+//            "deposit": deposit,
+//            "rentMoney": rentMoney,
+//            "additionalCost":additionalCost
+//            ])
          if imageData != nil{
             DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: notes )
             

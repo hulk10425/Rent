@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
-    var settingArray = ["我的資料","我的刊登","設定"]
+    var settingArray = ["我的資料","我的刊登"]
     
     @IBOutlet var myTableView: UITableView!
     
@@ -54,20 +54,13 @@ class SettingTableViewController: UITableViewController {
         switch indexPath.item {
         case 0:
             self.hidesBottomBarWhenPushed = true
-            
-            
-            
             self.performSegueWithIdentifier("toProfile", sender: cell)
             self.hidesBottomBarWhenPushed = false
-        case 1:
-            self.hidesBottomBarWhenPushed = true
-            
-            
-            
-            self.performSegueWithIdentifier("toMyPostRooms", sender: cell)
-            self.hidesBottomBarWhenPushed = false
         default :
-            return
+            self.hidesBottomBarWhenPushed = true
+             self.performSegueWithIdentifier("toMyPostRooms", sender: cell)
+            self.hidesBottomBarWhenPushed = false
+    
         }
         
         

@@ -14,12 +14,13 @@ class MyPostRoomsTableViewController: UITableViewController {
     
     @IBOutlet var myTableView: UITableView!
     var postDatas = [PostData]()
-    var postDictionary = [String: PostData]()
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "我的刊登"
+
         //        DataService.dataService.POST_REF.queryOrderedByKey().observeEventType(.ChildRemoved, withBlock: { (snappost) in
         //            print(snappost.value)
         //            print(snappost.key)
@@ -42,6 +43,7 @@ class MyPostRoomsTableViewController: UITableViewController {
                 hud.hideAnimated(true)
             })
         }
+      
 //        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
 //            print(snap.key)
 //            //                    print(snap.value)
@@ -63,7 +65,7 @@ class MyPostRoomsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+       
         return  postDatas.count
         
     }
@@ -94,11 +96,14 @@ class MyPostRoomsTableViewController: UITableViewController {
     {
         return true
     }
-    var userDictionary = [String:User]()
+    var postDictionary = [String:PostData]()
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         
         let post = postDatas[indexPath.row]
+  
+   
         
         if editingStyle == .Delete
         {
@@ -107,25 +112,20 @@ class MyPostRoomsTableViewController: UITableViewController {
             if let chatPartnerId = post.id{
                 DataService.dataService.PEOPLE_REF.child(currentuser).child("myPostRooms").child(chatPartnerId).removeValueWithCompletionBlock({ (error, ref) in
                     
-//                    self.userDictionary.removeValueForKey(chatPartnerId)
-                    
-                    
                     DataService.dataService.POST_REF.child(chatPartnerId).removeValueWithCompletionBlock({ (error, ref) in
                         
                         if error != nil {
                             print("Failed to delete message:", error)
                             return
                         }
-                        
-                        self.postDictionary.removeValueForKey(chatPartnerId)
-                       self.myTableView.reloadData()
+            self.postDictionary.removeValueForKey(chatPartnerId)
+                self.myTableView.reloadData()
                     })
                     
                 })
                 
             }
-            
-        }
+           }
         
     }
     

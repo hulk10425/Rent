@@ -77,15 +77,15 @@ class SelectViewController: UIViewController, QueryDelegate {
         let nib = UINib(nibName: "ShowPostData", bundle: nil)
         myTableView.registerNib(nib, forCellReuseIdentifier: "cellPostData")
         
-        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
-            print(snap.key)
-            print(self.postDictionary)
-            self.postDictionary.removeValueForKey(snap.key)
-            self.myTableView.reloadData()
-            
-            
-        })
-        
+//        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
+//            print(snap.key)
+//            print(self.postDictionary)
+//            self.postDictionary.removeValueForKey(snap.key)
+//            self.myTableView.reloadData()
+//            
+//            
+//        })
+//        
         
         //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 )){
         

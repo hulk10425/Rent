@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAnalytics
 import ActionSheetPicker_3_0
 
 class RentDayLimit: UITableViewCell, UITextFieldDelegate {
@@ -33,8 +34,9 @@ class RentDayLimit: UITableViewCell, UITextFieldDelegate {
                 self.rentDayField.text = String(index)
             
                 self.myUserDefaluts.setObject("\(index)", forKey: "rentDayLimit")
+               
+                   FIRAnalytics.logEventWithName("press_rentDayLimit", parameters: ["rentDayLimit_value": self.rentDayField.text!])
                 
-                print("index = \(self.rentDayField.text)")
                 return
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender.superview)
         

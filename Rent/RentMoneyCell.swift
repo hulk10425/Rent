@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FirebaseAnalytics
 class RentMoneyCell: UITableViewCell {
     @IBOutlet weak var rentMoneyTextField: UITextField!
     
@@ -34,7 +34,7 @@ extension RentMoneyCell: UITextFieldDelegate{
         //收起键盘
         textField.resignFirstResponder()
         rentMoneyTextField.text = textField.text
-      
+        FIRAnalytics.logEventWithName("rentMoney_rentDayLimit", parameters: ["rentMoney_value": textField.text! ])
         return true;
     }
     

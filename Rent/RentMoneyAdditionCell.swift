@@ -20,6 +20,9 @@ class RentMoneyAdditionCell: UITableViewCell {
         
          rentMoneyAdditionLabel.numberOfLines = 0
          rentMoneyAdditionLabel.text = "租金\n包含"
+        
+        
+        
     }
     
 }

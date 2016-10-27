@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseAnalytics
 import ActionSheetPicker_3_0
 
 class TypeCell: UITableViewCell, UITextFieldDelegate {
@@ -19,10 +19,7 @@ class TypeCell: UITableViewCell, UITextFieldDelegate {
   
     typeField.delegate = self
    typeButton.addTarget(self, action: #selector(selectClicked(_:)), forControlEvents: .TouchDown)
-//        let img = UIImage(named: "arrows")
-//        
-//        self.typeField.rightView = UIImageView(image: img)
-//        self.typeField.rightViewMode = UITextFieldViewMode.Always
+
     
     }
     func selectClicked(sender: UIButton){
@@ -31,11 +28,12 @@ class TypeCell: UITableViewCell, UITextFieldDelegate {
 , initialSelection: 0, doneBlock: {
                 picker, value, index in
                 self.typeField.text = String(index)
-    FIRAnalytics.setUserPropertyString(self.typeField.text, forName: "housetype")
+   
                 print("values = \(value)")
                 print("indexes = \(index)")
                     print(index)
 //                print("picker = \(picker)")
+      FIRAnalytics.logEventWithName("press_type", parameters: ["type_value": self.typeField.text!])
                 return
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender.superview)
         

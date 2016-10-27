@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MaB-IW-l26">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X5H-ne-soD">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -30,25 +30,97 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QzQ-oP-gBW">
-                                                    <rect key="frame" x="20" y="0.0" width="100" height="160"/>
+                                                    <rect key="frame" x="20" y="15" width="80" height="130.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1di-9Q-hXj">
-                                                            <rect key="frame" x="28" y="58" width="44" height="44"/>
+                                                            <rect key="frame" x="18" y="43" width="44" height="44"/>
                                                             <state key="normal" image="icon_photo"/>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="1di-9Q-hXj" firstAttribute="centerX" secondItem="QzQ-oP-gBW" secondAttribute="centerX" id="bzO-ah-Gra"/>
-                                                        <constraint firstAttribute="width" constant="100" id="f1t-Us-4yG"/>
-                                                        <constraint firstItem="1di-9Q-hXj" firstAttribute="centerY" secondItem="QzQ-oP-gBW" secondAttribute="centerY" id="yA0-tE-C0k"/>
+                                                        <constraint firstAttribute="width" constant="80" id="SyH-MI-PE1"/>
+                                                        <constraint firstItem="1di-9Q-hXj" firstAttribute="centerY" secondItem="QzQ-oP-gBW" secondAttribute="centerY" id="bCE-TQ-e3l"/>
+                                                        <constraint firstItem="1di-9Q-hXj" firstAttribute="centerX" secondItem="QzQ-oP-gBW" secondAttribute="centerX" id="jlb-m4-A0h"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjj-uV-9XD">
+                                                    <rect key="frame" x="400" y="15" width="80" height="131"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZ6-AK-rug">
+                                                            <rect key="frame" x="18" y="44" width="44" height="44"/>
+                                                            <state key="normal" image="icon_photo"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="iZ6-AK-rug" firstAttribute="centerX" secondItem="yjj-uV-9XD" secondAttribute="centerX" id="0Hc-nf-3Iu"/>
+                                                        <constraint firstAttribute="width" constant="80" id="S00-4t-WBf"/>
+                                                        <constraint firstItem="iZ6-AK-rug" firstAttribute="centerY" secondItem="yjj-uV-9XD" secondAttribute="centerY" id="Vkl-pH-1Ph"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpe-pO-l63">
+                                                    <rect key="frame" x="500" y="15" width="80" height="131"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxd-dx-h7h">
+                                                            <rect key="frame" x="18" y="43.5" width="44" height="44"/>
+                                                            <state key="normal" image="icon_photo"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Oxd-dx-h7h" firstAttribute="centerY" secondItem="cpe-pO-l63" secondAttribute="centerY" id="5Om-UH-VSU"/>
+                                                        <constraint firstItem="Oxd-dx-h7h" firstAttribute="centerX" secondItem="cpe-pO-l63" secondAttribute="centerX" id="5TA-cl-q9q"/>
+                                                        <constraint firstAttribute="width" constant="80" id="hjB-cl-dh3"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2f8-WP-Av2">
+                                                    <rect key="frame" x="120" y="15" width="80" height="131"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="354-Nb-Own">
+                                                            <rect key="frame" x="18" y="43.5" width="44" height="44"/>
+                                                            <state key="normal" image="icon_photo"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="354-Nb-Own" firstAttribute="centerX" secondItem="2f8-WP-Av2" secondAttribute="centerX" id="LfP-D7-G3P"/>
+                                                        <constraint firstItem="354-Nb-Own" firstAttribute="centerY" secondItem="2f8-WP-Av2" secondAttribute="centerY" id="Pbj-pL-Tgm"/>
+                                                        <constraint firstAttribute="width" constant="80" id="g3Z-bG-Xyi"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kkh-Jw-b3b">
+                                                    <rect key="frame" x="260" y="15" width="80" height="131"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhy-MF-ixE">
+                                                            <rect key="frame" x="18" y="43.5" width="44" height="44"/>
+                                                            <state key="normal" image="icon_photo"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="mhy-MF-ixE" firstAttribute="centerY" secondItem="Kkh-Jw-b3b" secondAttribute="centerY" id="9Ho-ZD-WuL"/>
+                                                        <constraint firstAttribute="width" constant="80" id="E8B-8G-LGW"/>
+                                                        <constraint firstItem="mhy-MF-ixE" firstAttribute="centerX" secondItem="Kkh-Jw-b3b" secondAttribute="centerX" id="FQU-1e-Fhw"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QzQ-oP-gBW" firstAttribute="leading" secondItem="dNv-HQ-Jv1" secondAttribute="leading" constant="20" id="XVu-Hs-KyG"/>
-                                                <constraint firstAttribute="bottom" secondItem="QzQ-oP-gBW" secondAttribute="bottom" id="b9V-gc-kyc"/>
-                                                <constraint firstItem="QzQ-oP-gBW" firstAttribute="top" secondItem="dNv-HQ-Jv1" secondAttribute="top" id="maq-nv-XvY"/>
+                                                <constraint firstAttribute="bottom" secondItem="2f8-WP-Av2" secondAttribute="bottom" constant="15" id="00T-P5-ibm"/>
+                                                <constraint firstAttribute="bottom" secondItem="QzQ-oP-gBW" secondAttribute="bottom" constant="15" id="9wJ-B7-1Yc"/>
+                                                <constraint firstItem="2f8-WP-Av2" firstAttribute="leading" secondItem="QzQ-oP-gBW" secondAttribute="trailing" constant="20" id="B66-l0-4rm"/>
+                                                <constraint firstItem="Kkh-Jw-b3b" firstAttribute="top" secondItem="dNv-HQ-Jv1" secondAttribute="top" constant="15" id="BtS-DZ-rVn"/>
+                                                <constraint firstItem="QzQ-oP-gBW" firstAttribute="top" secondItem="dNv-HQ-Jv1" secondAttribute="top" constant="15" id="Gry-ky-VdY"/>
+                                                <constraint firstItem="2f8-WP-Av2" firstAttribute="top" secondItem="dNv-HQ-Jv1" secondAttribute="top" constant="15" id="NOu-gR-a0E"/>
+                                                <constraint firstItem="cpe-pO-l63" firstAttribute="top" secondItem="dNv-HQ-Jv1" secondAttribute="top" constant="15" id="NfD-fb-Smq"/>
+                                                <constraint firstAttribute="bottom" secondItem="Kkh-Jw-b3b" secondAttribute="bottom" constant="15" id="SZv-sj-8nt"/>
+                                                <constraint firstItem="QzQ-oP-gBW" firstAttribute="leading" secondItem="dNv-HQ-Jv1" secondAttribute="leading" constant="20" id="bGE-X5-Ph6"/>
+                                                <constraint firstItem="cpe-pO-l63" firstAttribute="leading" secondItem="yjj-uV-9XD" secondAttribute="trailing" constant="20" id="ck5-ta-j72"/>
+                                                <constraint firstAttribute="trailing" secondItem="cpe-pO-l63" secondAttribute="trailing" constant="20" id="coQ-3n-MVe"/>
+                                                <constraint firstAttribute="bottom" secondItem="yjj-uV-9XD" secondAttribute="bottom" constant="15" id="ggm-5Q-UZo"/>
+                                                <constraint firstItem="Kkh-Jw-b3b" firstAttribute="centerX" secondItem="dNv-HQ-Jv1" secondAttribute="centerX" id="ggt-K5-uwj"/>
+                                                <constraint firstAttribute="bottom" secondItem="cpe-pO-l63" secondAttribute="bottom" constant="15" id="hCP-5K-rz8"/>
+                                                <constraint firstItem="yjj-uV-9XD" firstAttribute="top" secondItem="dNv-HQ-Jv1" secondAttribute="top" constant="15" id="la1-gi-d4n"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -513,7 +585,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2271" y="-544"/>
+            <point key="canvasLocation" x="2053" y="-500"/>
         </scene>
         <!--Select Furniture View Controller-->
         <scene sceneID="0Zt-kF-KPG">
