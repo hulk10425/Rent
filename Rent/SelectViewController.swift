@@ -122,9 +122,19 @@ class SelectViewController: UIViewController, QueryDelegate {
                         hud.hideAnimated(true)
                 
                     })
+                    
+//                    DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
+//                        print(snap.key)
+//                        print(self.postDictionary)
+//                        self.postDictionary.removeValueForKey(snap.key)
+//                                    self.myTableView.reloadData()
+//                    })
+//                    
+//
+                   
             }
        
-        
+       
         
         
         
@@ -251,7 +261,7 @@ extension SelectViewController:  UITableViewDataSource{
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+      
         return self.postDatas.count
     }
     //設定表格只有一個區段
@@ -267,14 +277,7 @@ extension SelectViewController:  UITableViewDataSource{
                 fatalError()
         }
   
-        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
-            print(snap.key)
-            print(self.postDictionary)
-            self.postDictionary.removeValueForKey(snap.key)
-            self.myTableView.reloadData()
-        })
-        
-
+       
         
         let post = postDatas[indexPath.row]
         

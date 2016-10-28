@@ -43,7 +43,7 @@ class MyPostRoomsTableViewController: UITableViewController {
                 hud.hideAnimated(true)
             })
         }
-//     DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock: { (snappost) in
+//     DataService.dataService.POST_REF.observeSingleEventOfType(.ChildRemoved, withBlock: { (snappost) in
 //        self.postDictionary.removeValueForKey(snappost.key)
 //        self.myTableView.reloadData()
 //        })
@@ -113,15 +113,18 @@ class MyPostRoomsTableViewController: UITableViewController {
                             print("Failed to delete message:", error)
                             return
                         }
-            self.postDictionary.removeValueForKey(chatPartnerId)
-                self.myTableView.reloadData()
-                    })
+                        self.postDatas.removeAtIndex(indexPath.row)
+                        self.myTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//                        self.myTableView.reloadData()
+
+//                self.postDictionary.removeValueForKey(chatPartnerId)
+//                self.myTableView.reloadData()
+                })
                     
                 })
                 
             }
            }
-        
     }
     
 }

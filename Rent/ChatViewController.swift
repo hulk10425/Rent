@@ -26,7 +26,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
     var roomId: String!
     var messages: [FIRDataSnapshot] = []
     
-  
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var messageTextField: UITextField!
@@ -39,11 +39,11 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.title = roomTitle
         messageTextField.delegate = self
         DataService.dataService.POST_REF.child(roomId).observeSingleEventOfType(.Value, withBlock: {(snapshot)in
-            // print(snapshot.key)
+            
             
             
             DataService.dataService.MESSAGE_REF.observeEventType(.ChildAdded, withBlock: {(snap)in
-               
+                
                 let dictionary = snap.value as! Dictionary<String,AnyObject>
                 print(dictionary)
                 if snapshot.key ==  dictionary["roomId"] as! String {
@@ -52,13 +52,12 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
                         self.tableView.reloadData()
                     })
                     
-                  
+                    
                 }
                 
             })
             
         })
-        
         
         //
         //        DataService.dataService.fetechMessage(roomId) { (snap) in
@@ -95,15 +94,15 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChatViewController.showOrHideKeyboard(_:)), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ChatViewController.showOrHideKeyboard(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
-   override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-    NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
-      NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-    
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        
     }
-       
     
-  
+    
+    
     
     
     @IBOutlet weak var constaint: NSLayoutConstraint!
@@ -137,7 +136,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-
+    
     func moveToLastMessage(){
         if self.tableView.contentSize.height > CGRectGetHeight(self.tableView.frame){
             let contentOfSet = CGPointMake(0, self.tableView.contentSize.height - CGRectGetHeight(self.tableView.frame))
@@ -151,21 +150,80 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         if messageTextField != "" {
             if let user = FIRAuth.auth()?.currentUser{
                 let currentDate: NSNumber = Int(NSDate().timeIntervalSince1970)
-                 DataService.dataService.CreateNewMessage(user.uid, roomId: roomId, textMessage: messageTextField.text!, date: currentDate)
+                DataService.dataService.CreateNewMessage(user.uid, roomId: roomId, textMessage: messageTextField.text!, date: currentDate)
+                
+                DataService.dataService.POST_REF.child(roomId).observeSingleEventOfType(.Value, withBlock: {(snapshot)in
+                    //            print(snapshot.key)
+                    DataService.dataService.PARTICIPANTS_REF.child(snapshot.key).observeEventType(.Value, withBlock: { (snappart) in
+                        let dictionary = snappart.value as! Dictionary<String,AnyObject>
+                        
+                        
+                        let keys = Array(dictionary.keys)
+                        for roomId in keys{
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            DataService.dataService.PEOPLE_REF.child(roomId).child("token").observeEventType(.Value, withBlock: { (snap) in
+                                
+                                
+                                let body = [ "to": snap.value!,
+                                    "priority" : "high",
+                                    "notification" : [ "title": "New Messages from Renter!",
+                                        "body" : self.messageTextField.text!,
+                                        "sound": "default",
+                                        "badge": 1
+                                    ]
+                                ]
+                                
+                                let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
+                                let mutableURLRequest = NSMutableURLRequest(URL: url!)
+                                let session = NSURLSession.sharedSession()
+                                do {
+                                    let jsonBody = try NSJSONSerialization.dataWithJSONObject(body, options: .PrettyPrinted)
+                                    mutableURLRequest.HTTPMethod = "POST"
+                                    mutableURLRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                                    mutableURLRequest.setValue("key=AIzaSyAg-yUNww4bEaOYSuuTlMlLn5BTjfwYrFk", forHTTPHeaderField: "Authorization")
+                                    mutableURLRequest.HTTPBody = jsonBody
+                                    let task = session.dataTaskWithRequest(mutableURLRequest) {
+                                        ( data , response, error ) in
+                                        let httpResponse = response as! NSHTTPURLResponse
+                                        let statusCode = httpResponse.statusCode
+                                        print("STATUS CODE: \(statusCode)")
+                                    }
+                                    
+                                    task.resume()
+                                    
+                                } catch {
+                                    
+                                    print(error)
+                                }
+                                
+                                self.messageTextField.text = nil
+                            })
+                            
+                            
+                        }
+                    })
+                })
+                
             }else{
                 print("no none sign in")
             }
-            self.messageTextField.text = nil
+            
             
         }else{
             
             print("error: Empty String")
         }
     }
- 
+    
     
 }
-
+var messageId: String!
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
     
     
@@ -177,8 +235,8 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
         
         let messageSnapshot = messages[indexPath.row]
         let message = messageSnapshot.value as! Dictionary<String, AnyObject>
-        let messageId = message["senderId"] as! String
-
+        messageId = message["senderId"] as! String
+        
         
         if  messageId  == DataService.dataService.currentUser?.uid {
             

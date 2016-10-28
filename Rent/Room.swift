@@ -18,7 +18,7 @@ class PostData{
     var rentDay: String!
     var furniture: String!
     var deposit: String!
-    var additionalCost: String
+    var additionalCost: String!
     
     var note: String!
     var title: String!
@@ -33,18 +33,18 @@ class PostData{
 
     init(key: String, snapshot:Dictionary<String,AnyObject>){
         self.id = key
-        self.type = snapshot["type"] as! String
-        self.title = snapshot["title"] as! String
-         self.person = snapshot["person"] as! String
-         self.rentMoney = snapshot["rentMoney"] as! Int
-         self.imageUrl = snapshot["image"] as! String
+        self.type = snapshot["type"] as? String
+        self.title = snapshot["title"] as? String
+         self.person = snapshot["person"] as? String
+         self.rentMoney = snapshot["rentMoney"] as? Int
+         self.imageUrl = snapshot["image"] as? String
         
-        self.user = snapshot["user"] as! String
-        self.rentDay = snapshot["rentDay"] as! String
-        self.furniture = snapshot["furniture"] as! String
-        self.deposit = snapshot["deposit"] as! String
-         self.additionalCost = snapshot["additionalCost"] as! String
-        self.note = snapshot["note"] as! String
+        self.user = snapshot["user"] as? String
+        self.rentDay = snapshot["rentDay"] as? String
+        self.furniture = snapshot["furniture"] as? String
+        self.deposit = snapshot["deposit"] as? String
+         self.additionalCost = snapshot["additionalCost"] as? String
+        self.note = snapshot["note"] as? String
 
         
     }

@@ -200,13 +200,16 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logInWithReadPermissions(["email","public_profile"], fromViewController: self) { (result, error) -> Void in
             
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.login()
+        
             if (error == nil){
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.login()
                 let fbloginresult : FBSDKLoginManagerLoginResult = result
                 if(fbloginresult.grantedPermissions.contains("email"))
                 {
+                   
                     self.getFBUserData()
+                    
                 }
             }
         }
@@ -228,9 +231,11 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                     print(error)
                     return
                 }
-                
-                let fbname = result["name"] as! String
-                let fbemail = result["email"] as! String
+                self.myUserDefaluts.setObject(result["name"], forKey: "FBname")
+                self.myUserDefaluts.setObject(result["email"], forKey: "FBemail")
+
+//                let fbname = result["name"] as! String
+//                let fbemail = result["email"] as! String
                 
                 guard
                     let picture = result["picture"] as? NSDictionary,
@@ -238,14 +243,19 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                     let modifiedUrlStr = picData["url"] as? String,
                     let url = NSURL(string: modifiedUrlStr),
                     let data = NSData(contentsOfURL: url) else{return}
-                let fbImage = data
+                let Image = data
+                self.myUserDefaluts.setObject(Image, forKey: "FBimage")
+
+                let fbname = self.myUserDefaluts.objectForKey("FBname")  as! String
+                let fbemail = self.myUserDefaluts.objectForKey("FBemail") as! String
+                let fbImage = self.myUserDefaluts.objectForKey("FBimage")  as! NSData
                 
                 DataService.dataService.saveFbData(fbemail, name: fbname, data: fbImage)
+                
+                
+
             }
-            
-            
-            
-        }
+                  }
         
         
     }
@@ -297,14 +307,15 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         }
         
         
-       
+        let refreshedToken = FIRInstanceID.instanceID().token()
+
 
         
         var data = NSData()
         data = UIImageJPEGRepresentation(profileImageView.image!, 0.1)!
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        DataService.dataService.SignUp(name, email: email, password: password, data: data)
+        DataService.dataService.SignUp(name, email: email, password: password, data: data, token: refreshedToken!)
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         
     }

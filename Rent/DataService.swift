@@ -134,7 +134,7 @@ class DataService{
     
     
     //register email password
-    func SignUp(username: String, email: String, password: String, data: NSData){
+    func SignUp(username: String, email: String, password: String, data: NSData, token: String){
         
         FIRAuth.auth()?.createUserWithEmail(email, password: password, completion: {(user, error) in
             if let error = error{
@@ -172,7 +172,7 @@ class DataService{
                     }else{
                         print("profileupdate")
                     }
-self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": email, "profileImage": self.storageRef.child((metadata?.path)!).description])
+self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": email, "profileImage": self.storageRef.child((metadata?.path)!).description, "token": token])
                     
                     
                 })
@@ -206,7 +206,7 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
                         print(error.localizedDescription)
                         return
                     }else{
-                        print("profileupdate")
+                        print("success login fb")
                     }
                     self.PEOPLE_REF.child((user?.uid)!).setValue(["username": name , "email": email, "profileImage": self.storageRef.child((metadata?.path)!).description])
                     
@@ -241,6 +241,7 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
             //successfully logged in our user
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.login()
+
             
             
         })
@@ -252,7 +253,7 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
         
         let user = currentUser?.uid
         
-        DataService.dataService.PEOPLE_REF.queryOrderedByKey().queryEqualToValue(user).observeEventType(.Value, withBlock:  { (snap) in
+        DataService.dataService.PEOPLE_REF.queryOrderedByKey().queryEqualToValue(user).observeSingleEventOfType(.Value, withBlock:  { (snap) in
             
             guard let dictionary = snap.value as? Dictionary<String,AnyObject> else{return}
             
@@ -260,17 +261,18 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
                 guard  let roomKeys = value["myPostRooms"] as? Dictionary<String,AnyObject> else{return}
                 for (key,_) in roomKeys{
                     
-                    DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(key).observeEventType(.ChildAdded, withBlock: { (snappost) in
+                    DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(key).observeSingleEventOfType(.ChildAdded, withBlock: { (snappost) in
                         
                         let post = PostData(key: snappost.key, snapshot: snappost.value as! Dictionary<String, AnyObject>)
                         callback(post)
+                       
                     })
                 }
             }
             
             
         })
-
+     
         
         
         
