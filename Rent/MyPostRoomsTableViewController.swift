@@ -15,6 +15,9 @@ class MyPostRoomsTableViewController: UITableViewController {
     @IBOutlet var myTableView: UITableView!
     var postDatas = [PostData]()
   
+    @IBAction func backSettingButton(sender: AnyObject) {
+          self.navigationController?.popViewControllerAnimated(true)
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

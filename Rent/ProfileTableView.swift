@@ -16,20 +16,23 @@ class ProfileTableView: UITableViewController, UINavigationControllerDelegate, U
 
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBAction func backSettingButton(sender: AnyObject) {
+          self.navigationController?.popViewControllerAnimated(true)
+    }
    
 
-    @IBOutlet weak var username: UITextField!
-    
-    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var username: UILabel!
 
+
+    @IBOutlet weak var email: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "個人資料"
-        let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileTableView.selectPhoto(_:)))
+        //let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileTableView.selectPhoto(_:)))
         
-        tap.numberOfTapsRequired = 1
-        profileImage.addGestureRecognizer(tap)
+       // tap.numberOfTapsRequired = 1
+       // profileImage.addGestureRecognizer(tap)
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 1
@@ -61,11 +64,18 @@ class ProfileTableView: UITableViewController, UINavigationControllerDelegate, U
         profileImage.image = image
         dismissViewControllerAnimated(true, completion: nil)
     }
-    @IBAction func saveDidTapped(sender: AnyObject) {
-        
-        var data = NSData()
-        data = UIImageJPEGRepresentation(profileImage.image!, 0.1)!
-        DataService.dataService.SaveProfile(username.text!, email: email.text! , data: data)
+//    @IBAction func saveDidTapped(sender: AnyObject) {
+//        
+//        var data = NSData()
+//        data = UIImageJPEGRepresentation(profileImage.image!, 0.1)!
+//        DataService.dataService.SaveProfile(username.text!, email: email.text! , data: data)
+//        
+//    }
+   override func tableView(tableView: UITableView,
+                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // 取消 cell 的選取狀態
+        tableView.deselectRowAtIndexPath(
+            indexPath, animated: false)
         
     }
     

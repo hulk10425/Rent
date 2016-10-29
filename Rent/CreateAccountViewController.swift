@@ -42,13 +42,13 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
-        view.addSubview(loginFbButton)
+       // view.addSubview(loginFbButton)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
-        setupFbLoginButton()
+      //  setupFbLoginButton()
         passwordTextField.delegate = self
         
     }
@@ -191,7 +191,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        print("canceled picker")
+        
         dismissViewControllerAnimated(true, completion: nil)
     }
     func handleFbLogin(){

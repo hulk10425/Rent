@@ -32,6 +32,8 @@ class SettingTableViewController: UITableViewController {
         
         return settingArray.count
     }
+    
+    var imageArray = ["profile","calendar-outline"]
     override func tableView(tableView: UITableView,
                             cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
@@ -40,7 +42,11 @@ class SettingTableViewController: UITableViewController {
                 tableView.dequeueReusableCellWithIdentifier(
                     "cellSetting", forIndexPath: indexPath) as
             UITableViewCell
+           
+            
             cell.textLabel?.textColor = UIColor.grayColor()
+           
+            cell.imageView?.image = UIImage(named:  imageArray[indexPath.row])
             cell.textLabel?.text = settingArray[indexPath.row]
             return cell
     }

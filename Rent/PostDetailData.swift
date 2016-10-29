@@ -38,6 +38,11 @@ class PostDetailData: UITableViewController{
 
     @IBOutlet weak var getNote: UILabel!
     
+    @IBAction func backHomePage(sender: AnyObject) {
+         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    
     var detailInfo: PostData!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +58,7 @@ class PostDetailData: UITableViewController{
         getTitle.text = detailInfo.title
         getRentMoney.text = String(detailInfo.rentMoney)
         getAdditionalCost.text = detailInfo.additionalCost
+        getRegion.text = detailInfo.region
         getDeposit.text = detailInfo.deposit
         getRentDay.text = detailInfo.rentDay
         getType.text = detailInfo.type

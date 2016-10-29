@@ -19,7 +19,7 @@ class PostData{
     var furniture: String!
     var deposit: String!
     var additionalCost: String!
-    
+    var region: String!
     var note: String!
     var title: String!
     var person: String!
@@ -38,7 +38,7 @@ class PostData{
          self.person = snapshot["person"] as? String
          self.rentMoney = snapshot["rentMoney"] as? Int
          self.imageUrl = snapshot["image"] as? String
-        
+        self.region = snapshot["region"] as? String
         self.user = snapshot["user"] as? String
         self.rentDay = snapshot["rentDay"] as? String
         self.furniture = snapshot["furniture"] as? String

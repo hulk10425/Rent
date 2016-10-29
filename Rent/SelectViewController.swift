@@ -13,12 +13,6 @@ import MBProgressHUD
 import MJRefresh
 
 
-//struct postStruct {
-//    let title: String!
-//    let person: String!
-//    let rentMoney: String!
-//    let image: String!
-//}
 
 
 
@@ -31,8 +25,7 @@ class SelectViewController: UIViewController, QueryDelegate {
     @IBOutlet weak var myTableView: UITableView!
     
     @IBAction func backButton(sender: AnyObject) {
-//        self.navigationController?.popViewControllerAnimated(true)
-//        
+     
         let actionSheetController = UIAlertController(title: "Please select", message: "Option to select", preferredStyle: .ActionSheet)
         
         let cancleActionButton = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
@@ -177,8 +170,10 @@ class SelectViewController: UIViewController, QueryDelegate {
         
     }
     func toSelectManPage(sender:UIButton){
+        self.hidesBottomBarWhenPushed = true
+
         performSegueWithIdentifier("toSelectManPage", sender:sender)
-        
+          self.hidesBottomBarWhenPushed = false
     }
     func toChatViewPage(sender:UIButton){
         self.hidesBottomBarWhenPushed = true
@@ -261,7 +256,7 @@ extension SelectViewController:  UITableViewDataSource{
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      
+
         return self.postDatas.count
     }
     //設定表格只有一個區段
@@ -310,9 +305,9 @@ extension SelectViewController:  UITableViewDelegate {
             indexPath, animated: false)
         
         let cell = myTableView.cellForRowAtIndexPath(indexPath)
-        
+         self.hidesBottomBarWhenPushed = true
         self.performSegueWithIdentifier("toPostDetailData", sender: cell)
-        
+         self.hidesBottomBarWhenPushed = false
     }
     
     

@@ -23,14 +23,15 @@ class MyPostRoomsCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-      
+        MyPostRoomImage.layer.cornerRadius = 8
+        MyPostRoomImage.clipsToBounds = true
     }
     
     
     func configureCell(post: PostData){
       
         self.MyPostRoomTitle.text = post.title
-      
+      self.MyPostRoomAddress.text = post.region
         
         
         

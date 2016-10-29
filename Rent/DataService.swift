@@ -110,7 +110,7 @@ class DataService{
         
     }
     
-    func CreatePostData(user: FIRUser, rentDay: String, person: String, furniture: String,type: String, deposit:String, title: String, rentMoney: Int, additionalCost: String, data: NSData, note: String){
+    func CreatePostData(user: FIRUser, rentDay: String, person: String, furniture: String,type: String, deposit:String, title: String, rentMoney: Int, additionalCost: String, data: NSData, note: String, region: String){
         let filePath = "\(user.uid)/\(Int(NSDate.timeIntervalSinceReferenceDate()))"
         
         let metaData = FIRStorageMetadata()
@@ -125,7 +125,7 @@ class DataService{
             let newFileUrl = metaData!.downloadURLs![0].absoluteString
             if let user = FIRAuth.auth()?.currentUser{
                 let idRoom = self.POST_REF.childByAutoId()
-                idRoom.setValue(["rentDay": rentDay, "person": person, "furniture": furniture, "type": type, "deposit": deposit, "title": title, "rentMoney": rentMoney, "additionalCost": additionalCost, "image": self.storageRef.child(metaData!.path!).description, "fuleUrl": newFileUrl, "user": user.uid, "note": note])
+                idRoom.setValue(["rentDay": rentDay, "person": person, "furniture": furniture, "type": type, "deposit": deposit, "title": title, "rentMoney": rentMoney, "additionalCost": additionalCost, "image": self.storageRef.child(metaData!.path!).description, "fuleUrl": newFileUrl, "user": user.uid, "note": note, "region": region])
                 self.PEOPLE_REF.child(user.uid).child("myPostRooms").child(idRoom.key).setValue(true)
             }
         }

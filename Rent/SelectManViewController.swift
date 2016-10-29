@@ -42,6 +42,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
     var cellTitle = TitleCell()
     var cellRentMoney = RentMoneyCell()
     let cellNote = NoteCell()
+    var cellRegion = RegionCell()
     var imageData: NSData!
   
 
@@ -179,22 +180,15 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
             type = cellType.typeField.text,
             deposit = cellDeposit.depositField.text,
             title = cellTitle.titleTextField.text,
+            region = cellRegion.regionField.text,
             rentMoney = cellRentMoney.rentMoneyTextField.text,
             additionalCost = cellAdditional.selectAdditionalCostLabel.text else{ return}
         
         
         FIRAnalytics.logEventWithName("press_add", parameters: nil)
-//        FIRAnalytics.logEventWithName("postData", parameters: [
-//            "rentDay": rentDay,
-//            "person": person,
-//            "furniture": furniture,
-//            "type":  type,
-//            "deposit": deposit,
-//            "rentMoney": rentMoney,
-//            "additionalCost":additionalCost
-//            ])
+
          if imageData != nil{
-            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: notes )
+            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: notes, region: region )
             
             self.navigationController?.popViewControllerAnimated(true)
             
@@ -242,7 +236,7 @@ extension SelectManViewController:  UITableViewDataSource{
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 100
+            return 300
         case 1...9:
             return 50
         default:
@@ -280,7 +274,7 @@ extension SelectManViewController:  UITableViewDataSource{
         case 2:
             guard let cell = myTableView.dequeueReusableCellWithIdentifier(
                 "cellRegion",forIndexPath: indexPath) as? RegionCell else{fatalError()}
-            
+            cellRegion = cell
             
             result = cell
         case 3:
