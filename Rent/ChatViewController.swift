@@ -27,7 +27,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
     var messages: [FIRDataSnapshot] = []
     
     
-  
+    
     @IBOutlet weak var chatView: UIView!
     
     @IBAction func backHomePage(sender: AnyObject) {
@@ -43,7 +43,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         
-       chatView.layer.borderWidth = 1.0
+        chatView.layer.borderWidth = 1.0
         chatView.layer.borderColor = UIColor.blackColor().CGColor
         
         self.navigationItem.title = roomTitle

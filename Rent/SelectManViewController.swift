@@ -171,7 +171,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
     func addToFirebase(sender: AnyObject){
       imageData =  UIImageJPEGRepresentation(cellPicture.houseImage.image!, 1.0)
         
-        guard let notes = myUserDefaluts.objectForKey("noteTextView") as?String else{fatalError()}
+        guard let notes = myUserDefaluts.objectForKey("noteTextView") as?String else{return}
        
         guard
             let rentDay = cellRentDay.rentDayField.text,
@@ -186,9 +186,10 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
         
         
         FIRAnalytics.logEventWithName("press_add", parameters: nil)
-
-         if imageData != nil{
-            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: Int(rentMoney)! , additionalCost: additionalCost, data: imageData, note: notes, region: region )
+        guard let rentMoneyValue = Int(rentMoney) else{return}
+        
+        if imageData != nil{
+            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: rentMoneyValue , additionalCost: additionalCost, data: imageData, note: notes, region: region )
             
             self.navigationController?.popViewControllerAnimated(true)
             

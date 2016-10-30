@@ -64,9 +64,10 @@ class SelectViewController: UIViewController, QueryDelegate {
         
         self.navigationItem.title = "找室友"
         
-        
-        
+        //跳轉到新增室有條件頁面
         addEvent.addTarget(self, action: #selector(SelectViewController.toSelectManPage(_:)), forControlEvents: .TouchUpInside )
+      
+    
         let nib = UINib(nibName: "ShowPostData", bundle: nil)
         myTableView.registerNib(nib, forCellReuseIdentifier: "cellPostData")
       
@@ -134,6 +135,34 @@ class SelectViewController: UIViewController, QueryDelegate {
         
         
     }
+    
+    func alert(){
+        let alertController = UIAlertController(
+            title: "警告！！！",
+            message: "你必須註冊帳號",
+            preferredStyle: .Alert)
+        
+        // 建立[取消]按鈕
+        let cancelAction = UIAlertAction(
+            title: "取消",
+            style: .Cancel,
+            handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // 建立[送出]按鈕
+        let okAction = UIAlertAction(
+            title: "確定",
+            style: .Default,
+            handler: nil)
+        alertController.addAction(okAction)
+        
+        // 顯示提示框
+        self.presentViewController(alertController,animated: true, completion: nil)
+        
+
+
+    }
+    //排序篩選條件
     func queryData(value: [PostData]) {
         
         self.postDatas = value
@@ -147,39 +176,30 @@ class SelectViewController: UIViewController, QueryDelegate {
             hud.hideAnimated(true)
         })
     }
-    
-    
-    
-    func showActivityIndicatory(uiView: UIView) {
-        let container: UIView = UIView()
-        container.frame = uiView.frame
-        container.center = uiView.center
-        container.backgroundColor = UIColor(white: 220, alpha: 0.6)
-        
-        
-        loadingView.frame = CGRectMake(0, 0, 80, 80)
-        loadingView.backgroundColor = UIColor.brownColor()
-        loadingView.center = uiView.center
-        loadingView.clipsToBounds = true
-        loadingView.layer.cornerRadius = 10
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
     func toSelectManPage(sender:UIButton){
-        self.hidesBottomBarWhenPushed = true
-
-        performSegueWithIdentifier("toSelectManPage", sender:sender)
-          self.hidesBottomBarWhenPushed = false
-    }
-    func toChatViewPage(sender:UIButton){
-        self.hidesBottomBarWhenPushed = true
         
+   
+            self.hidesBottomBarWhenPushed = true
+            performSegueWithIdentifier("toSelectManPage", sender:sender)
+            self.hidesBottomBarWhenPushed = false
+
+    }
+    //跳轉到聊天室
+    func toChatViewPage(sender:UIButton){
+        guard let currentuser = DataService.dataService.currentUser?.uid else{return}
+        if currentuser != ""{
+        self.hidesBottomBarWhenPushed = true
         performSegueWithIdentifier("ChatSegue", sender: sender)
         self.hidesBottomBarWhenPushed = false
+            
+        }else{
+            alert()
+            
+        }
         
     }
     
@@ -204,11 +224,11 @@ class SelectViewController: UIViewController, QueryDelegate {
         if segue.identifier == "toPostDetailData"{
             guard let senderCell = sender as? UITableViewCell else{
                 //先讓App Crash
-                fatalError()
+                return
             }
             if let tableviewCellIndoxPath = myTableView!.indexPathForCell(senderCell){
                 guard let detailController = segue.destinationViewController as? PostDetailData else{
-                    fatalError()
+                    return
                 }
                 detailVC = detailController
                 detailVC.detailInfo = postDatas[tableviewCellIndoxPath.row]

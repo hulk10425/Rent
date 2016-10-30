@@ -24,11 +24,12 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
         
         UIGraphicsBeginImageContext(self.view.frame.size)
-        UIImage(named: "background2")?.drawInRect(self.view.bounds)
+        //        UIImage(named: "background2")?.drawInRect(self.view.bounds)
         
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        backgroundView.backgroundColor = UIColor(patternImage: image)
+        //        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        //        UIGraphicsEndImageContext()
+        //        backgroundView.backgroundColor = UIColor(patternImage: image)
+        backgroundView.backgroundColor = UIColor.whiteColor()
         
         let blurEffect = UIBlurEffect(style: .Light)
         
@@ -42,13 +43,13 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
-       // view.addSubview(loginFbButton)
+        view.addSubview(loginFbButton)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
-      //  setupFbLoginButton()
+        setupFbLoginButton()
         passwordTextField.delegate = self
         
     }
@@ -66,16 +67,20 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         view.backgroundColor = UIColor.whiteColor()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 5
+        view.layer.borderColor = UIColor(r: 255, g: 92, b: 25).CGColor
         view.layer.masksToBounds = true
+        view.layer.borderWidth = 2
         return view
     }()
     
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .System)
-        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor(r: 255, g: 92, b: 25).CGColor
+        //        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.setTitleColor(UIColor(r: 255, g: 92, b: 25), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
         button.layer.cornerRadius = 10
         
@@ -139,19 +144,27 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.tintColor = UIColor.whiteColor()
+        sc.tintColor = UIColor.blackColor()
         sc.selectedSegmentIndex = 1
+        sc.layer.borderWidth = 2
+        sc.layer.cornerRadius = 8
+        sc.tintColor = UIColor(r: 255, g: 92, b: 25)
+        
+        sc.layer.borderColor = UIColor(r: 255, g: 92, b: 25).CGColor
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), forControlEvents: .ValueChanged)
         return sc
     }()
     lazy var loginFbButton: UIButton = {
         let button = UIButton(type: .System)
-        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
+        //button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Login with facebook ", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.setTitleColor(UIColor(r: 80, g: 101, b: 161), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
         button.layer.cornerRadius = 10
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor(r: 80, g: 101, b: 161).CGColor
+        
         
         button.addTarget(self, action: #selector(handleFbLogin), forControlEvents: .TouchUpInside)
         
@@ -195,25 +208,21 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         dismissViewControllerAnimated(true, completion: nil)
     }
     func handleFbLogin(){
-        
+      
         
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logInWithReadPermissions(["email","public_profile"], fromViewController: self) { (result, error) -> Void in
             
-        
-            if (error == nil){
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.login()
-                let fbloginresult : FBSDKLoginManagerLoginResult = result
-                if(fbloginresult.grantedPermissions.contains("email"))
-                {
+         if (error == nil){
+          
+            let fbloginresult : FBSDKLoginManagerLoginResult = result
+        if(fbloginresult.grantedPermissions.contains("email")){
                    
-                    self.getFBUserData()
-                    
-                }
-            }
+                self.getFBUserData()
         }
     }
+}
+}
     
     func handleLoginRegister() {
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
@@ -233,10 +242,6 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                 }
                 self.myUserDefaluts.setObject(result["name"], forKey: "FBname")
                 self.myUserDefaluts.setObject(result["email"], forKey: "FBemail")
-
-//                let fbname = result["name"] as! String
-//                let fbemail = result["email"] as! String
-                
                 guard
                     let picture = result["picture"] as? NSDictionary,
                     let picData = picture["data"] as? NSDictionary,
@@ -245,17 +250,15 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                     let data = NSData(contentsOfURL: url) else{return}
                 let Image = data
                 self.myUserDefaluts.setObject(Image, forKey: "FBimage")
-
                 let fbname = self.myUserDefaluts.objectForKey("FBname")  as! String
                 let fbemail = self.myUserDefaluts.objectForKey("FBemail") as! String
                 let fbImage = self.myUserDefaluts.objectForKey("FBimage")  as! NSData
                 
+                
                 DataService.dataService.saveFbData(fbemail, name: fbname, data: fbImage)
-                
-                
 
             }
-                  }
+        }
         
         
     }
@@ -284,6 +287,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         // change height of inputContainerView, but how???
         inputsContainerViewHeightAnchor?.constant = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 100 : 150
         
+        
         // change height of nameTextField
         nameTextFieldHeightAnchor?.active = false
         nameTextFieldHeightAnchor = nameTextField.heightAnchor.constraintEqualToAnchor(inputsContainerView.heightAnchor, multiplier: loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 0 : 1/3)
@@ -308,8 +312,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
         
         let refreshedToken = FIRInstanceID.instanceID().token()
-
-
+        
+        
         
         var data = NSData()
         data = UIImageJPEGRepresentation(profileImageView.image!, 0.1)!

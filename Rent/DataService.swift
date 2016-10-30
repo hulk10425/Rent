@@ -187,7 +187,11 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
         
         let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
         FIRAuth.auth()?.signInWithCredential(credential, completion:  { (user, error) in
-            
+            if user != nil{
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.login()
+
+            }else{
             
             let filePath = "profileImage/\(user?.uid)"
             let metadata = FIRStorageMetadata()
@@ -214,7 +218,7 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
                 })
             })
             
-            
+            }
             
         })
     }

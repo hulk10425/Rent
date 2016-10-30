@@ -54,7 +54,7 @@
                             <constraint firstAttribute="width" constant="70" id="hfk-kN-JL8"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="14"/>
-                        <state key="normal" title="想當室友">
+                        <state key="normal" title="成為室友">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
