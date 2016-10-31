@@ -15,7 +15,7 @@ class TypeCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var typeButton: UIButton!
      override func awakeFromNib() {
-  
+  super.awakeFromNib()
   
     typeField.delegate = self
    typeButton.addTarget(self, action: #selector(selectClicked(_:)), forControlEvents: .TouchDown)

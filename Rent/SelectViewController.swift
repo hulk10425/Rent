@@ -101,8 +101,9 @@ class SelectViewController: UIViewController, QueryDelegate {
         //                self.myTableView.reloadData()
         //
         //                    })
-        
+                          self.postDatas = []
                 DataService.dataService.fetchPostData { (snap) in
+//
                     self.postDatas.append(snap)
                     let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
                     self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)

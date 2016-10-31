@@ -11,5 +11,7 @@ import UIKit
 class SelectAdditionalCell: UITableViewCell {
   
     @IBOutlet weak var additionalCostText: UILabel!
-
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }

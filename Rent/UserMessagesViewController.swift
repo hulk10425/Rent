@@ -27,6 +27,10 @@ class UserMessagesViewController: UIViewController{
     var array: [AnyObject]!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "對話列表"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.lightGrayColor() ]
+
+        
         DataService.dataService.fetechUserMessage { (messagesnap) in
             let messageDictionary = messagesnap.value as? Dictionary<String,AnyObject>
             

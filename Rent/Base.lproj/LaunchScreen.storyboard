@@ -24,10 +24,18 @@
                                     <constraint firstAttribute="height" constant="200" id="DWn-PM-1bV"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2016 LIVEGETHER. John Lin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcl-O9-bdJ">
+                                <rect key="frame" x="214" y="575.5" width="173" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.36078431370000003" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="3tp-y3-NPe" firstAttribute="centerY" secondItem="wK3-WI-5tN" secondAttribute="centerY" id="1A9-qW-d9e"/>
+                            <constraint firstItem="Vcl-O9-bdJ" firstAttribute="centerX" secondItem="wK3-WI-5tN" secondAttribute="centerX" id="A8K-cB-AHS"/>
+                            <constraint firstItem="5U2-Ot-vtK" firstAttribute="top" secondItem="Vcl-O9-bdJ" secondAttribute="bottom" constant="10" id="clo-pO-FOw"/>
                             <constraint firstItem="3tp-y3-NPe" firstAttribute="centerX" secondItem="wK3-WI-5tN" secondAttribute="centerX" id="glc-IB-oWp"/>
                         </constraints>
                     </view>

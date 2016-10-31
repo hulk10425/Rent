@@ -43,7 +43,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
     var cellRentMoney = RentMoneyCell()
     let cellNote = NoteCell()
     var cellRegion = RegionCell()
-    var imageData: NSData!
+//    var imageData: NSData!
   
 
     var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -169,11 +169,13 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
     
 
     func addToFirebase(sender: AnyObject){
-      imageData =  UIImageJPEGRepresentation(cellPicture.houseImage.image!, 1.0)
-        
-        guard let notes = myUserDefaluts.objectForKey("noteTextView") as?String else{return}
+
+  
+        //
+//        guard let imageData = UIImageJPEGRepresentation((cellPicture.houseImage?.image)!, 0.1)  else {return}
+        guard let notes = myUserDefaluts.objectForKey("noteTextView") as? String else{return}
        
-        guard
+    guard
             let rentDay = cellRentDay.rentDayField.text,
             person = cellPerson.personField.text,
             furniture = cellFurniture.furnitureLabel.text,
@@ -181,22 +183,26 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
             deposit = cellDeposit.depositField.text,
             title = cellTitle.titleTextField.text,
             region = cellRegion.regionField.text,
-            rentMoney = cellRentMoney.rentMoneyTextField.text,
-            additionalCost = cellAdditional.selectAdditionalCostLabel.text else{ return}
+            rentMoney = Int(cellRentMoney.rentMoneyTextField.text!),
+            additionalCost = cellAdditional.selectAdditionalCostLabel.text,
+            imageData = cellPicture.houseImage.image
+            else{ return}
         
+   
+        let imageValue = UIImageJPEGRepresentation(imageData, 0.1)
         
         FIRAnalytics.logEventWithName("press_add", parameters: nil)
-        guard let rentMoneyValue = Int(rentMoney) else{return}
+
         
-        if imageData != nil{
-            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: rentMoneyValue , additionalCost: additionalCost, data: imageData, note: notes, region: region )
+        if imageValue != nil{
+            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: rentMoney , additionalCost: additionalCost, data: imageValue!, note: notes, region: region )
             
             self.navigationController?.popViewControllerAnimated(true)
             
             
         }else {
             alert()
-       }
+        }
         
         
     }
@@ -205,7 +211,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
         
         let alertController = UIAlertController(
             title: "警告！！！",
-            message: "你必須新增照片",
+            message: "你必須輸入完整資訊",
             preferredStyle: .Alert)
         
         // 建立[取消]按鈕
@@ -383,8 +389,11 @@ var additionalArray = [AnyObject]()
 extension SelectManViewController: SecondVCDelegate{
     
     func passFurniture(value:String){
+     
+         furnitureArray.append(value)
+        
+        
        
-        furnitureArray.append(value)
         cellFurniture.furnitureLabel.text = "\(furnitureArray)"
    
     }

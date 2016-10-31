@@ -18,7 +18,7 @@ class FurnitureCell: UITableViewCell, UITextFieldDelegate {
 
 
     override func awakeFromNib() {
-      
+      super.awakeFromNib()
       
    
     }

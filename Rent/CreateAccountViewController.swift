@@ -78,7 +78,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor(r: 255, g: 92, b: 25).CGColor
         //        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
-        button.setTitle("Register", forState: .Normal)
+        button.setTitle("註冊", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor(r: 255, g: 92, b: 25), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
@@ -128,6 +128,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         return tf
     }()
     
+
     lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "profileImage")
@@ -142,7 +143,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     }()
     
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Login", "Register"])
+        let sc = UISegmentedControl(items: ["登入", "註冊"])
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.tintColor = UIColor.blackColor()
         sc.selectedSegmentIndex = 1
@@ -157,7 +158,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     lazy var loginFbButton: UIButton = {
         let button = UIButton(type: .System)
         //button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
-        button.setTitle("Login with facebook ", forState: .Normal)
+        button.setTitle("Facebook 登入", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor(r: 80, g: 101, b: 161), forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
@@ -219,7 +220,9 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         if(fbloginresult.grantedPermissions.contains("email")){
                    
                 self.getFBUserData()
-        }
+        }else{
+          return
+            }
     }
 }
 }
@@ -343,6 +346,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     func setupProfileImageView() {
         //need x, y, width, height constraints
         profileImageView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true
+     
         profileImageView.bottomAnchor.constraintEqualToAnchor(inputsContainerView.topAnchor, constant: -72).active = true
         profileImageView.widthAnchor.constraintEqualToConstant(150).active = true
         profileImageView.heightAnchor.constraintEqualToConstant(150).active = true
