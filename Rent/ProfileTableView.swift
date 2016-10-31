@@ -12,7 +12,7 @@ import Firebase
 import Kingfisher
 
 
-class ProfileTableView: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+class ProfileTableView: UIViewController{
 
     @IBOutlet weak var profileImage: UIImageView!
     
@@ -20,6 +20,7 @@ class ProfileTableView: UITableViewController, UINavigationControllerDelegate, U
           self.navigationController?.popViewControllerAnimated(true)
     }
    
+    @IBOutlet weak var profileView: UIView!
 
     @IBOutlet weak var username: UILabel!
 
@@ -33,6 +34,14 @@ class ProfileTableView: UITableViewController, UINavigationControllerDelegate, U
         
        // tap.numberOfTapsRequired = 1
        // profileImage.addGestureRecognizer(tap)
+        
+        profileView.layer.cornerRadius = profileView.frame.height/2
+        profileView.clipsToBounds = true
+        profileView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.5)
+        
+        
+        
+        
         profileImage.layer.cornerRadius = profileImage.frame.size.height / 2
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 1
@@ -48,22 +57,22 @@ class ProfileTableView: UITableViewController, UINavigationControllerDelegate, U
     }
     
     
-    func selectPhoto(tap: UITapGestureRecognizer){
-    let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        if UIImagePickerController.isSourceTypeAvailable(.Camera){
-        imagePicker.sourceType = .Camera
-        }else{
-        imagePicker.sourceType = .PhotoLibrary
-        }
-        self.presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        profileImage.image = image
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+//    func selectPhoto(tap: UITapGestureRecognizer){
+//    let imagePicker = UIImagePickerController()
+//        imagePicker.delegate = self
+//        imagePicker.allowsEditing = true
+//        if UIImagePickerController.isSourceTypeAvailable(.Camera){
+//        imagePicker.sourceType = .Camera
+//        }else{
+//        imagePicker.sourceType = .PhotoLibrary
+//        }
+//        self.presentViewController(imagePicker, animated: true, completion: nil)
+//    }
+//    
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+//        profileImage.image = image
+//        dismissViewControllerAnimated(true, completion: nil)
+//    }
 //    @IBAction func saveDidTapped(sender: AnyObject) {
 //        
 //        var data = NSData()
@@ -71,13 +80,13 @@ class ProfileTableView: UITableViewController, UINavigationControllerDelegate, U
 //        DataService.dataService.SaveProfile(username.text!, email: email.text! , data: data)
 //        
 //    }
-   override func tableView(tableView: UITableView,
-                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // 取消 cell 的選取狀態
-        tableView.deselectRowAtIndexPath(
-            indexPath, animated: false)
-        
-    }
-    
+//   override func tableView(tableView: UITableView,
+//                   didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        // 取消 cell 的選取狀態
+//        tableView.deselectRowAtIndexPath(
+//            indexPath, animated: false)
+//        
+//    }
+//    
 
 }

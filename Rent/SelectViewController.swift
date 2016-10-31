@@ -25,7 +25,7 @@ class SelectViewController: UIViewController, QueryDelegate {
     @IBOutlet weak var myTableView: UITableView!
     
     @IBAction func backButton(sender: AnyObject) {
-     
+        
         let actionSheetController = UIAlertController(title: "Please select", message: "Option to select", preferredStyle: .ActionSheet)
         
         let cancleActionButton = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
@@ -33,13 +33,13 @@ class SelectViewController: UIViewController, QueryDelegate {
         }
         actionSheetController.addAction(cancleActionButton)
         
-//        let profileAction = UIAlertAction(title: "Profile", style: .Default) { (action) in
-//            print("change to Profile")
-//            let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfile") as! ProfileTableView
-//            self.navigationController?.pushViewController(profileVC, animated: true)
-//        }
-//        actionSheetController.addAction(profileAction)
-//        
+        //        let profileAction = UIAlertAction(title: "Profile", style: .Default) { (action) in
+        //            print("change to Profile")
+        //            let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfile") as! ProfileTableView
+        //            self.navigationController?.pushViewController(profileVC, animated: true)
+        //        }
+        //        actionSheetController.addAction(profileAction)
+        //
         
         let logoutAction = UIAlertAction(title: "Log Out", style: .Default) { (action) in
             print("lout out")
@@ -54,7 +54,7 @@ class SelectViewController: UIViewController, QueryDelegate {
         DataService.dataService.logout()
     }
     
-
+    var post:PostData!
     
     var cellPostData = ShowPostDataCell()
     var postDatas = [PostData]()
@@ -66,74 +66,44 @@ class SelectViewController: UIViewController, QueryDelegate {
         
         //跳轉到新增室有條件頁面
         addEvent.addTarget(self, action: #selector(SelectViewController.toSelectManPage(_:)), forControlEvents: .TouchUpInside )
-      
-    
+        
+        
         let nib = UINib(nibName: "ShowPostData", bundle: nil)
         myTableView.registerNib(nib, forCellReuseIdentifier: "cellPostData")
+        
       
-//        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
-//            print(snap.key)
-//            print(self.postDictionary)
-//            self.postDictionary.removeValueForKey(snap.key)
-//            self.myTableView.reloadData()
-//            
-//            
-//        })
-//        
         
-        //        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0 )){
-        
-        //
-        //        }
-        //        let ref = FIRDatabase.database().reference()
-        //        ref.child("posts").queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { (snapshot) in
-        //
-        //
-        //                //do your logic and validation here
-        //                let title = snapshot.value!["title"] as! String
-        //                let person = snapshot.value!["person"] as! String
-        //                let rentMoney = snapshot.value!["rentMoney"] as! String
-        //                let image = snapshot.value!["image"] as! String
-        //                self.posts.insert(postStruct(title: title, person: person, rentMoney: rentMoney, image: image), atIndex: 0)
-        //
-        ////             timer = NSTimer.scheduledTimerWithTimeInterval(delay, target: self, selector: #selector(self.delayedAction), userInfo: nil, repeats: false)
-        //
-        //                self.myTableView.reloadData()
-        //
-        //                    })
-                          self.postDatas = []
-                DataService.dataService.fetchPostData { (snap) in
-//
-                    self.postDatas.append(snap)
-                    let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
-                    self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        
-                    dispatch_async(dispatch_get_main_queue(), {
-        
-                        let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        
-                        self.myTableView.reloadData()
-        
-                        hud.hideAnimated(true)
+                self.postDatas = []
+        DataService.dataService.fetchPostData { (snap) in
+            self.postDatas.append(snap)
+            
+            
+            
+            dispatch_async(dispatch_get_main_queue(), {
                 
-                    })
-                    
-//                    DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
-//                        print(snap.key)
-//                        print(self.postDictionary)
-//                        self.postDictionary.removeValueForKey(snap.key)
-//                                    self.myTableView.reloadData()
-//                    })
-//                    
-//
-                   
-            }
-       
-       
+                let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                
+                self.myTableView.reloadData()
+                
+                hud.hideAnimated(true)
+                
+            })
+        }
+//        
+//        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
+////            let post = PostData(key: snap.key, snapshot: snap.value as! Dictionary<String, AnyObject>)
+//            
+// 
+//          
+//          
+////            self.postDatas = self.postDictionary
+//            self.myTableView.reloadData()
+//    })
+        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
+        self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
-        
-        
-        
+  
+
         
     }
     
@@ -160,14 +130,14 @@ class SelectViewController: UIViewController, QueryDelegate {
         // 顯示提示框
         self.presentViewController(alertController,animated: true, completion: nil)
         
-
-
+        
+        
     }
     //排序篩選條件
     func queryData(value: [PostData]) {
         
         self.postDatas = value
-
+        
         dispatch_async(dispatch_get_main_queue(), {
             
             let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
@@ -183,19 +153,19 @@ class SelectViewController: UIViewController, QueryDelegate {
     }
     func toSelectManPage(sender:UIButton){
         
-   
-            self.hidesBottomBarWhenPushed = true
-            performSegueWithIdentifier("toSelectManPage", sender:sender)
-            self.hidesBottomBarWhenPushed = false
-
+        
+        self.hidesBottomBarWhenPushed = true
+        performSegueWithIdentifier("toSelectManPage", sender:sender)
+        self.hidesBottomBarWhenPushed = false
+        
     }
     //跳轉到聊天室
     func toChatViewPage(sender:UIButton){
         guard let currentuser = DataService.dataService.currentUser?.uid else{return}
         if currentuser != ""{
-        self.hidesBottomBarWhenPushed = true
-        performSegueWithIdentifier("ChatSegue", sender: sender)
-        self.hidesBottomBarWhenPushed = false
+            self.hidesBottomBarWhenPushed = true
+            performSegueWithIdentifier("ChatSegue", sender: sender)
+            self.hidesBottomBarWhenPushed = false
             
         }else{
             alert()
@@ -251,7 +221,7 @@ class SelectViewController: UIViewController, QueryDelegate {
         
         let nav = UINavigationController(rootViewController: queryController)
         nav.modalPresentationStyle = UIModalPresentationStyle.Popover
-       
+        
         let height = queryController.querydataArray.count * 44
         queryController.preferredContentSize = CGSize(width: 300, height: height)
         
@@ -277,7 +247,7 @@ extension SelectViewController:  UITableViewDataSource{
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return self.postDatas.count
     }
     //設定表格只有一個區段
@@ -292,8 +262,8 @@ extension SelectViewController:  UITableViewDataSource{
             "cellPostData",forIndexPath: indexPath) as? ShowPostDataCell else{
                 fatalError()
         }
-  
-       
+        
+        
         
         let post = postDatas[indexPath.row]
         
@@ -326,9 +296,9 @@ extension SelectViewController:  UITableViewDelegate {
             indexPath, animated: false)
         
         let cell = myTableView.cellForRowAtIndexPath(indexPath)
-         self.hidesBottomBarWhenPushed = true
+        self.hidesBottomBarWhenPushed = true
         self.performSegueWithIdentifier("toPostDetailData", sender: cell)
-         self.hidesBottomBarWhenPushed = false
+        self.hidesBottomBarWhenPushed = false
     }
     
     
