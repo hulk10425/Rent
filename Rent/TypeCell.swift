@@ -14,33 +14,33 @@ class TypeCell: UITableViewCell, UITextFieldDelegate {
     var typeArray = ["獨立套房","分租套房","雅房","共生住宅","整層住家"]
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var typeButton: UIButton!
-     override func awakeFromNib() {
-  super.awakeFromNib()
-  
-    typeField.delegate = self
-   typeButton.addTarget(self, action: #selector(selectClicked(_:)), forControlEvents: .TouchDown)
-
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        typeField.delegate = self
+        typeButton.addTarget(self, action: #selector(selectClicked(_:)), forControlEvents: .TouchDown)
+        
+        
     }
-    func selectClicked(sender: UIButton){
     
+    let order = Order()
+    func selectClicked(sender: UIButton){
+        
         let acp = ActionSheetStringPicker(title: "類型選擇", rows: self.typeArray
-, initialSelection: 0, doneBlock: {
+            , initialSelection: 0, doneBlock: {
                 picker, value, index in
                 self.typeField.text = String(index)
-   
-                print("values = \(value)")
-                print("indexes = \(index)")
-                    print(index)
-//                print("picker = \(picker)")
-      FIRAnalytics.logEventWithName("press_type", parameters: ["type_value": self.typeField.text!])
+                
+                self.order.type = self.typeField.text
+                
+                FIRAnalytics.logEventWithName("press_type", parameters: ["type_value": self.typeField.text!])
                 return
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender.superview)
         
         
         acp.showActionSheetPicker()
     }
-
+    
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return false
     }
@@ -50,8 +50,8 @@ class TypeCell: UITableViewCell, UITextFieldDelegate {
     }
     
     
-  
     
-  
-  
+    
+    
+    
 }

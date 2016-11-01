@@ -235,23 +235,8 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
             
         }
     }
-    func login(email: String, password: String){
-        FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
-            if let error = error{
-                print(error.localizedDescription)
-                return
-            }
-            print("successfully")
-            //successfully logged in our user
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.login()
-
-            
-            
-        })
-        
-        
-    }
+   
+    
     var postDictionary = [String: PostData]()
     func fetchMyPostRoom(callback:(PostData)->()){
         

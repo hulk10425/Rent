@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseStorage
 
 class PostDetailData: UITableViewController{
 
@@ -53,7 +53,7 @@ class PostDetailData: UITableViewController{
 
         
         self.navigationItem.title  = "詳細資訊"
-        print(detailInfo)
+     
    
         getTitle.text = detailInfo.title
         getRentMoney.text = String(detailInfo.rentMoney)

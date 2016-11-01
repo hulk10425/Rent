@@ -11,8 +11,8 @@ import Firebase
 import Kingfisher
 
 class MyPostRoomsCell: UITableViewCell {
-
-   
+    
+    
     @IBOutlet weak var MyPostRoomImage: UIImageView!
     
     @IBOutlet weak var MyPostRoomTitle: UILabel!
@@ -29,9 +29,9 @@ class MyPostRoomsCell: UITableViewCell {
     
     
     func configureCell(post: PostData){
-      
+        
         self.MyPostRoomTitle.text = post.title
-      self.MyPostRoomAddress.text = post.region
+        self.MyPostRoomAddress.text = post.region
         
         
         
@@ -57,23 +57,7 @@ class MyPostRoomsCell: UITableViewCell {
                 
                 self.MyPostRoomImage.image = UIImage.init(data: data)
             }
-            
-            
-        }
-        
-        
-    }
+           }
+     }
     
-
-    
-    
-    
-    
-//
-//    override func setSelected(selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//     
-//    }
-
 }

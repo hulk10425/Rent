@@ -55,13 +55,29 @@ class Chats: NSObject{
     var message: String!
     var date: NSNumber!
     var roomId: String!
-
-   
+    
+    
 }
 class User: NSObject{
     var email: String!
     var profileImage: String!
     var username: String!
     var id: String!
+}
+class Order{
+   
+    var rentDay: String!
+    var furniture: String!
+    var deposit: String!
+    var additionalCost: String!
+    var region: String!
+    var note: String!
+    var title: String!
+    var person: String!
+    var rentMoney: Int!
+    var imageUrl: String!
+    var type: String!
+
+
 }
 

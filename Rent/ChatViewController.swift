@@ -55,7 +55,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
             DataService.dataService.MESSAGE_REF.observeEventType(.ChildAdded, withBlock: {(snap)in
                 
                 let dictionary = snap.value as! Dictionary<String,AnyObject>
-                print(dictionary)
+              
                 if snapshot.key ==  dictionary["roomId"] as! String {
                     self.messages.append(snap)
                     dispatch_async(dispatch_get_main_queue(), {
@@ -68,23 +68,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
             })
             
         })
-        
-        //
-        //        DataService.dataService.fetechMessage(roomId) { (snap) in
-        //            print(snap.value)
-        //
-        //            self.messages.append(snap)
-        //
-        //            //print(snap)
-        //            //print(self.messages)
-        //             MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        //             dispatch_async(dispatch_get_main_queue(), {
-        //            self.tableView.reloadData()
-        //              })
-        //               MBProgressHUD.hideHUDForView(self.view, animated: true)
-        //          //
-        
-        ////
+     
         
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -163,20 +147,12 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
                 DataService.dataService.CreateNewMessage(user.uid, roomId: roomId, textMessage: messageTextField.text!, date: currentDate)
                 
                 DataService.dataService.POST_REF.child(roomId).observeSingleEventOfType(.Value, withBlock: {(snapshot)in
-                    //            print(snapshot.key)
                     DataService.dataService.PARTICIPANTS_REF.child(snapshot.key).observeEventType(.Value, withBlock: { (snappart) in
                         let dictionary = snappart.value as! Dictionary<String,AnyObject>
                         
                         
                         let keys = Array(dictionary.keys)
                         for roomId in keys{
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                             DataService.dataService.PEOPLE_REF.child(roomId).child("token").observeEventType(.Value, withBlock: { (snap) in
                                 
                                 

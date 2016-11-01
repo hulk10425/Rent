@@ -77,7 +77,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         let button = UIButton(type: .System)
         button.layer.borderWidth = 2
         button.layer.borderColor = UIColor(r: 255, g: 92, b: 25).CGColor
-        //        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
+     
         button.setTitle("註冊", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor(r: 255, g: 92, b: 25), forState: .Normal)
@@ -271,17 +271,56 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     func handleLogin() {
         guard let email = emailTextField.text where !email.isEmpty, let password = passwordTextField.text where !password.isEmpty else {
             print("Form is not valid")
+            alert()
             return
         }
         
+        FIRAuth.auth()?.signInWithEmail(email, password: password, completion: { (user, error) in
+            if let error = error{
+                print(error.localizedDescription)
+                self.alert()
+                return
+            }
+            print("successfully")
+            //successfully logged in our user
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.login()
+            
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            
+            
+        })
+    }
+    
+    func alert(){
+        let alertController = UIAlertController(
+            title: "警告！！！",
+            message: "無效的格式",
+            preferredStyle: .Alert)
+        
+        // 建立[取消]按鈕
+        let cancelAction = UIAlertAction(
+            title: "取消",
+            style: .Cancel,
+            handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // 建立[送出]按鈕
+        let okAction = UIAlertAction(
+            title: "確定",
+            style: .Default,
+            handler: nil)
+        alertController.addAction(okAction)
+        
+        // 顯示提示框
+        self.presentViewController(alertController,animated: true, completion: nil)
         
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        
-        DataService.dataService.login(email, password: password)
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
         
     }
+
     
     func handleLoginRegisterChange() {
         let title = loginRegisterSegmentedControl.titleForSegmentAtIndex(loginRegisterSegmentedControl.selectedSegmentIndex)

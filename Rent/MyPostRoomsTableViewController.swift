@@ -53,13 +53,7 @@ class MyPostRoomsTableViewController: UITableViewController {
 //        
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        
-        
-    }
+  
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        

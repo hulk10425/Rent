@@ -43,7 +43,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
     var cellRentMoney = RentMoneyCell()
     let cellNote = NoteCell()
     var cellRegion = RegionCell()
-//    var imageData: NSData!
+
   
 
     var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -64,6 +64,12 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
       }
     
 
+    func uploadToFirebase() {
+        
+        let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+        let cell = myTableView.cellForRowAtIndexPath(indexPath) as? FurnitureCell
+        
+    }
     
     func showPopOverFurniture(sender:UIButton) {
         
@@ -113,7 +119,7 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
         
         self.presentViewController(additionalCost, animated: true, completion: nil)
     }
-    //    var env64string: String!
+   
     var imageArray = [NSData]()
   
     //多選本地圖片

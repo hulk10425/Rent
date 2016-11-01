@@ -16,28 +16,25 @@ class DepositCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var depositButton: UIButton!
     override func awakeFromNib() {
         depositField.delegate = self
-       depositButton.addTarget(self, action: #selector(selectClicked(_:)), forControlEvents: .TouchDown)
-//        let img = UIImage(named: "arrows")
-//        
-//        self.depositField.rightView = UIImageView(image: img)
-//        self.depositField.rightViewMode = UITextFieldViewMode.Always
+        depositButton.addTarget(self, action: #selector(selectClicked(_:)), forControlEvents: .TouchDown)
+        
     }
     func selectClicked(sender: UIButton){
         
-  
+        
         let acp = ActionSheetStringPicker(title: "押金選擇", rows: ["一個月","兩個月"]
             , initialSelection: 0, doneBlock: {
                 picker, value, index in
                 self.depositField.text = String(index)
-         
-            FIRAnalytics.logEventWithName("press_deposit", parameters: ["deposit_value": self.depositField.text!])
+                
+                FIRAnalytics.logEventWithName("press_deposit", parameters: ["deposit_value": self.depositField.text!])
                 return
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender.superview)
         
         
         acp.showActionSheetPicker()
     }
-
+    
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         return false
     }
@@ -48,5 +45,5 @@ class DepositCell: UITableViewCell, UITextFieldDelegate {
     
     
     
-
+    
 }

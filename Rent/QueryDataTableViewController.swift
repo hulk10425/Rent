@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import MBProgressHUD
 
 protocol QueryDelegate: class {
     func queryData(value:[PostData])

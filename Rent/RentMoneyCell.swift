@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAnalytics
 class RentMoneyCell: UITableViewCell {
     @IBOutlet weak var rentMoneyTextField: UITextField!
-    
+     let order = Order()
     override func awakeFromNib() {
         rentMoneyTextField.delegate = self
     }
@@ -29,6 +29,7 @@ extension RentMoneyCell: UITextFieldDelegate{
         
         return true
     }
+   
     func textFieldShouldReturn(textField:UITextField) -> Bool
     {
         //收起键盘
@@ -36,6 +37,8 @@ extension RentMoneyCell: UITextFieldDelegate{
         
         
         rentMoneyTextField.text = textField.text
+//        order.rentMoney = rentMoneyTextField.text
+        
         FIRAnalytics.logEventWithName("rentMoney_rentDayLimit", parameters: ["rentMoney_value": textField.text! ])
         return true
     }

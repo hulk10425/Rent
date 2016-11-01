@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseStorage
 import Kingfisher
 
 class ShowPostDataCell: UITableViewCell{

@@ -110,6 +110,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		993D0B871DC824F80050909A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				998500D71DBA0F0D003D33DF /* ProfileTableView.swift */,
+				991571811DBE116E00B41808 /* SettingTableViewController.swift */,
+				991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */,
+				991571871DBE568600B41808 /* MyPostRoomsCell.swift */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		993D0B881DC825550050909A /* SelectMan */ = {
+			isa = PBXGroup;
+			children = (
+				998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */,
+				998500EC1DBA0F21003D33DF /* SelectFurnitureViewController.swift */,
+				998500ED1DBA0F21003D33DF /* SelectManViewController.swift */,
+			);
+			name = SelectMan;
+			sourceTree = "<group>";
+		};
 		9985009C1DBA0CB8003D33DF = {
 			isa = PBXGroup;
 			children = (
@@ -137,21 +158,12 @@
 				99AEA3B81DBA18DF008129D0 /* Chat */,
 				99FC55961DBDB20900B16C3C /* Login */,
 				998500C21DBA0EF9003D33DF /* CustomHomePage.xib */,
-				998500D61DBA0F0D003D33DF /* PostDetailData.swift */,
-				998500D71DBA0F0D003D33DF /* ProfileTableView.swift */,
-				998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */,
 				99A5C6081DBB285200F6F8E2 /* Model */,
-				998500EA1DBA0F21003D33DF /* SelectAdditionalCostViewController.swift */,
-				998500EC1DBA0F21003D33DF /* SelectFurnitureViewController.swift */,
-				998500ED1DBA0F21003D33DF /* SelectManViewController.swift */,
+				993D0B881DC825550050909A /* SelectMan */,
 				99A5C6091DBB286B00F6F8E2 /* ShowPostData */,
-				998500F81DBA0F2D003D33DF /* UIColor.swift */,
 				99FC55951DBDB1EA00B16C3C /* UserMessages */,
 				998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */,
-				991571811DBE116E00B41808 /* SettingTableViewController.swift */,
-				991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */,
-				991571871DBE568600B41808 /* MyPostRoomsCell.swift */,
-				99FE2B221DC1ADD300BFF741 /* MainTabbarController.swift */,
+				993D0B871DC824F80050909A /* Setting */,
 			);
 			path = Rent;
 			sourceTree = "<group>";
@@ -168,6 +180,8 @@
 		99A5C6091DBB286B00F6F8E2 /* ShowPostData */ = {
 			isa = PBXGroup;
 			children = (
+				998500D81DBA0F0D003D33DF /* QueryDataTableViewController.swift */,
+				998500D61DBA0F0D003D33DF /* PostDetailData.swift */,
 				998500EE1DBA0F21003D33DF /* SelectViewController.swift */,
 				998500F41DBA0F2D003D33DF /* ShowPostData.xib */,
 				998500F51DBA0F2D003D33DF /* ShowPostDataCell.swift */,
@@ -207,8 +221,10 @@
 		99FC55921DBCBFA700B16C3C /* SupportFile */ = {
 			isa = PBXGroup;
 			children = (
+				99FE2B221DC1ADD300BFF741 /* MainTabbarController.swift */,
 				998500A81DBA0CB8003D33DF /* AppDelegate.swift */,
 				998500AF1DBA0CB8003D33DF /* Assets.xcassets */,
+				998500F81DBA0F2D003D33DF /* UIColor.swift */,
 				99FE2B201DC0AD0F00BFF741 /* GoogleService-Info.plist */,
 				998500B41DBA0CB8003D33DF /* Info.plist */,
 			);
