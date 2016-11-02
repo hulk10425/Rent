@@ -71,13 +71,10 @@ class SelectViewController: UIViewController, QueryDelegate {
         let nib = UINib(nibName: "ShowPostData", bundle: nil)
         myTableView.registerNib(nib, forCellReuseIdentifier: "cellPostData")
         
-      
-        
-                self.postDatas = []
+        self.postDatas = []
         DataService.dataService.fetchPostData { (snap) in
+            
             self.postDatas.append(snap)
-            
-            
             
             dispatch_async(dispatch_get_main_queue(), {
                 
@@ -88,22 +85,15 @@ class SelectViewController: UIViewController, QueryDelegate {
                 hud.hideAnimated(true)
                 
             })
+            //        self.myTableView.beginUpdates()
+            //        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
+            //
+            //        self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            //        self.myTableView.endUpdates()
+            //        }
+            
         }
-//        
-//        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snap) in
-////            let post = PostData(key: snap.key, snapshot: snap.value as! Dictionary<String, AnyObject>)
-//            
-// 
-//          
-//          
-////            self.postDatas = self.postDictionary
-//            self.myTableView.reloadData()
-//    })
-        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
-        self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         
-  
-
         
     }
     
@@ -129,6 +119,32 @@ class SelectViewController: UIViewController, QueryDelegate {
         
         // 顯示提示框
         self.presentViewController(alertController,animated: true, completion: nil)
+        
+        
+        
+    }
+    
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //
+        //        self.postDatas = []
+        //        DataService.dataService.fetchDeleteData { (snap) in
+        ////
+        //            self.postDatas.append(snap)
+        ////
+        //////            dispatch_async(dispatch_get_main_queue(), {
+        //////
+        //////                let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        //////
+        //                self.myTableView.reloadData()
+        //
+        ////                hud.hideAnimated(true)
+        ////
+        ////            })
+        //        }
+        
         
         
         

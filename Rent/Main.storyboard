@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MaB-IW-l26">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
@@ -1237,7 +1236,7 @@
                             <rect key="frame" x="208" y="6" width="184" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="排序" image="sort">
-                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
                                 <action selector="queryButton:" destination="v7T-fJ-7U6" eventType="touchUpInside" id="Cnj-8t-WH4"/>
@@ -1294,7 +1293,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyz-kz-vPF">
-                                                    <rect key="frame" x="100" y="66" width="37.5" height="18"/>
+                                                    <rect key="frame" x="100" y="66" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1312,10 +1311,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-vj-vTE">
-                                                    <rect key="frame" x="0.0" y="118" width="600" height="1"/>
+                                                    <rect key="frame" x="0.0" y="117" width="600" height="2"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="moC-Cs-pAC"/>
+                                                        <constraint firstAttribute="height" constant="2" id="moC-Cs-pAC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1416,6 +1415,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BKs-4b-K3N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99215686270000003" green="0.65490196079999996" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="0Vk-Sr-LMg" kind="relationship" relationship="rootViewController" id="dhE-HL-Qra"/>
@@ -1479,20 +1479,20 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zX6-ow-pH2">
-                                <rect key="frame" x="200" y="164" width="200" height="200"/>
+                                <rect key="frame" x="225" y="164" width="150" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileImage" translatesAutoresizingMaskIntoConstraints="NO" id="bY7-Zi-xH0">
-                                        <rect key="frame" x="5" y="5" width="190" height="190"/>
+                                        <rect key="frame" x="5" y="5" width="140" height="140"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="bY7-Zi-xH0" secondAttribute="trailing" constant="5" id="HNV-rb-Jit"/>
                                     <constraint firstItem="bY7-Zi-xH0" firstAttribute="leading" secondItem="zX6-ow-pH2" secondAttribute="leading" constant="5" id="Q4q-wm-cmP"/>
-                                    <constraint firstAttribute="height" constant="200" id="SQ9-pb-j5m"/>
+                                    <constraint firstAttribute="height" constant="150" id="SQ9-pb-j5m"/>
                                     <constraint firstItem="bY7-Zi-xH0" firstAttribute="top" secondItem="zX6-ow-pH2" secondAttribute="top" constant="5" id="Z2c-hX-1X3"/>
                                     <constraint firstItem="bY7-Zi-xH0" firstAttribute="centerX" secondItem="zX6-ow-pH2" secondAttribute="centerX" id="bhD-VK-kmd"/>
-                                    <constraint firstAttribute="width" constant="200" id="sK1-Eo-l1e"/>
+                                    <constraint firstAttribute="width" constant="150" id="sK1-Eo-l1e"/>
                                     <constraint firstAttribute="bottom" secondItem="bY7-Zi-xH0" secondAttribute="bottom" constant="5" id="sv4-CL-0Sl"/>
                                     <constraint firstItem="bY7-Zi-xH0" firstAttribute="centerY" secondItem="zX6-ow-pH2" secondAttribute="centerY" id="tgB-WE-w8Y"/>
                                 </constraints>
@@ -1610,11 +1610,24 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ql2-2O-X9o">
+                                            <rect key="frame" x="0.0" y="117" width="600" height="2"/>
+                                            <color key="backgroundColor" red="0.0064019097219999996" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="2" id="vIt-ru-bRd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ql2-2O-X9o" secondAttribute="bottom" id="7Xm-va-a8j"/>
                                         <constraint firstItem="OiR-RN-ODD" firstAttribute="leading" secondItem="S9B-TG-zik" secondAttribute="leading" constant="10" id="9eF-At-fhN"/>
+                                        <constraint firstItem="ql2-2O-X9o" firstAttribute="leading" secondItem="S9B-TG-zik" secondAttribute="leading" id="Aee-bR-qMZ"/>
                                         <constraint firstItem="eWF-Xx-SOt" firstAttribute="top" secondItem="e8w-mP-CpH" secondAttribute="bottom" constant="40" id="K1K-MR-Mbp"/>
                                         <constraint firstItem="e8w-mP-CpH" firstAttribute="top" secondItem="S9B-TG-zik" secondAttribute="top" constant="15" id="MZ5-sz-5Kc"/>
+                                        <constraint firstAttribute="trailing" secondItem="ql2-2O-X9o" secondAttribute="trailing" id="NEW-GG-0W4"/>
                                         <constraint firstItem="eWF-Xx-SOt" firstAttribute="leading" secondItem="OiR-RN-ODD" secondAttribute="trailing" constant="15" id="ST0-a7-9Mh"/>
                                         <constraint firstItem="e8w-mP-CpH" firstAttribute="leading" secondItem="OiR-RN-ODD" secondAttribute="trailing" constant="15" id="VO4-SN-3PC"/>
                                         <constraint firstItem="OiR-RN-ODD" firstAttribute="top" secondItem="S9B-TG-zik" secondAttribute="top" constant="10" id="bQe-uk-VLJ"/>
@@ -1656,6 +1669,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oVd-dP-Os9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99215686274509807" green="0.65490196078431373" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="O0t-Ia-2fD" kind="relationship" relationship="rootViewController" id="JGZ-6b-UHe"/>
@@ -1678,7 +1692,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                     <connections>
-                        <outlet property="backgroundView" destination="yE2-Ox-1Ct" id="deq-EE-RfU"/>
+                        <outlet property="backgroundView" destination="yE2-Ox-1Ct" id="4oX-Nm-3cC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AaW-Rb-yQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1707,13 +1721,15 @@
         <!--找室友-->
         <scene sceneID="g0e-vR-fG7">
             <objects>
-                <navigationController id="vPA-zB-slD" sceneMemberID="viewController">
+                <navigationController id="vPA-zB-slD" customClass="NavigationViewController" customModule="Rent" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="找室友" image="house-outline" selectedImage="house-outline" id="Zqx-7t-5fA"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5MH-d1-UQB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.99215686270000003" green="0.65490196079999996" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
+                        <outlet property="selectHomemate" destination="Zqx-7t-5fA" id="RtG-JI-c4t"/>
                         <segue destination="v7T-fJ-7U6" kind="relationship" relationship="rootViewController" id="eaG-7d-pk8"/>
                     </connections>
                 </navigationController>

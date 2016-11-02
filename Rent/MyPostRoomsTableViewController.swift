@@ -114,7 +114,7 @@ class MyPostRoomsTableViewController: UITableViewController {
                         self.myTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
 //                        self.myTableView.reloadData()
 
-//                self.postDictionary.removeValueForKey(chatPartnerId)
+              
 //                self.myTableView.reloadData()
                 })
                     

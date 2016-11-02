@@ -21,22 +21,22 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundView.backgroundColor = UIColor(r: 238, g: 244, b: 237)
         
-        
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        //        UIImage(named: "background2")?.drawInRect(self.view.bounds)
-        
-        //        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-        //        UIGraphicsEndImageContext()
-        //        backgroundView.backgroundColor = UIColor(patternImage: image)
-        backgroundView.backgroundColor = UIColor.whiteColor()
-        
-        let blurEffect = UIBlurEffect(style: .Light)
-        
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.alpha = 1
-        blurView.frame = backgroundView.bounds
-        backgroundView.addSubview(blurView)
+//        UIGraphicsBeginImageContext(self.view.frame.size)
+//                UIImage(named: "street")?.drawInRect(self.view.bounds)
+//        
+////                let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+//                UIGraphicsEndImageContext()
+//                backgroundView.backgroundColor = UIColor(patternImage: image)
+//        backgroundView.backgroundColor = UIColor.whiteColor()
+//        
+//        let blurEffect = UIBlurEffect(style: .Light)
+//        
+//        let blurView = UIVisualEffectView(effect: blurEffect)
+//        blurView.alpha = 1
+//        blurView.frame = backgroundView.bounds
+//        backgroundView.addSubview(blurView)
         
         
         view.addSubview(inputsContainerView)
@@ -324,6 +324,28 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
         
     }
+    func alertImage(){
+        let alertController = UIAlertController(
+            title: "警告！！！",
+            message: "你必須選擇照片",
+            preferredStyle: .Alert)
+        
+        
+        // 建立[送出]按鈕
+        let okAction = UIAlertAction(
+            title: "確定",
+            style: .Default,
+            handler: nil)
+        alertController.addAction(okAction)
+        
+        // 顯示提示框
+        self.presentViewController(alertController,animated: true, completion: nil)
+        
+        
+        
+    }
+    
+
 
     
     func handleLoginRegisterChange() {
@@ -362,9 +384,12 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
         
         
-        var data = NSData()
-        data = UIImageJPEGRepresentation(profileImageView.image!, 0.1)!
-   
+//        var data = NSData()
+        
+        guard let data = UIImageJPEGRepresentation(profileImageView.image!, 0.1) else{
+            alertImage()
+            return}
+      
 //        showtips(self.view)
       
 //                MBProgressHUD.hideHUDForView(view, animated: false)

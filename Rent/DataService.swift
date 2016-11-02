@@ -266,7 +266,16 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
         
         
     }
-    
+    func fetchDeleteData(callback:(PostData)->()){
+        
+        DataService.dataService.POST_REF.observeEventType(.ChildRemoved, withBlock:  { (snapshot) in
+            let post = PostData(key: snapshot.key, snapshot: snapshot.value as! Dictionary<String, AnyObject>)
+            
+            callback(post)
+        })
+        
+    }
+
     
     
     

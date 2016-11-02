@@ -180,35 +180,37 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
         //
 //        guard let imageData = UIImageJPEGRepresentation((cellPicture.houseImage?.image)!, 0.1)  else {return}
         guard let notes = myUserDefaluts.objectForKey("noteTextView") as? String else{return}
-       
+        guard let imageData = cellPicture.houseImage?.image else{
+        alert()
+        return
+        }
+           let imageValue = UIImageJPEGRepresentation(imageData, 0.1)
     guard
             let rentDay = cellRentDay.rentDayField.text,
             person = cellPerson.personField.text,
-            furniture = cellFurniture.furnitureLabel.text,
+            furniture = cellFurniture.furnitureLabel?.text,
             type = cellType.typeField.text,
             deposit = cellDeposit.depositField.text,
             title = cellTitle.titleTextField.text,
             region = cellRegion.regionField.text,
             rentMoney = Int(cellRentMoney.rentMoneyTextField.text!),
-            additionalCost = cellAdditional.selectAdditionalCostLabel.text,
-            imageData = cellPicture.houseImage.image
-            else{ return}
+            additionalCost = cellAdditional.selectAdditionalCostLabel.text
+            else{
+                alert()
+                return}
         
    
-        let imageValue = UIImageJPEGRepresentation(imageData, 0.1)
+    
         
         FIRAnalytics.logEventWithName("press_add", parameters: nil)
 
         
-        if imageValue != nil{
             DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: rentMoney , additionalCost: additionalCost, data: imageValue!, note: notes, region: region )
             
             self.navigationController?.popViewControllerAnimated(true)
             
             
-        }else {
-            alert()
-        }
+     
         
         
     }

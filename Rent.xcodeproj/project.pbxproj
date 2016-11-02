@@ -11,6 +11,7 @@
 		991571821DBE116E00B41808 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571811DBE116E00B41808 /* SettingTableViewController.swift */; };
 		991571841DBE54D200B41808 /* MyPostRoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */; };
 		991571881DBE568600B41808 /* MyPostRoomsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991571871DBE568600B41808 /* MyPostRoomsCell.swift */; };
+		9952A5151DC9C2F8000B991D /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9952A5141DC9C2F8000B991D /* NavigationViewController.swift */; };
 		998500A91DBA0CB8003D33DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998500A81DBA0CB8003D33DF /* AppDelegate.swift */; };
 		998500B01DBA0CB8003D33DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 998500AF1DBA0CB8003D33DF /* Assets.xcassets */; };
 		998500B31DBA0CB8003D33DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 		991571811DBE116E00B41808 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		991571831DBE54D200B41808 /* MyPostRoomsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostRoomsTableViewController.swift; sourceTree = "<group>"; };
 		991571871DBE568600B41808 /* MyPostRoomsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPostRoomsCell.swift; sourceTree = "<group>"; };
+		9952A5141DC9C2F8000B991D /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		998500A51DBA0CB8003D33DF /* Rent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		998500A81DBA0CB8003D33DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		998500AF1DBA0CB8003D33DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				99FC55951DBDB1EA00B16C3C /* UserMessages */,
 				998500B11DBA0CB8003D33DF /* LaunchScreen.storyboard */,
 				993D0B871DC824F80050909A /* Setting */,
+				9952A5141DC9C2F8000B991D /* NavigationViewController.swift */,
 			);
 			path = Rent;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				998500F31DBA0F21003D33DF /* SelectViewController.swift in Sources */,
 				998500D11DBA0F04003D33DF /* HousePictureCell.swift in Sources */,
 				998500CA1DBA0EF9003D33DF /* DepositCell.swift in Sources */,
+				9952A5151DC9C2F8000B991D /* NavigationViewController.swift in Sources */,
 				998500FC1DBA0F2D003D33DF /* TypeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,10 +566,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Rent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnrent.Rent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
@@ -579,10 +585,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Rent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnrent.Rent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
