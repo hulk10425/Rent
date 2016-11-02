@@ -63,13 +63,13 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
        
       }
     
-
-    func uploadToFirebase() {
-        
-        let indexPath = NSIndexPath(forRow: 1, inSection: 0)
-        let cell = myTableView.cellForRowAtIndexPath(indexPath) as? FurnitureCell
-        
-    }
+//
+//    func uploadToFirebase() {
+//        
+//        let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+//        let cell = myTableView.cellForRowAtIndexPath(indexPath) as? FurnitureCell
+//        
+//    }
     
     func showPopOverFurniture(sender:UIButton) {
         

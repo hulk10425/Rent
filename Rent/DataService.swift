@@ -183,16 +183,16 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
         
     }
     
-    func saveFbData(email: String, name: String, data: NSData){
+    func saveFbData(email: String, name: String, data: NSData, token: String){
         
         let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
         FIRAuth.auth()?.signInWithCredential(credential, completion:  { (user, error) in
-            if user != nil{
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.login()
-
-            }else{
             
+           
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.login()
+          
+           
             let filePath = "profileImage/\(user?.uid)"
             let metadata = FIRStorageMetadata()
             metadata.contentType = "image/jpeg"
@@ -212,13 +212,13 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
                     }else{
                         print("success login fb")
                     }
-                    self.PEOPLE_REF.child((user?.uid)!).setValue(["username": name , "email": email, "profileImage": self.storageRef.child((metadata?.path)!).description])
+                    self.PEOPLE_REF.child((user?.uid)!).updateChildValues(["username": name , "email": email, "profileImage": self.storageRef.child((metadata?.path)!).description, "token": token])
                     
+                 
                     
                 })
             })
-            
-            }
+         
             
         })
     }

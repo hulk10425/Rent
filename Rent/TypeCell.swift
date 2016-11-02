@@ -31,7 +31,7 @@ class TypeCell: UITableViewCell, UITextFieldDelegate {
                 picker, value, index in
                 self.typeField.text = String(index)
                 
-                self.order.type = self.typeField.text
+            
                 
                 FIRAnalytics.logEventWithName("press_type", parameters: ["type_value": self.typeField.text!])
                 return

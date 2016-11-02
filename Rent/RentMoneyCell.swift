@@ -37,7 +37,7 @@ extension RentMoneyCell: UITextFieldDelegate{
         
         
         rentMoneyTextField.text = textField.text
-//        order.rentMoney = rentMoneyTextField.text
+
         
         FIRAnalytics.logEventWithName("rentMoney_rentDayLimit", parameters: ["rentMoney_value": textField.text! ])
         return true

@@ -222,7 +222,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                 self.getFBUserData()
         }else{
           return
-            }
+        }
     }
 }
 }
@@ -243,22 +243,32 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                     print(error)
                     return
                 }
-                self.myUserDefaluts.setObject(result["name"], forKey: "FBname")
-                self.myUserDefaluts.setObject(result["email"], forKey: "FBemail")
+                
+                guard let fbname = result["name"] as? String else{return}
+                guard let fbemail = result["email"] as? String else{return}
+                
+                
+//                self.myUserDefaluts.setObject(result["name"], forKey: "FBname")
+//                self.myUserDefaluts.setObject(result["email"], forKey: "FBemail")
                 guard
                     let picture = result["picture"] as? NSDictionary,
                     let picData = picture["data"] as? NSDictionary,
                     let modifiedUrlStr = picData["url"] as? String,
                     let url = NSURL(string: modifiedUrlStr),
                     let data = NSData(contentsOfURL: url) else{return}
-                let Image = data
-                self.myUserDefaluts.setObject(Image, forKey: "FBimage")
-                let fbname = self.myUserDefaluts.objectForKey("FBname")  as! String
-                let fbemail = self.myUserDefaluts.objectForKey("FBemail") as! String
-                let fbImage = self.myUserDefaluts.objectForKey("FBimage")  as! NSData
-                
-                
-                DataService.dataService.saveFbData(fbemail, name: fbname, data: fbImage)
+                let fbImage = data
+//                self.myUserDefaluts.setObject(Image, forKey: "FBimage")
+//                self.myUserDefaluts.synchronize()
+//                
+//                guard let fbname = self.myUserDefaluts.objectForKey("FBname")  as? String else{return}
+//                guard let fbemail = self.myUserDefaluts.objectForKey("FBemail") as? String else{return}
+//                guard  let fbImage = self.myUserDefaluts.objectForKey("FBimage")  as? NSData else{return}
+                let refreshedToken = FIRInstanceID.instanceID().token()
+////
+//                self.myUserDefaluts.removeObjectForKey("FBname")
+//                   self.myUserDefaluts.removeObjectForKey("FBemail")
+//                   self.myUserDefaluts.removeObjectForKey("FBImage")
+                DataService.dataService.saveFbData(fbemail, name: fbname, data: fbImage, token: refreshedToken!)
 
             }
         }
@@ -300,13 +310,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
             message: "無效的格式",
             preferredStyle: .Alert)
         
-        // 建立[取消]按鈕
-        let cancelAction = UIAlertAction(
-            title: "取消",
-            style: .Cancel,
-            handler: nil)
-        alertController.addAction(cancelAction)
-        
+     
         // 建立[送出]按鈕
         let okAction = UIAlertAction(
             title: "確定",
@@ -349,9 +353,10 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     func handleRegister() {
         guard let email = emailTextField.text where !email.isEmpty , let password = passwordTextField.text where !password.isEmpty , let name = nameTextField.text where !name.isEmpty else {
             print("Form is not valid")
+            alert()
             return
         }
-        
+    
         
         let refreshedToken = FIRInstanceID.instanceID().token()
         
@@ -359,12 +364,46 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
         var data = NSData()
         data = UIImageJPEGRepresentation(profileImageView.image!, 0.1)!
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        
-        DataService.dataService.SignUp(name, email: email, password: password, data: data, token: refreshedToken!)
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
+   
+//        showtips(self.view)
+      
+//                MBProgressHUD.hideHUDForView(view, animated: false)
+                let HUD = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                view.addSubview(HUD)
+                HUD.label.text = "註冊成功"
+                HUD.mode = MBProgressHUDMode.CustomView
+                HUD.customView = UIImageView(image: UIImage(named: "success")) //这是一个对勾的图标
+                HUD.userInteractionEnabled = false
+                HUD.minShowTime = 2
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0)){
+                 
+                DataService.dataService.SignUp(name, email: email, password: password, data: data, token: refreshedToken!)
+                    
+                    dispatch_async(dispatch_get_main_queue()){
+                 
+                      
+                    HUD.hideAnimated(true)
+                    }
+                }
         
     }
+//    func showtips(view:UIView){
+//        MBProgressHUD.hideHUDForView(view, animated: false)
+//        let HUD = MBProgressHUD(view:view)
+//        view.addSubview(HUD)
+//        HUD.label.text = "註冊成功"
+//        HUD.mode = MBProgressHUDMode.CustomView
+//        HUD.customView = UIImageView(image: UIImage(named: "success")) //这是一个对勾的图标
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0)){
+//          HUD.showAnimated(true)
+//            dispatch_async(dispatch_get_main_queue()){
+//                
+//            HUD.hideAnimated(true)
+//            }
+//        }
+//
+//       
+//    }
     func setupLoginRegisterSegmentedControl() {
         //need x, y, width, height constraints
         loginRegisterSegmentedControl.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true

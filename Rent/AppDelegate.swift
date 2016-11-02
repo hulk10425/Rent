@@ -47,7 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             selector: #selector(tokenRefreshNotification(_:)),
             name: kFIRInstanceIDTokenRefreshNotification,
             object: nil)
-       
+        let refreshedToken = FIRInstanceID.instanceID().token()
+        print("InstanceID token: \(refreshedToken)")
+
         return true
     }
     
