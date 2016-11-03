@@ -47,6 +47,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         chatView.layer.borderColor = UIColor.blackColor().CGColor
         
         self.navigationItem.title = roomTitle
+    
         messageTextField.delegate = self
         DataService.dataService.POST_REF.child(roomId).observeSingleEventOfType(.Value, withBlock: {(snapshot)in
             
@@ -228,8 +229,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource{
             cell.configCell(messageId, message: message)
             
             cell.triangle.image = cell.triangle.image!.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-            cell.triangle.tintColor = UIColor(red: 199/255, green: 232/255, blue: 255/255, alpha: 1)
-            
+            cell.triangle.tintColor = UIColor(r: 255, g: 156, b: 0)
             
             return cell
         } else {

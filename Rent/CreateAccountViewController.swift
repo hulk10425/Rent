@@ -21,9 +21,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundView.backgroundColor = UIColor(r: 238, g: 244, b: 237)
-        
-//        UIGraphicsBeginImageContext(self.view.frame.size)
+        backgroundView.backgroundColor = UIColor(r: 247, g: 229, b: 219)
+        UIGraphicsBeginImageContext(self.view.frame.size)
 //                UIImage(named: "street")?.drawInRect(self.view.bounds)
 //        
 ////                let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -67,7 +66,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         view.backgroundColor = UIColor.whiteColor()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 5
-        view.layer.borderColor = UIColor(r: 255, g: 92, b: 25).CGColor
+        view.layer.borderColor = UIColor(r: 255, g: 156, b: 0).CGColor
         view.layer.masksToBounds = true
         view.layer.borderWidth = 2
         return view
@@ -76,11 +75,11 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .System)
         button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor(r: 255, g: 92, b: 25).CGColor
+        button.layer.borderColor = UIColor(r: 255, g: 156, b: 0).CGColor
      
         button.setTitle("註冊", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor(r: 255, g: 92, b: 25), forState: .Normal)
+        button.setTitleColor(UIColor(r: 255, g: 156, b: 0) , forState: .Normal)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
         button.layer.cornerRadius = 10
         
@@ -146,12 +145,13 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         let sc = UISegmentedControl(items: ["登入", "註冊"])
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.tintColor = UIColor.blackColor()
+    
         sc.selectedSegmentIndex = 1
         sc.layer.borderWidth = 2
         sc.layer.cornerRadius = 8
-        sc.tintColor = UIColor(r: 255, g: 92, b: 25)
+        sc.tintColor = UIColor(r: 255, g: 156, b: 0)
         
-        sc.layer.borderColor = UIColor(r: 255, g: 92, b: 25).CGColor
+        sc.layer.borderColor = UIColor(r: 255, g: 156, b: 0).CGColor
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), forControlEvents: .ValueChanged)
         return sc
     }()

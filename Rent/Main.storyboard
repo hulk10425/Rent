@@ -365,7 +365,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="2zg-so-zLe"/>
                                                         <constraint firstAttribute="height" constant="30" id="aIr-Wl-UcD"/>
                                                     </constraints>
-                                                    <state key="normal" image="signs"/>
+                                                    <state key="normal" image="add"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kha-gc-Rvw">
                                                     <rect key="frame" x="385" y="22" width="150" height="0.0"/>
@@ -411,7 +411,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="6o4-cq-Op0"/>
                                                         <constraint firstAttribute="width" constant="30" id="BFp-ul-Me6"/>
                                                     </constraints>
-                                                    <state key="normal" image="signs"/>
+                                                    <state key="normal" image="add"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssP-sC-TYg">
                                                     <rect key="frame" x="385" y="22" width="150" height="0.0"/>
@@ -636,13 +636,13 @@
                                                     <subviews>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFc-FG-aQG">
                                                             <rect key="frame" x="5" y="5" width="450" height="60"/>
-                                                            <color key="backgroundColor" red="0.77927021590000001" green="0.91015657049999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="1" green="0.61176470589999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.77927021590000001" green="0.91015657049999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="1" green="0.61176470589999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="iFc-FG-aQG" secondAttribute="bottom" constant="5" id="YYK-5o-Ygh"/>
                                                         <constraint firstItem="iFc-FG-aQG" firstAttribute="top" secondItem="hGs-Ud-ead" secondAttribute="top" constant="5" id="iL9-Gp-dT2"/>
@@ -1153,7 +1153,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Dxh-Ck-gpL">
                         <barButtonItem key="leftBarButtonItem" image="back" id="7j0-VR-WdO">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.30980392156862746" green="0.26666666666666666" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backHomePage:" destination="SJu-dB-fkw" id="xiC-IL-JC5"/>
                             </connections>
@@ -1235,8 +1235,9 @@
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Dqz-SW-BNc">
                             <rect key="frame" x="208" y="6" width="184" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                             <state key="normal" title="排序" image="sort">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleColor" red="0.30980392156862746" green="0.26666666666666666" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
                                 <action selector="queryButton:" destination="v7T-fJ-7U6" eventType="touchUpInside" id="Cnj-8t-WH4"/>
@@ -1246,7 +1247,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7mo-5W-nX3">
                                 <rect key="frame" x="548" y="6" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="add"/>
+                                <state key="normal" image="signs"/>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -1293,14 +1294,14 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyz-kz-vPF">
-                                                    <rect key="frame" x="100" y="66" width="38" height="18"/>
+                                                    <rect key="frame" x="100" y="68" width="38" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd0-dp-4nY">
-                                                    <rect key="frame" x="100" y="30" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd0-dp-4nY">
+                                                    <rect key="frame" x="100" y="30" width="53" height="23"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1352,9 +1353,9 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暫無任何訊息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SkW-OW-6Wy">
-                                        <rect key="frame" x="150" y="213" width="300" height="60"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
-                                        <color key="textColor" red="1" green="0.36078431372549019" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="150" y="214" width="300" height="58"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="50"/>
+                                        <color key="textColor" red="1" green="0.61176470589999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1726,7 +1727,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5MH-d1-UQB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.99215686270000003" green="0.65490196079999996" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.61176470588235299" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <outlet property="selectHomemate" destination="Zqx-7t-5fA" id="RtG-JI-c4t"/>
@@ -1833,12 +1834,12 @@
         <image name="profileImage" width="276" height="276"/>
         <image name="send-email" width="32" height="32"/>
         <image name="settings (1)" width="32" height="32"/>
-        <image name="signs" width="64" height="64"/>
+        <image name="signs" width="32" height="32"/>
         <image name="sort" width="16" height="16"/>
         <image name="speech-bubble" width="32" height="32"/>
         <image name="upload (1)" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IId-Hv-LTs"/>
+        <segue reference="1wy-DS-w2N"/>
     </inferredMetricsTieBreakers>
 </document>

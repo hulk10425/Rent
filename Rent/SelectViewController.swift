@@ -75,7 +75,7 @@ class SelectViewController: UIViewController, QueryDelegate {
         DataService.dataService.fetchPostData { (snap) in
             
             self.postDatas.append(snap)
-            
+            print(self.postDatas)
             dispatch_async(dispatch_get_main_queue(), {
                 
                 let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
@@ -85,6 +85,11 @@ class SelectViewController: UIViewController, QueryDelegate {
                 hud.hideAnimated(true)
                 
             })
+            
+        }
+        
+        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
+    self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             //        self.myTableView.beginUpdates()
             //        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
             //
@@ -92,8 +97,12 @@ class SelectViewController: UIViewController, QueryDelegate {
             //        self.myTableView.endUpdates()
             //        }
             
-        }
-        
+//        }
+//        DataService.dataService.POST_REF.observeEventType(.Value, withBlock: { (snap) in
+//            let post = PostDataValue(snapshot: snap.value as! Dictionary<String, AnyObject>)
+//            self.postDatas.append(post)
+//            self.myTableView.reloadData()
+//        })
         
     }
     
