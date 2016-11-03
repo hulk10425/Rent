@@ -33,14 +33,7 @@ class SelectViewController: UIViewController, QueryDelegate {
         }
         actionSheetController.addAction(cancleActionButton)
         
-        //        let profileAction = UIAlertAction(title: "Profile", style: .Default) { (action) in
-        //            print("change to Profile")
-        //            let profileVC = self.storyboard?.instantiateViewControllerWithIdentifier("EditProfile") as! ProfileTableView
-        //            self.navigationController?.pushViewController(profileVC, animated: true)
-        //        }
-        //        actionSheetController.addAction(profileAction)
-        //
-        
+      
         let logoutAction = UIAlertAction(title: "Log Out", style: .Default) { (action) in
             print("lout out")
             self.logoutDidTapped()
@@ -58,6 +51,7 @@ class SelectViewController: UIViewController, QueryDelegate {
     
     var cellPostData = ShowPostDataCell()
     var postDatas = [PostData]()
+    var postValue = [PostDataValue]()
     var postDictionary = [String:PostData]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,25 +65,8 @@ class SelectViewController: UIViewController, QueryDelegate {
         let nib = UINib(nibName: "ShowPostData", bundle: nil)
         myTableView.registerNib(nib, forCellReuseIdentifier: "cellPostData")
         
-        self.postDatas = []
-        DataService.dataService.fetchPostData { (snap) in
-            
-            self.postDatas.append(snap)
-            print(self.postDatas)
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-                
-                self.myTableView.reloadData()
-                
-                hud.hideAnimated(true)
-                
-            })
-            
-        }
-        
-        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
-    self.myTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//        
+
             //        self.myTableView.beginUpdates()
             //        let indexPath = NSIndexPath(forRow: self.postDatas.count - 1 , inSection: 0)
             //
@@ -98,12 +75,38 @@ class SelectViewController: UIViewController, QueryDelegate {
             //        }
             
 //        }
-//        DataService.dataService.POST_REF.observeEventType(.Value, withBlock: { (snap) in
-//            let post = PostDataValue(snapshot: snap.value as! Dictionary<String, AnyObject>)
-//            self.postDatas.append(post)
-//            self.myTableView.reloadData()
-//        })
+//              self.postDatas = []
+//        DataService.dataService.fetchPostData { (snap) in
+//            
+//            self.postDatas.append(snap)
+//            
+//            
+//            
+//            dispatch_async(dispatch_get_main_queue(), {
+//                
+//                let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+//                
+//                self.myTableView.reloadData()
+//                
+//                hud.hideAnimated(true)
+//                
+//            })
+//            
+//        }
+  
+        DataService.dataService.POST_REF.observeEventType(.Value, withBlock: { (snap) in
+            let dictionary = snap.value as! Dictionary<String,AnyObject>
+                  self.postDatas = []
+            for(key, value) in dictionary{
+                //              print("\(key) -> \(value)")
+                let post = PostData(key: key, snapshot: value as! Dictionary<String, AnyObject>)
+                //                print(post)
+                self.postDatas.append(post)
+                self.myTableView.reloadData()
+            }
+        })
         
+
     }
     
     func alert(){
@@ -137,25 +140,6 @@ class SelectViewController: UIViewController, QueryDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //
-        //        self.postDatas = []
-        //        DataService.dataService.fetchDeleteData { (snap) in
-        ////
-        //            self.postDatas.append(snap)
-        ////
-        //////            dispatch_async(dispatch_get_main_queue(), {
-        //////
-        //////                let hud = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        //////
-        //                self.myTableView.reloadData()
-        //
-        ////                hud.hideAnimated(true)
-        ////
-        ////            })
-        //        }
-        
-        
-        
         
     }
     //排序篩選條件
@@ -272,7 +256,6 @@ extension SelectViewController:  UITableViewDataSource{
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return self.postDatas.count
     }
     //設定表格只有一個區段

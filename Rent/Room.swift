@@ -65,7 +65,7 @@ class PostDataValue{
     var imageUrl: String!
     var type: String!
     var user: String!
-    
+
     
     
     
