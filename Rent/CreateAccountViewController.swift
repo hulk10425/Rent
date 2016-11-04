@@ -79,7 +79,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
      
         button.setTitle("註冊", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor(r: 255, g: 156, b: 0) , forState: .Normal)
+        button.setTitleColor(UIColor.whiteColor() , forState: .Normal)
+        button.backgroundColor = UIColor(r: 255, g: 156, b: 0)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
         button.layer.cornerRadius = 10
         
@@ -160,7 +161,8 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         //button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Facebook 登入", forState: .Normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitleColor(UIColor(r: 80, g: 101, b: 161), forState: .Normal)
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.titleLabel?.font = UIFont.boldSystemFontOfSize(16)
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 2
@@ -213,13 +215,15 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logInWithReadPermissions(["email","public_profile"], fromViewController: self) { (result, error) -> Void in
-            
+          
          if (error == nil){
           
             let fbloginresult : FBSDKLoginManagerLoginResult = result
-        if(fbloginresult.grantedPermissions.contains("email")){
+                       if(fbloginresult.grantedPermissions.contains("email")){
                    
                 self.getFBUserData()
+            
+
         }else{
           return
         }

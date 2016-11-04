@@ -203,9 +203,10 @@ class SelectManViewController: UIViewController, UITextViewDelegate, UINavigatio
     
         
         FIRAnalytics.logEventWithName("press_add", parameters: nil)
+        let currentDate: NSNumber = Int(NSDate().timeIntervalSince1970)
 
         
-            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: rentMoney , additionalCost: additionalCost, data: imageValue!, note: notes, region: region )
+            DataService.dataService.CreatePostData((FIRAuth.auth()?.currentUser!)!, rentDay: rentDay, person: person, furniture: furniture, type: type, deposit: deposit, title: title, rentMoney: rentMoney , additionalCost: additionalCost, data: imageValue!, note: notes, region: region, date: currentDate )
             
             self.navigationController?.popViewControllerAnimated(true)
             

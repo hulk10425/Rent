@@ -51,7 +51,7 @@ class SelectViewController: UIViewController, QueryDelegate {
     
     var cellPostData = ShowPostDataCell()
     var postDatas = [PostData]()
-    var postValue = [PostDataValue]()
+    
     var postDictionary = [String:PostData]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,19 +94,20 @@ class SelectViewController: UIViewController, QueryDelegate {
 //            
 //        }
   
-        DataService.dataService.POST_REF.observeEventType(.Value, withBlock: { (snap) in
-            let dictionary = snap.value as! Dictionary<String,AnyObject>
+        DataService.dataService.POST_REF.queryOrderedByChild("date").observeEventType(.Value, withBlock: { (snap) in
+            guard let dictionary = snap.value as? Dictionary<String,AnyObject> else{return}
                   self.postDatas = []
             for(key, value) in dictionary{
                 //              print("\(key) -> \(value)")
+            
                 let post = PostData(key: key, snapshot: value as! Dictionary<String, AnyObject>)
                 //                print(post)
+             
                 self.postDatas.append(post)
                 self.myTableView.reloadData()
             }
         })
-        
-
+    
     }
     
     func alert(){
@@ -135,13 +136,7 @@ class SelectViewController: UIViewController, QueryDelegate {
         
         
     }
-    
-    
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
+   
     //排序篩選條件
     func queryData(value: [PostData]) {
         

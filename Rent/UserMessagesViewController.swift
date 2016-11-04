@@ -101,7 +101,7 @@ extension UserMessagesViewController: UITableViewDataSource{
         self.cellUserMessageCell = cell
         
         DataService.dataService.POST_REF.queryOrderedByKey().queryEqualToValue(meseeageRoom).observeEventType(.Value, withBlock: { (snap) in
-            let roomsnap = snap.value as! [String:AnyObject]
+            guard let roomsnap = snap.value as? [String:AnyObject] else{return}
             
             for value in roomsnap.values{
                 let roomImage = value["image"] as! String

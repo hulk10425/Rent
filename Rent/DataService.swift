@@ -110,7 +110,7 @@ class DataService{
         
     }
     
-    func CreatePostData(user: FIRUser, rentDay: String, person: String, furniture: String,type: String, deposit:String, title: String, rentMoney: Int, additionalCost: String, data: NSData, note: String, region: String){
+    func CreatePostData(user: FIRUser, rentDay: String, person: String, furniture: String,type: String, deposit:String, title: String, rentMoney: Int, additionalCost: String, data: NSData, note: String, region: String, date: NSNumber){
         let filePath = "\(user.uid)/\(Int(NSDate.timeIntervalSinceReferenceDate()))"
         
         let metaData = FIRStorageMetadata()
@@ -125,7 +125,7 @@ class DataService{
             let newFileUrl = metaData!.downloadURLs![0].absoluteString
             if let user = FIRAuth.auth()?.currentUser{
                 let idRoom = self.POST_REF.childByAutoId()
-                idRoom.setValue(["rentDay": rentDay, "person": person, "furniture": furniture, "type": type, "deposit": deposit, "title": title, "rentMoney": rentMoney, "additionalCost": additionalCost, "image": self.storageRef.child(metaData!.path!).description, "fuleUrl": newFileUrl, "user": user.uid, "note": note, "region": region])
+                idRoom.setValue(["rentDay": rentDay, "person": person, "furniture": furniture, "type": type, "deposit": deposit, "title": title, "rentMoney": rentMoney, "additionalCost": additionalCost, "image": self.storageRef.child(metaData!.path!).description, "fuleUrl": newFileUrl, "user": user.uid, "note": note, "region": region, "date": date])
                 self.PEOPLE_REF.child(user.uid).child("myPostRooms").child(idRoom.key).setValue(true)
             }
         }
@@ -189,10 +189,7 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
         FIRAuth.auth()?.signInWithCredential(credential, completion:  { (user, error) in
             
            
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.login()
-          
-           
+                      
             let filePath = "profileImage/\(user?.uid)"
             let metadata = FIRStorageMetadata()
             metadata.contentType = "image/jpeg"
@@ -218,7 +215,8 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
                     
                 })
             })
-         
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.login()
             
         })
     }
@@ -271,11 +269,27 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
     
     func fetchPostData(callback:(PostData)->()){
         
-        DataService.dataService.POST_REF.observeEventType(.ChildAdded, withBlock:  { (snapshot) in
-            let post = PostData(key: snapshot.key, snapshot: snapshot.value as! Dictionary<String, AnyObject>)
-            
-            callback(post)
+        DataService.dataService.POST_REF.queryOrderedByChild("date").observeEventType(.Value, withBlock: { (snap) in
+            guard let dictionary = snap.value as? Dictionary<String,AnyObject> else{return}
+        
+            for(key, value) in dictionary{
+          
+                let post = PostData(key: key, snapshot: value as! Dictionary<String, AnyObject>)
+              
+                callback(post)
+
+            }
         })
+
+        
+        
+        
+        
+//        DataService.dataService.POST_REF.observeEventType(.ChildAdded, withBlock:  { (snapshot) in
+//            let post = PostData(key: snapshot.key, snapshot: snapshot.value as! Dictionary<String, AnyObject>)
+//            
+//            callback(post)
+//        })
         
     }
     func CreateNewMessage(userId: String, roomId: String, textMessage: String, date: NSNumber){

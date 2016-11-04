@@ -163,7 +163,8 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
                                 "priority" : "high",
                                 "notification" : [ "title": self.roomTitle,
                                     "body" : self.messageTextField.text!,
-                                    "sound": "default",
+                                    "sound": "default"
+                                
                                                               ]
                             ]
                             

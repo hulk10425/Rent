@@ -19,16 +19,16 @@ class QueryDataTableViewController: UITableViewController {
     @IBOutlet var myTableView: UITableView!
     weak var delegete: QueryDelegate?
     
-    var querydataArray = ["租金從高到低","租金從低到高"]
+    var querydataArray = ["租金從高到低","租金從低到高","依最近刊登時間"]
     var postDatas = [PostData]()
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         DataService.dataService.fetchPostData { (snap) in
             self.postDatas.append(snap)
-    
+            
         }
         
     }
@@ -56,21 +56,29 @@ class QueryDataTableViewController: UITableViewController {
         // 取消 cell 的選取狀態
         tableView.deselectRowAtIndexPath(
             indexPath, animated: true)
-      
+        
         switch indexPath.item {
         case 0:
             self.postDatas.sortInPlace({ (post1, post2) -> Bool in
                 
                 return post1.rentMoney > post2.rentMoney
             })
-        self.delegete?.queryData(self.postDatas)
-        default :
+            self.delegete?.queryData(self.postDatas)
+        case 1 :
             self.postDatas.sortInPlace({ (post1, post2) -> Bool in
                 
                 return post1.rentMoney < post2.rentMoney
             })
-        self.delegete?.queryData(self.postDatas)
+            self.delegete?.queryData(self.postDatas)
+            
+        default :
+            self.postDatas.sortInPlace({ (post1, post2) -> Bool in
+                
+                return post1.createTime.intValue > post2.createTime.intValue
+            })
+            self.delegete?.queryData(self.postDatas)
         }
+        
         dismissViewControllerAnimated(true, completion: nil)
         
     }

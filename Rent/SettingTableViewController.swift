@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
-    var settingArray = ["我的資料","我的刊登"]
+    var settingArray = ["我的資料","我的刊登","設定"]
     
     @IBOutlet var myTableView: UITableView!
     
@@ -33,7 +33,7 @@ class SettingTableViewController: UITableViewController {
         return settingArray.count
     }
     
-    var imageArray = ["profile","calendar-outline"]
+    var imageArray = ["profile","calendar-outline","settings"]
     override func tableView(tableView: UITableView,
                             cellForRowAtIndexPath indexPath: NSIndexPath)
         -> UITableViewCell {
@@ -62,11 +62,17 @@ class SettingTableViewController: UITableViewController {
             self.hidesBottomBarWhenPushed = true
             self.performSegueWithIdentifier("toProfile", sender: cell)
             self.hidesBottomBarWhenPushed = false
+        case 1:
+        self.hidesBottomBarWhenPushed = true
+        self.performSegueWithIdentifier("toMyPostRooms", sender: cell)
+        self.hidesBottomBarWhenPushed = false
+
         default :
             self.hidesBottomBarWhenPushed = true
-             self.performSegueWithIdentifier("toMyPostRooms", sender: cell)
+            self.performSegueWithIdentifier("toMySetting", sender: cell)
             self.hidesBottomBarWhenPushed = false
-    
+
+           
         }
         
         
