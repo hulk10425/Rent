@@ -156,16 +156,17 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
                     for roomId in keys{
                         DataService.dataService.PEOPLE_REF.child(roomId).child("token").observeSingleEventOfType(.Value, withBlock: { (snap) in
                             
+                            guard let snaptoken = snap.value else{return}
+                            
 //                            var badgeCount = UIApplication.sharedApplication().applicationIconBadgeNumber
 //                            badgeCount = badgeCount + 1
                             
-                            let body = [ "to": snap.value!,
+                            let body = [ "to": snaptoken,
                                 "priority" : "high",
                                 "notification" : [ "title": self.roomTitle,
                                     "body" : self.messageTextField.text!,
                                     "sound": "default"
-                                
-                                                              ]
+                               ]
                             ]
                             
                             let url = NSURL(string: "https://fcm.googleapis.com/fcm/send")
@@ -182,6 +183,9 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
                                     let httpResponse = response as! NSHTTPURLResponse
                                     let statusCode = httpResponse.statusCode
                                     print("STATUS CODE: \(statusCode)")
+                                     dispatch_async(dispatch_get_main_queue(), {
+                                        self.messageTextField.text = nil
+                                     })
                                 }
                                 
                                 task.resume()
@@ -191,7 +195,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
                                 print(error)
                             }
                             
-                            self.messageTextField.text = nil
+                         
                         })
                         
                         

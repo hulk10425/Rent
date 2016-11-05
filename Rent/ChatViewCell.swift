@@ -41,7 +41,7 @@ class ChatViewCell: UITableViewCell{
             self.dateLabel.text = dateFormatter.stringFromDate(timestampDate)
         }
         DataService.dataService.PEOPLE_REF.child(idUser).observeEventType(.Value, withBlock: {(snapshot) in
-            let dict = snapshot.value as! Dictionary<String, AnyObject>
+            guard let dict = snapshot.value as? Dictionary<String, AnyObject> else{return}
             let imageUrl = dict["profileImage"] as! String
             if imageUrl.hasPrefix("gs://"){
                 self.profileImageView.kf_setImageWithURL(NSURL(string: imageUrl))

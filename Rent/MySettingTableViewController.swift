@@ -9,7 +9,7 @@
 import UIKit
 
 class MySettingTableViewController: UIViewController {
-
+  var myUserDefaluts: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
         
@@ -18,25 +18,30 @@ class MySettingTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //switchNotification.addTarget(self, action: #selector(stateChanged(_:)), forControlEvents: .ValueChanged)
-       
+        switchNotification.addTarget(self, action: #selector(stateChanged(_:)), forControlEvents: .ValueChanged)
+        
+     switchNotification.on = true
+     switchNotification.on =  myUserDefaluts.boolForKey("switchstate")
+      
+        
+        
     }
 
    
 
-//    func stateChanged(switchState: UISwitch) {
-//        let application = UIApplication.sharedApplication()
-//        if switchState.on {
-//            switchNotification.setOn(true, animated: true)
-//            application.registerForRemoteNotifications()
-//            
-//        } else {
-//            switchNotification.setOn(false, animated: false)
-//
-//            application.unregisterForRemoteNotifications()
-//        }
-//        
-//    }
+    func stateChanged(switchState: UISwitch) {
+        let application = UIApplication.sharedApplication()
+        if switchState.on {
+       
+            application.registerForRemoteNotifications()
+            
+        } else {
+           
+            application.unregisterForRemoteNotifications()
+        }
+        myUserDefaluts.setBool(switchState.on, forKey: "switchstate")
+        myUserDefaluts.synchronize()
+    }
     
 
 }
