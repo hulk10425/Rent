@@ -1,8 +1,8 @@
 # Livegether iOS
 
 
->以前在找租屋時,常常發現FB上租屋社團找室友的資訊過於雜亂,為了解決這個問題,因而開發了Livegether App
-使用者能夠刊登找室友資訊以及透過多人聊天室即時對話
+>為了解決FB上租屋社團找室友的資訊過於雜亂，因而開發了Livegether App，
+使用者能夠刊登找室友資訊以及透過多人聊天室即時對話，提高找室友的效率
 
 
 ##Feature
@@ -13,7 +13,7 @@
     <li>Multiple Chat
     <li>Detail homemates infomation
     <li>Add homemates condition
-    <li>
+    <li>Sort Homemates List
   </ul>
 </ul>
 
@@ -57,10 +57,10 @@
 <img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house4.jpg" width = "300" height = "600" alt="house4"  />
 <img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house5.jpg" width = "300" height = "600" alt="house5"  />
 <img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house6.jpg" width = "300" height = "600" alt="house6"  />
-<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house7.jpg" width = "300" height = "600" alt="house7"  />
-<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house8.jpg" width = "300" height = "600" alt="house8"  />
-<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house9.jpg" width = "300" height = "600" alt="house9"  />
-<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house10.jpg" width = "300" height = "600" alt="house10"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house7.png" width = "300" height = "600" alt="house7"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house8.png" width = "300" height = "600" alt="house8"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house9.png" width = "300" height = "600" alt="house9"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house10.png" width = "300" height = "600" alt="house10"  />
 
 
 
@@ -73,3 +73,13 @@
   <li>Xcode 7.3+
   <li>pod install
 </ul>
+
+
+
+##Contacts
+John Lin
+<www.linkedin.com/in/chih-hong-lin-360086117/>
+
+
+
+
