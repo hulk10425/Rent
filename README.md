@@ -52,6 +52,11 @@
 </ul>
 ##Screen Shot
 ![house1](https://github.com/forever19735/Rent/raw/master/imagefolder/house1.jpg)
+![house2](https://github.com/forever19735/Rent/raw/master/imagefolder/house2.jpg)
+![house3](https://github.com/forever19735/Rent/raw/master/imagefolder/house3.jpg)
+![house4](https://github.com/forever19735/Rent/raw/master/imagefolder/house4.jpg)
+![house5](https://github.com/forever19735/Rent/raw/master/imagefolder/house5.jpg)
+![house6](https://github.com/forever19735/Rent/raw/master/imagefolder/house6.jpg)
 
 
 
