@@ -78,7 +78,7 @@
 
 ##Contacts
 John Lin
-<www.linkedin.com/in/chih-hong-lin-360086117/>
+www.linkedin.com/in/chih-hong-lin-360086117
 
 
 
