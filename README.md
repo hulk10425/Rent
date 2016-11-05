@@ -51,6 +51,8 @@
   
 </ul>
 ##Screen Shot
+![house1](https://github.com/forever19735/Rent/raw/master/imagefolder/house1.jpg)
+
 
 
 
