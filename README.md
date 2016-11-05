@@ -51,16 +51,16 @@
   
 </ul>
 ##Screen Shot
-![house1](https://github.com/forever19735/Rent/raw/master/imagefolder/house1.jpg)
-![house2](https://github.com/forever19735/Rent/raw/master/imagefolder/house2.jpg)
-![house3](https://github.com/forever19735/Rent/raw/master/imagefolder/house3.jpg)
-![house4](https://github.com/forever19735/Rent/raw/master/imagefolder/house4.jpg)
-![house5](https://github.com/forever19735/Rent/raw/master/imagefolder/house5.jpg)
-![house6](https://github.com/forever19735/Rent/raw/master/imagefolder/house6.jpg)
-![house7](https://github.com/forever19735/Rent/raw/master/imagefolder/house7.jpg)
-![house8](https://github.com/forever19735/Rent/raw/master/imagefolder/house8.jpg)
-![house9](https://github.com/forever19735/Rent/raw/master/imagefolder/house9.jpg)
-![house10](https://github.com/forever19735/Rent/raw/master/imagefolder/house10.jpg)
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house1.jpg" width = "300" height = "600" alt="house1"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house2.jpg" width = "300" height = "600" alt="house2"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house3.jpg" width = "300" height = "600" alt="house3"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house4.jpg" width = "300" height = "600" alt="house4"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house5.jpg" width = "300" height = "600" alt="house5"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house6.jpg" width = "300" height = "600" alt="house6"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house7.jpg" width = "300" height = "600" alt="house7"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house8.jpg" width = "300" height = "600" alt="house8"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house9.jpg" width = "300" height = "600" alt="house9"  />
+<img src="https://github.com/forever19735/Rent/raw/master/imagefolder/house10.jpg" width = "300" height = "600" alt="house10"  />
 
 
 
