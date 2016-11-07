@@ -18,13 +18,12 @@ class UserMessagesViewController: UIViewController{
     @IBOutlet weak var noMessageView: UIView!
     
     var messages: [Chats] = []
-    
-    //    var chats: [Chat] = []
+
     var postDatas = [PostData]()
     
     var cellUserMessageCell = UserMessageCell()
     var messageDictionary = [String: Chats]()
-    var array: [AnyObject]!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "對話列表"
@@ -32,10 +31,10 @@ class UserMessagesViewController: UIViewController{
 
       
         DataService.dataService.fetechUserMessage { (messagesnap) in
-            let messageDictionary = messagesnap.value as? Dictionary<String,AnyObject>
+            guard let messageDictionary = messagesnap.value as? Dictionary<String,AnyObject> else{return}
             
             let newMessage = Chats()
-            newMessage.setValuesForKeysWithDictionary(messageDictionary!)
+            newMessage.setValuesForKeysWithDictionary(messageDictionary)
             self.messages.append(newMessage)
             if self.messages.count < 1 {
                 self.noMessageView.hidden = false
@@ -77,8 +76,6 @@ extension UserMessagesViewController: UITableViewDataSource{
     //表格的列數
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        
         return messages.count
         
     }
@@ -93,10 +90,6 @@ extension UserMessagesViewController: UITableViewDataSource{
         let message = messages[indexPath.row].message
         let meseeageRoom = messages[indexPath.row].roomId
         
-        
-        
-
-        
         let cell =  self.myTableView.dequeueReusableCellWithIdentifier("cellMessage", forIndexPath: indexPath) as! UserMessageCell
         self.cellUserMessageCell = cell
         
@@ -104,8 +97,8 @@ extension UserMessagesViewController: UITableViewDataSource{
             guard let roomsnap = snap.value as? [String:AnyObject] else{return}
             
             for value in roomsnap.values{
-                let roomImage = value["image"] as! String
-                let roomTitle = value["title"] as! String
+                guard let roomImage = value["image"] as? String else{return}
+                guard let roomTitle = value["title"] as? String else{return}
                 if roomImage.hasPrefix("gs://"){
                     cell.userMessageImage.kf_setImageWithURL(NSURL(string: roomImage))
                     FIRStorage.storage().referenceForURL(roomImage).dataWithMaxSize(INT64_MAX, completion: { (data, error) in
@@ -154,10 +147,10 @@ extension UserMessagesViewController: UITableViewDataSource{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toChatView" {
             guard let senderCell = sender as? UITableViewCell else{
-                //先讓App Crash
-                fatalError()
+              
+                return
             }
-            if let tableviewCellIndoxPath = myTableView!.indexPathForCell(senderCell){
+            if let tableviewCellIndoxPath = myTableView?.indexPathForCell(senderCell){
                 
                 guard let chatViewController = segue.destinationViewController as? ChatViewController else{
                     fatalError()

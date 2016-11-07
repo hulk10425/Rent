@@ -170,7 +170,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
         
         
         button.addTarget(self, action: #selector(handleFbLogin), forControlEvents: .TouchUpInside)
-        
+       
         
         return button
     }()
@@ -218,17 +218,17 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
           
          if (error == nil){
           
-            let fbloginresult : FBSDKLoginManagerLoginResult = result
-                       if(fbloginresult.grantedPermissions.contains("email")){
-                   
-                self.getFBUserData()
-            
-
-        }else{
+          if(result.grantedPermissions.contains("email")){
+            self.getFBUserData()
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            appDelegate.login()
+                    
+          }else{
+            self.alert()
           return
+            }
         }
     }
-}
 }
     
     func handleLoginRegister() {
@@ -250,10 +250,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                 
                 guard let fbname = result["name"] as? String else{return}
                 guard let fbemail = result["email"] as? String else{return}
-                
-                
-//                self.myUserDefaluts.setObject(result["name"], forKey: "FBname")
-//                self.myUserDefaluts.setObject(result["email"], forKey: "FBemail")
+             
                 guard
                     let picture = result["picture"] as? NSDictionary,
                     let picData = picture["data"] as? NSDictionary,
@@ -261,18 +258,10 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                     let url = NSURL(string: modifiedUrlStr),
                     let data = NSData(contentsOfURL: url) else{return}
                 let fbImage = data
-//                self.myUserDefaluts.setObject(Image, forKey: "FBimage")
-//                self.myUserDefaluts.synchronize()
-//                
-//                guard let fbname = self.myUserDefaluts.objectForKey("FBname")  as? String else{return}
-//                guard let fbemail = self.myUserDefaluts.objectForKey("FBemail") as? String else{return}
-//                guard  let fbImage = self.myUserDefaluts.objectForKey("FBimage")  as? NSData else{return}
-                let refreshedToken = FIRInstanceID.instanceID().token()
-////
-//                self.myUserDefaluts.removeObjectForKey("FBname")
-//                   self.myUserDefaluts.removeObjectForKey("FBemail")
-//                   self.myUserDefaluts.removeObjectForKey("FBImage")
-                DataService.dataService.saveFbData(fbemail, name: fbname, data: fbImage, token: refreshedToken!)
+
+                guard let refreshedToken = FIRInstanceID.instanceID().token() else{return}
+
+                DataService.dataService.saveFbData(fbemail, name: fbname, data: fbImage, token: refreshedToken)
 
             }
         }
@@ -385,10 +374,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
     
         
         let refreshedToken = FIRInstanceID.instanceID().token()
-        
-        
-        
-//        var data = NSData()
+  
         
         guard let data = UIImageJPEGRepresentation(profileImageView.image!, 0.1) else{
             alertImage()
@@ -416,23 +402,7 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                 }
         
     }
-//    func showtips(view:UIView){
-//        MBProgressHUD.hideHUDForView(view, animated: false)
-//        let HUD = MBProgressHUD(view:view)
-//        view.addSubview(HUD)
-//        HUD.label.text = "註冊成功"
-//        HUD.mode = MBProgressHUDMode.CustomView
-//        HUD.customView = UIImageView(image: UIImage(named: "success")) //这是一个对勾的图标
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0)){
-//          HUD.showAnimated(true)
-//            dispatch_async(dispatch_get_main_queue()){
-//                
-//            HUD.hideAnimated(true)
-//            }
-//        }
-//
-//       
-//    }
+
     func setupLoginRegisterSegmentedControl() {
         //need x, y, width, height constraints
         loginRegisterSegmentedControl.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor).active = true

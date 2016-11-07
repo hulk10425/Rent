@@ -14,6 +14,7 @@ class NoteCell: UITableViewCell {
 
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         noteTextView.delegate = self
      }
 

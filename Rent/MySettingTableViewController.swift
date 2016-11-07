@@ -18,29 +18,29 @@ class MySettingTableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        switchNotification.addTarget(self, action: #selector(stateChanged(_:)), forControlEvents: .ValueChanged)
-        
-     switchNotification.on = true
-     switchNotification.on =  myUserDefaluts.boolForKey("switchstate")
+     
       
+        switchNotification.addTarget(self, action: #selector(stateChanged(_:)), forControlEvents: .ValueChanged)
+     
+             
         
-        
+//       print(myUserDefaluts.boolForKey("switch"))
+        switchNotification.on = true
     }
-
-   
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        switchNotification.on = myUserDefaluts.boolForKey("switch")
+    }
 
     func stateChanged(switchState: UISwitch) {
         let application = UIApplication.sharedApplication()
-        if switchState.on {
-       
+        if switchState.on == true {
             application.registerForRemoteNotifications()
-            
         } else {
-           
-            application.unregisterForRemoteNotifications()
+           application.unregisterForRemoteNotifications()
         }
-        myUserDefaluts.setBool(switchState.on, forKey: "switchstate")
-        myUserDefaluts.synchronize()
+        myUserDefaluts.setBool(switchState.on, forKey: "switch")
+//        myUserDefaluts.synchronize()
     }
     
 

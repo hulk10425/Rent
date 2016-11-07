@@ -94,14 +94,14 @@ class SelectViewController: UIViewController, QueryDelegate {
 //            
 //        }
   
-        DataService.dataService.POST_REF.queryOrderedByChild("date").observeEventType(.Value, withBlock: { (snap) in
+        DataService.dataService.POST_REF.observeEventType(.Value, withBlock: { (snap) in
             guard let dictionary = snap.value as? Dictionary<String,AnyObject> else{return}
                   self.postDatas = []
             for(key, value) in dictionary{
-                //              print("\(key) -> \(value)")
+                guard let snapvalue = value as? Dictionary<String, AnyObject> else{return}
             
-                let post = PostData(key: key, snapshot: value as! Dictionary<String, AnyObject>)
-                //                print(post)
+                let post = PostData(key: key, snapshot: snapvalue )
+           
              
                 self.postDatas.append(post)
                 self.myTableView.reloadData()
@@ -165,17 +165,10 @@ class SelectViewController: UIViewController, QueryDelegate {
     }
     //跳轉到聊天室
     func toChatViewPage(sender:UIButton){
-        guard let currentuser = DataService.dataService.currentUser?.uid else{return}
-        if currentuser != ""{
-            self.hidesBottomBarWhenPushed = true
+      
+       self.hidesBottomBarWhenPushed = true
             performSegueWithIdentifier("ChatSegue", sender: sender)
             self.hidesBottomBarWhenPushed = false
-            
-        }else{
-            alert()
-            
-        }
-        
     }
     
     
@@ -201,7 +194,7 @@ class SelectViewController: UIViewController, QueryDelegate {
                 //先讓App Crash
                 return
             }
-            if let tableviewCellIndoxPath = myTableView!.indexPathForCell(senderCell){
+            if let tableviewCellIndoxPath = myTableView?.indexPathForCell(senderCell){
                 guard let detailController = segue.destinationViewController as? PostDetailData else{
                     return
                 }
@@ -219,7 +212,7 @@ class SelectViewController: UIViewController, QueryDelegate {
     @IBOutlet weak var queryButton: UIButton!
     
     @IBAction func queryButton(sender: AnyObject) {
-        let queryController = self.storyboard?.instantiateViewControllerWithIdentifier("queryData") as! QueryDataTableViewController
+        guard let queryController = self.storyboard?.instantiateViewControllerWithIdentifier("queryData") as?QueryDataTableViewController else{return}
         queryController.delegete = self
         
         
@@ -261,10 +254,9 @@ extension SelectViewController:  UITableViewDataSource{
     
     //設定儲存格的內容
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = myTableView.dequeueReusableCellWithIdentifier(
-            "cellPostData",forIndexPath: indexPath) as? ShowPostDataCell else{
-                fatalError()
-        }
+        let cell = myTableView.dequeueReusableCellWithIdentifier(
+            "cellPostData",forIndexPath: indexPath) as! ShowPostDataCell
+    
         
         
         

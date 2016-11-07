@@ -21,7 +21,7 @@ private struct Constants{
 
 
 class ChatViewController: UIViewController, UITextFieldDelegate {
-    var ref: FIRDatabaseReference!
+   
     var roomTitle: String!
     var roomId: String!
     var messages: [FIRDataSnapshot] = []
@@ -38,7 +38,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var messageTextField: UITextField!
     
-    static let shared = ChatViewController()
+
     
     
     override func viewDidLoad() {
@@ -49,13 +49,12 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
         self.navigationItem.title = roomTitle
     
         messageTextField.delegate = self
+        
         DataService.dataService.POST_REF.child(roomId).observeSingleEventOfType(.Value, withBlock: {(snapshot)in
-            
-            
             
             DataService.dataService.MESSAGE_REF.observeEventType(.ChildAdded, withBlock: {(snap)in
                 
-                let dictionary = snap.value as! Dictionary<String,AnyObject>
+                guard let dictionary = snap.value as? Dictionary<String,AnyObject> else{return}
                 
                 if snapshot.key ==  dictionary["roomId"] as! String {
                     self.messages.append(snap)
@@ -155,7 +154,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate {
                     let keys = Array(dictionary.keys)
                     for roomId in keys{
                         DataService.dataService.PEOPLE_REF.child(roomId).child("token").observeSingleEventOfType(.Value, withBlock: { (snap) in
-                            
+                         
                             guard let snaptoken = snap.value else{return}
                             
 //                            var badgeCount = UIApplication.sharedApplication().applicationIconBadgeNumber

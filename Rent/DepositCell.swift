@@ -15,6 +15,7 @@ class DepositCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var depositButton: UIButton!
     override func awakeFromNib() {
+        super.awakeFromNib()
         depositField.delegate = self
         depositButton.addTarget(self, action: #selector(selectClicked(_:)), forControlEvents: .TouchDown)
         

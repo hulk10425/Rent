@@ -12,6 +12,7 @@ class SelectFurnitureCell: UITableViewCell {
 
     @IBOutlet weak var furnitureText: UILabel!
     override func awakeFromNib() {
+        super.awakeFromNib()
     }
 
     

@@ -19,7 +19,7 @@ class HousePictureCell: UITableViewCell {
     @IBOutlet weak var houseImage: UIImageView!
     
    override func awakeFromNib() {
-    
+    super.awakeFromNib()
   
   
     }

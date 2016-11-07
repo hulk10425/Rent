@@ -28,6 +28,7 @@ class ShowPostDataCell: UITableViewCell{
     
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         toChatButton.layer.cornerRadius = 10
         postImage.layer.cornerRadius = 8
         postImage.clipsToBounds = true
