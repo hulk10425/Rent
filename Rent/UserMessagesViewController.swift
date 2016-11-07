@@ -156,7 +156,7 @@ extension UserMessagesViewController: UITableViewDataSource{
                     fatalError()
                 }
                 chatViewController.roomId = messages[tableviewCellIndoxPath.row].roomId
-                
+                chatViewController.roomTitle = cellUserMessageCell.userMessageNameLabel.text
                 
             }
             

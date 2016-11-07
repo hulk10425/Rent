@@ -163,9 +163,9 @@ class DataService{
                 
                 
                 self.fileUrl = metadata?.downloadURLs![0].absoluteString
-                let changeRequestPhoto = user?.profileChangeRequest()
-                changeRequestPhoto?.photoURL = NSURL(string: self.fileUrl)
-                changeRequestPhoto?.commitChangesWithCompletion({ (error) in
+                guard let changeRequestPhoto = user?.profileChangeRequest() else{return}
+                changeRequestPhoto.photoURL = NSURL(string: self.fileUrl)
+                changeRequestPhoto.commitChangesWithCompletion({ (error) in
                     if let error = error{
                         print(error.localizedDescription)
                         return
@@ -187,9 +187,16 @@ self.PEOPLE_REF.child((user?.uid)!).setValue(["username": username, "email": ema
         
         let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
         FIRAuth.auth()?.signInWithCredential(credential, completion:  { (user, error) in
-       
-           
-                      
+            guard let refreshedToken = FIRInstanceID.instanceID().token() else{return}
+            
+            if let user = DataService.dataService.currentUser{
+                            if user.email?.isEmpty == false{
+            DataService.dataService.PEOPLE_REF.child(user.uid).updateChildValues(["token": refreshedToken])
+                }
+                            
+        }
+
+            
             let filePath = "profileImage/\(user?.uid)"
             let metadata = FIRStorageMetadata()
             metadata.contentType = "image/jpeg"

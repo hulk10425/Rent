@@ -220,13 +220,12 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
           
           if(result.grantedPermissions.contains("email")){
             self.getFBUserData()
+            
+
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             appDelegate.login()
                     
-          }else{
-            self.alert()
-          return
-            }
+          }
         }
     }
 }
@@ -284,6 +283,18 @@ class CreateAccountViewController: UIViewController, UIImagePickerControllerDele
                 self.alert()
                 return
             }
+            
+            guard let refreshedToken = FIRInstanceID.instanceID().token() else{return}
+
+                if let user = DataService.dataService.currentUser{
+                    if user.email?.isEmpty == false{
+                   DataService.dataService.PEOPLE_REF.child(user.uid).updateChildValues(["token": refreshedToken])
+                    }
+                
+                }
+        
+            
+            
             print("successfully")
             //successfully logged in our user
             MBProgressHUD.showHUDAddedTo(self.view, animated: true)
